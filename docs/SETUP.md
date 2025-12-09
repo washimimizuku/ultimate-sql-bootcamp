@@ -92,3 +92,20 @@ duckdb mydata.db < script.sql
 .schema        -- Show schema
 .quit          -- Exit
 ```
+
+## Load Sample Database
+
+**Create in-memory database:**
+```bash
+duckdb < setup.sql
+```
+
+**Create persistent database:**
+```bash
+duckdb sample.db < setup.sql
+```
+
+**Query the sample database:**
+```bash
+duckdb sample.db -c "SELECT * FROM customer LIMIT 5"
+```

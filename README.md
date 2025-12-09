@@ -15,7 +15,24 @@ A lightweight SQL practice environment using DuckDB and Python.
 
 ## Quick Start
 
-See [SETUP.md](SETUP.md) for installation instructions.
+```bash
+# Install Poetry
+curl -sSL https://install.python-poetry.org | python3 -
+
+# Install dependencies
+poetry install
+
+# Install DuckDB CLI
+brew install duckdb
+
+# Load sample database
+duckdb sample.db < setup.sql
+
+# Start querying
+duckdb sample.db
+```
+
+See [docs/SETUP.md](docs/SETUP.md) for detailed instructions.
 
 ## Usage
 
