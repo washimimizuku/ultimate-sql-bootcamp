@@ -1,0 +1,11 @@
+USE ROLE SYSADMIN;
+
+CREATE WAREHOUSE XSMALL_WAREHOUSE
+WAREHOUSE_SIZE = XSMALL -- SMALL | MEDIUM | LARGE | XLARGE | XXLARGE | XXXLARGE | X4LARGE | X5LARGE | X6LARGE
+INITIALLY_SUSPENDED = TRUE
+AUTO_RESUME = TRUE
+COMMENT = 'My first extra small virtual warehouse.';
+
+CREATE DATABASE DEMO_DB COMMENT = 'My first database for demonstration purposes.';
+
+CREATE SCHEMA DEMO_SCHEMA COMMENT = 'My first schema for demonstration purposes.';
