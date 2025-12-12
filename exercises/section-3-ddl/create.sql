@@ -9,9 +9,15 @@ CREATE TABLE employees (
     country_code STRING
 );
 
+DESCRIBE employees;
+
 CREATE TABLE employees_us
 AS
 SELECT * FROM employees WHERE country_code = 'US';
+
+DESCRIBE employees_us;
+
+-- Cleanup
 
 DROP TABLE employees_us;
 DROP TABLE employees;
