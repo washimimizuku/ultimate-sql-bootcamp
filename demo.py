@@ -7,9 +7,10 @@ from sql_runner import SQLRunner
 
 def main():
     # Initialize the SQL runner
-    runner = SQLRunner("sample.db")
+    runner = None
     
     try:
+        runner = SQLRunner("sample.db")
         print("🚀 SQL Runner Demo")
         print("=" * 50)
         
@@ -50,9 +51,16 @@ def main():
         
         print("\n✅ Demo completed!")
         
+    except FileNotFoundError as e:
+        print(f"❌ File not found: {e}")
+    except ImportError as e:
+        print(f"❌ Import error: {e}")
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"❌ Unexpected error: {e}")
+        import traceback
     finally:
+        if runner is not None:
+            runner.close()
         runner.close()
 
 
