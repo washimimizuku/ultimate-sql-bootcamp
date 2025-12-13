@@ -1,5 +1,6 @@
 import duckdb
 
+con = None
 try:
     # Create an in-memory database
     con = duckdb.connect(':memory:')
@@ -34,5 +35,5 @@ except duckdb.Error as e:
 except Exception as e:
     print(f"Unexpected error: {e}")
 finally:
-    if 'con' in locals():
+    if con is not None:
         con.close()
