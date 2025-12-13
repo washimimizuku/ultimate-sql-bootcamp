@@ -1,6 +1,12 @@
 -- SQL UPDATE Examples - Modifying existing data in tables
 -- This file demonstrates various UPDATE statement patterns
 
+-- UPDATE COMMAND SYNTAX:
+-- UPDATE <table_name> SET <column> = <value> WHERE <condition>;        -- Basic update
+-- UPDATE <table_name> SET col1 = val1, col2 = val2 WHERE <condition>; -- Multi-column update
+-- UPDATE <table_name> SET <column> = <value> FROM <other_table>        -- Update with JOIN
+--   WHERE <table_name>.<col> = <other_table>.<col>;
+
 CREATE SCHEMA demo_schema;
 USE demo_schema;
 
