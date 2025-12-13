@@ -61,7 +61,6 @@ def main():
     finally:
         if runner is not None:
             runner.close()
-        runner.close()
 
 
 if __name__ == "__main__":

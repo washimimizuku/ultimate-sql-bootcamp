@@ -19,7 +19,7 @@ class SQLRunner:
     def _split_sql_statements(self, sql_content: str) -> List[str]:
         """Split SQL content into individual statements, handling basic cases"""
         statements = []
-        current_statement = ""
+        current_chars = []
         in_string = False
         string_char = None
         
@@ -32,66 +32,84 @@ class SQLRunner:
                 in_string = True
                 string_char = char
             elif char == string_char and in_string:
-                in_string = False
-                string_char = None
+                # Check for escaped quotes (doubled quotes)
+                if i + 1 < len(sql_content) and sql_content[i + 1] == string_char:
+                    # Add both quotes for escaped quote
+                    current_chars.append(char)
+                    current_chars.append(char)
+                    i += 1  # Skip the second quote
+                    continue
+                else:
+                    in_string = False
+                    string_char = None
             
             # Handle semicolons
             if char == ';' and not in_string:
-                stmt = current_statement.strip()
+                stmt = ''.join(current_chars).strip()
                 if stmt and not stmt.startswith('--'):
                     statements.append(stmt)
-                current_statement = ""
+                current_chars = []
             else:
-                current_statement += char
+                current_chars.append(char)
             
             i += 1
         
         # Add final statement if exists
-        stmt = current_statement.strip()
+        stmt = ''.join(current_chars).strip()
         if stmt and not stmt.startswith('--'):
             statements.append(stmt)
         
         return statements
     
-    def execute_file(self, file_path: str) -> None:
-        """Execute SQL commands from a file"""
-        # Validate and resolve the file path to prevent path traversal
+    def _validate_file_path(self, file_path: str) -> Optional[Path]:
+        """Validate and resolve file path to prevent path traversal"""
+        # Sanitize input to prevent path traversal
+        normalized_path = os.path.normpath(file_path)
+        if '..' in normalized_path or file_path.startswith('/'):
+            print(f"❌ Invalid file path: {file_path}")
+            return None
+            
         try:
             resolved_path = Path(file_path).resolve()
             current_dir = Path.cwd().resolve()
             
             # Check if the resolved path is within the current directory or its subdirectories
-            if not str(resolved_path).startswith(str(current_dir)):
+            try:
+                resolved_path.relative_to(current_dir)
+            except ValueError:
                 print(f"❌ Access denied: File path outside allowed directory: {file_path}")
-                return
+                return None
                 
             if not resolved_path.exists():
                 print(f"❌ File not found: {file_path}")
-                return
+                return None
                 
             if not resolved_path.is_file():
                 print(f"❌ Not a file: {file_path}")
-                return
+                return None
+                
+            return resolved_path
                 
         except (OSError, ValueError) as e:
             print(f"❌ Invalid file path: {file_path} - {e}")
+            return None
+    
+    def execute_file(self, file_path: str) -> None:
+        """Execute SQL commands from a file"""
+        resolved_path = self._validate_file_path(file_path)
+        if not resolved_path:
             return
             
         print(f"📄 Executing: {resolved_path}")
         
         try:
-            with open(resolved_path, 'r') as f:
+            with open(resolved_path, 'r', encoding='utf-8') as f:
                 sql_content = f.read()
             
             # Split by semicolon and execute each statement
-            # Note: This simple splitting may not handle semicolons in string literals correctly
             statements = self._split_sql_statements(sql_content)
             
             for i, statement in enumerate(statements, 1):
-                # Skip comments-only statements
-                if statement.startswith('--') or not statement:
-                    continue
-                    
                 try:
                     result = self.conn.execute(statement)
                     
@@ -100,7 +118,7 @@ class SQLRunner:
                         rows = result.fetchall()
                         if rows:
                             print(f"  Query {i} results:")
-                            for row in rows[:10]:  # Limit to first 10 rows
+                            for row in rows[:10]:  # Show first 10 rows
                                 print(f"    {row}")
                             if len(rows) > 10:
                                 print(f"    ... ({len(rows) - 10} more rows)")
@@ -117,11 +135,12 @@ class SQLRunner:
     
     def setup_database(self, setup_file: str = "setup.sql") -> None:
         """Run the setup.sql file to initialize the database"""
-        if os.path.exists(setup_file):
-            print("🔧 Setting up database...")
-            self.execute_file(setup_file)
-        else:
-            print(f"⚠️  {setup_file} not found, skipping database setup")
+        print("🔧 Setting up database...")
+        validated_path = self._validate_file_path(setup_file)
+        if not validated_path:
+            print(f"⚠️ {setup_file} not found or invalid, skipping database setup")
+            return
+        self.execute_file(str(validated_path))
     
     def list_tables(self) -> None:
         """List all tables in the database"""
@@ -146,14 +165,12 @@ class SQLRunner:
             
             if query.upper().strip().startswith('SELECT'):
                 rows = result.fetchall()
-                columns = [desc[0] for desc in result.description] if hasattr(result, 'description') and result.description else []
+                columns = []
+                if hasattr(result, 'description') and result.description:
+                    columns = [desc[0] for desc in result.description]
                 
                 if rows:
-                    # Print column headers
-                    print(" | ".join(columns))
-                    print("-" * (len(" | ".join(columns))))
-                    
-                    # Print rows
+                    # Print rows with consistent formatting
                     for row in rows:
                         print(" | ".join(str(val) for val in row))
                 else:
@@ -166,11 +183,26 @@ class SQLRunner:
     
     def find_sql_files(self, directory: str = ".") -> List[str]:
         """Find all SQL files in directory and subdirectories"""
+        try:
+            resolved_dir = Path(directory).resolve()
+            current_dir = Path.cwd().resolve()
+            
+            # Check if directory is within current working directory
+            try:
+                resolved_dir.relative_to(current_dir)
+            except ValueError:
+                print(f"❌ Access denied: Directory path outside allowed directory: {directory}")
+                return []
+                
+        except (OSError, ValueError) as e:
+            print(f"❌ Invalid directory path: {directory} - {e}")
+            return []
+            
         sql_files = []
-        for root, dirs, files in os.walk(directory):
+        for root, dirs, files in os.walk(resolved_dir, followlinks=False):
             for file in files:
                 if file.endswith('.sql'):
-                    sql_files.append(os.path.join(root, file))
+                    sql_files.append(str(Path(root) / file))
         return sorted(sql_files)
     
     def interactive_mode(self) -> None:
@@ -238,6 +270,7 @@ def main():
     
     args = parser.parse_args()
     
+    runner = None
     try:
         runner = SQLRunner(args.db)
     except Exception as e:
@@ -258,7 +291,8 @@ def main():
             runner.interactive_mode()
             
     finally:
-        runner.close()
+        if runner is not None:
+            runner.close()
 
 
 if __name__ == "__main__":
