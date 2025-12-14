@@ -14,52 +14,63 @@ class SQLRunner:
     def __init__(self, db_path: str = "sample.db"):
         """Initialize DuckDB connection"""
         self.db_path = db_path
-        self.conn = duckdb.connect(db_path)
+        try:
+            self.conn = duckdb.connect(db_path)
+        except Exception as e:
+            print(f"❌ Failed to connect to database: {e}")
+            raise
         
     def _split_sql_statements(self, sql_content: str) -> List[str]:
         """Split SQL content into individual statements, handling basic cases"""
-        statements = []
-        current_chars = []
-        in_string = False
-        string_char = None
-        
-        i = 0
-        while i < len(sql_content):
-            char = sql_content[i]
+        try:
+            if not isinstance(sql_content, str):
+                raise TypeError("SQL content must be a string")
             
-            # Handle string literals
-            if char in ("'", '"') and not in_string:
-                in_string = True
-                string_char = char
-            elif char == string_char and in_string:
-                # Check for escaped quotes (doubled quotes)
-                if i + 1 < len(sql_content) and sql_content[i + 1] == string_char:
-                    # Add both quotes for escaped quote
-                    current_chars.append(char)
-                    current_chars.append(char)
-                    i += 1  # Skip the second quote
-                    continue
+            statements = []
+            current_chars = []
+            in_string = False
+            string_char = None
+            
+            i = 0
+            while i < len(sql_content):
+                char = sql_content[i]
+                
+                # Handle string literals
+                if char in ("'", '"') and not in_string:
+                    in_string = True
+                    string_char = char
+                elif char == string_char and in_string:
+                    # Check for escaped quotes (doubled quotes)
+                    if i + 1 < len(sql_content) and sql_content[i + 1] == string_char:
+                        # Add both quotes for escaped quote
+                        current_chars.append(char)
+                        current_chars.append(char)
+                        i += 1  # Skip the second quote
+                        continue
+                    else:
+                        in_string = False
+                        string_char = None
+                
+                # Handle semicolons
+                if char == ';' and not in_string:
+                    stmt = ''.join(current_chars).strip()
+                    if stmt and not stmt.startswith('--'):
+                        statements.append(stmt)
+                    current_chars = []
                 else:
-                    in_string = False
-                    string_char = None
+                    current_chars.append(char)
+                
+                i += 1
             
-            # Handle semicolons
-            if char == ';' and not in_string:
-                stmt = ''.join(current_chars).strip()
-                if stmt and not stmt.startswith('--'):
-                    statements.append(stmt)
-                current_chars = []
-            else:
-                current_chars.append(char)
+            # Add final statement if exists
+            stmt = ''.join(current_chars).strip()
+            if stmt and not stmt.startswith('--'):
+                statements.append(stmt)
             
-            i += 1
-        
-        # Add final statement if exists
-        stmt = ''.join(current_chars).strip()
-        if stmt and not stmt.startswith('--'):
-            statements.append(stmt)
-        
-        return statements
+            return statements
+        except (TypeError, ValueError) as e:
+            print(f"❌ Error parsing SQL statements: {e}")
+            return []
     
     def _validate_file_path(self, file_path: str) -> Optional[Path]:
         """Validate and resolve file path to prevent path traversal"""
@@ -115,20 +126,25 @@ class SQLRunner:
                     
                     # If it's a SELECT statement, show results
                     if statement.upper().strip().startswith('SELECT'):
-                        rows = result.fetchall()
+                        rows = result.fetchmany(10)  # Fetch exactly 10 rows
                         if rows:
                             print(f"  Query {i} results:")
-                            for row in rows[:10]:  # Show first 10 rows
+                            for row in rows:
                                 print(f"    {row}")
-                            if len(rows) > 10:
-                                print(f"    ... ({len(rows) - 10} more rows)")
+                            # Check if there are more rows by seeing if we got exactly 10
+                            if len(rows) == 10:
+                                print(f"    ... (more rows may be available)")
                         else:
                             print(f"  Query {i}: No results")
                     else:
                         print(f"  ✅ Statement {i} executed successfully")
                         
+                except duckdb.Error as e:
+                    print(f"  ❌ SQL Error in statement {i}: {e}")
+                    continue
                 except Exception as e:
-                    print(f"  ❌ Error in statement {i}: {e}")
+                    print(f"  ❌ Unexpected error in statement {i}: {type(e).__name__}: {e}")
+                    continue
                     
         except Exception as e:
             print(f"❌ Error reading file: {e}")
@@ -145,7 +161,11 @@ class SQLRunner:
     def list_tables(self) -> None:
         """List all tables in the database"""
         try:
-            result = self.conn.execute("SELECT table_name FROM information_schema.tables WHERE table_schema = 'main' ORDER BY table_name")
+            query = (
+                "SELECT table_name FROM information_schema.tables "
+                "WHERE table_schema = 'main' ORDER BY table_name"
+            )
+            result = self.conn.execute(query)
             tables = result.fetchall()
             
             if tables:
@@ -161,23 +181,32 @@ class SQLRunner:
     def run_query(self, query: str) -> None:
         """Execute a single SQL query"""
         try:
+            if not isinstance(query, str):
+                raise TypeError("Query must be a string")
+            
+            if not query.strip():
+                raise ValueError("Query cannot be empty")
+            
             result = self.conn.execute(query)
             
             if query.upper().strip().startswith('SELECT'):
-                rows = result.fetchall()
                 columns = []
                 if hasattr(result, 'description') and result.description:
                     columns = [desc[0] for desc in result.description]
                 
-                if rows:
-                    # Print rows with consistent formatting
-                    for row in rows:
-                        print(" | ".join(str(val) for val in row))
-                else:
+                row_count = 0
+                # Print rows with consistent formatting, limiting to 10000 rows
+                for row in result.fetchmany(10000):
+                    print(" | ".join(str(val) for val in row))
+                    row_count += 1
+                
+                if row_count == 0:
                     print("No results")
             else:
                 print("✅ Query executed successfully")
                 
+        except (TypeError, ValueError) as e:
+            print(f"❌ Invalid query: {e}")
         except Exception as e:
             print(f"❌ Error executing query: {e}")
     
@@ -187,14 +216,13 @@ class SQLRunner:
             resolved_dir = Path(directory).resolve()
             current_dir = Path.cwd().resolve()
             
-            # Check if directory is within current working directory
-            try:
-                resolved_dir.relative_to(current_dir)
-            except ValueError:
-                print(f"❌ Access denied: Directory path outside allowed directory: {directory}")
-                return []
+            # Validate directory is within current working directory
+            resolved_dir.relative_to(current_dir)  # Raises ValueError if outside
                 
-        except (OSError, ValueError) as e:
+        except ValueError:
+            print(f"❌ Access denied: Directory path outside allowed directory: {directory}")
+            return []
+        except (OSError, TypeError) as e:
             print(f"❌ Invalid directory path: {directory} - {e}")
             return []
             
