@@ -230,7 +230,14 @@ class SQLRunner:
         for root, dirs, files in os.walk(resolved_dir, followlinks=False):
             for file in files:
                 if file.endswith('.sql'):
-                    sql_files.append(str(Path(root) / file))
+                    file_path = Path(root) / file
+                    try:
+                        # Ensure each file is within the allowed directory
+                        file_path.resolve().relative_to(current_dir)
+                        sql_files.append(str(file_path))
+                    except ValueError:
+                        # Skip files outside allowed directory
+                        continue
         return sorted(sql_files)
     
     def interactive_mode(self) -> None:
