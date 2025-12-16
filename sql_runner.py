@@ -26,14 +26,30 @@ class SQLRunner:
             if not isinstance(sql_content, str):
                 raise TypeError("SQL content must be a string")
             
+            # Remove comment-only lines first
+            lines = sql_content.split('\n')
+            clean_lines = []
+            for line in lines:
+                stripped = line.strip()
+                if stripped.startswith('--'):
+                    continue  # Skip comment-only lines
+                elif '--' in line:
+                    # Keep part before inline comment
+                    line = line[:line.index('--')]
+                if line.strip():
+                    clean_lines.append(line)
+            
+            clean_sql = '\n'.join(clean_lines)
+            
+            # Split by semicolon
             statements = []
             current_chars = []
             in_string = False
             string_char = None
             
             i = 0
-            while i < len(sql_content):
-                char = sql_content[i]
+            while i < len(clean_sql):
+                char = clean_sql[i]
                 
                 # Handle string literals
                 if char in ("'", '"') and not in_string:
@@ -41,7 +57,7 @@ class SQLRunner:
                     string_char = char
                 elif char == string_char and in_string:
                     # Check for escaped quotes (doubled quotes)
-                    if i + 1 < len(sql_content) and sql_content[i + 1] == string_char:
+                    if i + 1 < len(clean_sql) and clean_sql[i + 1] == string_char:
                         # Add both quotes for escaped quote
                         current_chars.append(char)
                         current_chars.append(char)
@@ -54,7 +70,7 @@ class SQLRunner:
                 # Handle semicolons
                 if char == ';' and not in_string:
                     stmt = ''.join(current_chars).strip()
-                    if stmt and not stmt.startswith('--'):
+                    if stmt:
                         statements.append(stmt)
                     current_chars = []
                 else:
@@ -64,7 +80,7 @@ class SQLRunner:
             
             # Add final statement if exists
             stmt = ''.join(current_chars).strip()
-            if stmt and not stmt.startswith('--'):
+            if stmt:
                 statements.append(stmt)
             
             return statements
@@ -74,34 +90,29 @@ class SQLRunner:
     
     def _validate_file_path(self, file_path: str) -> Optional[Path]:
         """Validate and resolve file path to prevent path traversal"""
-        # Sanitize input to prevent path traversal
-        normalized_path = os.path.normpath(file_path)
-        if '..' in normalized_path or file_path.startswith('/'):
+        # Basic security check
+        if '..' in file_path or file_path.startswith('/'):
             print(f"❌ Invalid file path: {file_path}")
             return None
             
         try:
-            resolved_path = Path(file_path).resolve()
-            current_dir = Path.cwd().resolve()
+            file_path_obj = Path(file_path)
             
-            # Check if the resolved path is within the current directory or its subdirectories
-            try:
-                resolved_path.relative_to(current_dir)
-            except ValueError:
-                print(f"❌ Access denied: File path outside allowed directory: {file_path}")
-                return None
+            # If not absolute, make it relative to current directory
+            if not file_path_obj.is_absolute():
+                file_path_obj = Path.cwd() / file_path_obj
                 
-            if not resolved_path.exists():
+            if not file_path_obj.exists():
                 print(f"❌ File not found: {file_path}")
                 return None
                 
-            if not resolved_path.is_file():
+            if not file_path_obj.is_file():
                 print(f"❌ Not a file: {file_path}")
                 return None
                 
-            return resolved_path
+            return file_path_obj
                 
-        except (OSError, ValueError) as e:
+        except Exception as e:
             print(f"❌ Invalid file path: {file_path} - {e}")
             return None
     
@@ -152,11 +163,7 @@ class SQLRunner:
     def setup_database(self, setup_file: str = "setup.sql") -> None:
         """Run the setup.sql file to initialize the database"""
         print("🔧 Setting up database...")
-        validated_path = self._validate_file_path(setup_file)
-        if not validated_path:
-            print(f"⚠️ {setup_file} not found or invalid, skipping database setup")
-            return
-        self.execute_file(str(validated_path))
+        self.execute_file(setup_file)
     
     def list_tables(self) -> None:
         """List all tables in the database"""
@@ -177,6 +184,37 @@ class SQLRunner:
                 
         except Exception as e:
             print(f"❌ Error listing tables: {e}")
+    
+    def clean_database(self) -> None:
+        """Drop all tables to clean the database"""
+        try:
+            print("🧹 Cleaning database...")
+            
+            # Get all tables
+            query = (
+                "SELECT table_name FROM information_schema.tables "
+                "WHERE table_schema = 'main' ORDER BY table_name"
+            )
+            result = self.conn.execute(query)
+            tables = result.fetchall()
+            
+            if not tables:
+                print("📊 Database is already clean (no tables found)")
+                return
+            
+            # Drop each table
+            for table in tables:
+                table_name = table[0]
+                try:
+                    self.conn.execute(f"DROP TABLE IF EXISTS {table_name}")
+                    print(f"  ✅ Dropped table: {table_name}")
+                except Exception as e:
+                    print(f"  ❌ Error dropping table {table_name}: {e}")
+            
+            print("✅ Database cleaned successfully")
+                
+        except Exception as e:
+            print(f"❌ Error cleaning database: {e}")
     
     def run_query(self, query: str) -> None:
         """Execute a single SQL query"""
@@ -245,6 +283,7 @@ class SQLRunner:
         print("🚀 SQL Runner - Interactive Mode")
         print("Commands:")
         print("  setup    - Run setup.sql")
+        print("  clean    - Drop all tables")
         print("  tables   - List all tables")
         print("  files    - List available SQL files")
         print("  run <file> - Execute SQL file")
@@ -260,6 +299,8 @@ class SQLRunner:
                     break
                 elif command == "setup":
                     self.setup_database()
+                elif command == "clean":
+                    self.clean_database()
                 elif command == "tables":
                     self.list_tables()
                 elif command == "files":
