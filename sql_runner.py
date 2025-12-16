@@ -13,9 +13,20 @@ from typing import List, Optional
 class SQLRunner:
     def __init__(self, db_path: str = "sample.db"):
         """Initialize DuckDB connection"""
-        self.db_path = db_path
+        # Validate database path to prevent path traversal
         try:
-            self.conn = duckdb.connect(db_path)
+            db_path_obj = Path(db_path).resolve()
+            Path.cwd().resolve()
+            # Allow database files in current directory only
+            if db_path_obj.parent != Path.cwd().resolve():
+                raise ValueError(f"Database must be in current directory: {db_path}")
+            self.db_path = str(db_path_obj)
+        except Exception as e:
+            print(f"❌ Invalid database path: {e}")
+            raise
+            
+        try:
+            self.conn = duckdb.connect(self.db_path)
         except Exception as e:
             print(f"❌ Failed to connect to database: {e}")
             raise
@@ -41,16 +52,15 @@ class SQLRunner:
             
             clean_sql = '\n'.join(clean_lines)
             
-            # Split by semicolon
+            # Split by semicolon using more efficient approach
             statements = []
-            current_chars = []
+            start = 0
             in_string = False
             string_char = None
             
             i = 0
             while i < len(clean_sql):
                 char = clean_sql[i]
-                
                 # Handle string literals
                 if char in ("'", '"') and not in_string:
                     in_string = True
@@ -58,35 +68,29 @@ class SQLRunner:
                 elif char == string_char and in_string:
                     # Check for escaped quotes (doubled quotes)
                     if i + 1 < len(clean_sql) and clean_sql[i + 1] == string_char:
-                        # Add both quotes for escaped quote
-                        current_chars.append(char)
-                        current_chars.append(char)
-                        i += 1  # Skip the second quote
-                        continue
+                        i += 1  # Skip the escaped quote
                     else:
                         in_string = False
                         string_char = None
                 
                 # Handle semicolons
-                if char == ';' and not in_string:
-                    stmt = ''.join(current_chars).strip()
+                elif char == ';' and not in_string:
+                    stmt = clean_sql[start:i].strip()
                     if stmt:
                         statements.append(stmt)
-                    current_chars = []
-                else:
-                    current_chars.append(char)
+                    start = i + 1
                 
                 i += 1
             
             # Add final statement if exists
-            stmt = ''.join(current_chars).strip()
+            stmt = clean_sql[start:].strip()
             if stmt:
                 statements.append(stmt)
             
             return statements
         except (TypeError, ValueError) as e:
             print(f"❌ Error parsing SQL statements: {e}")
-            return []
+            raise  # Propagate error to caller
     
     def _validate_file_path(self, file_path: str) -> Optional[Path]:
         """Validate and resolve file path to prevent path traversal"""
@@ -98,7 +102,9 @@ class SQLRunner:
             allowed_base = Path.cwd().resolve()
             
             # Check if the resolved path is within the allowed directory
-            if not str(file_path_obj).startswith(str(allowed_base)):
+            try:
+                file_path_obj.relative_to(allowed_base)
+            except ValueError:
                 print(f"❌ Access denied: {file_path} (outside allowed directory)")
                 return None
                 
@@ -125,7 +131,7 @@ class SQLRunner:
         print(f"📄 Executing: {resolved_path}")
         
         try:
-            with open(resolved_path, 'r', encoding='utf-8') as f:
+            with resolved_path.open('r', encoding='utf-8') as f:
                 sql_content = f.read()
             
             # Split by semicolon and execute each statement
@@ -139,12 +145,11 @@ class SQLRunner:
                     if statement.upper().strip().startswith('SELECT'):
                         rows = result.fetchmany(10)  # Fetch exactly 10 rows
                         if rows:
-                            print(f"  Query {i} results:")
-                            for row in rows:
-                                print(f"    {row}")
-                            # Check if there are more rows by seeing if we got exactly 10
+                            # Use efficient string formatting with single print
+                            row_output = [f"  Query {i} results:"] + [f"    {row}" for row in rows]
                             if len(rows) == 10:
-                                print(f"    ... (more rows may be available)")
+                                row_output.append("    ... (more rows may be available)")
+                            print("\n".join(row_output))
                         else:
                             print(f"  Query {i}: No results")
                     else:
@@ -164,9 +169,11 @@ class SQLRunner:
         """Run the setup.sql file to initialize the database"""
         print("🔧 Setting up database...")
         # Validate the setup file path before execution
-        if not self._validate_file_path(setup_file):
+        validated_path = self._validate_file_path(setup_file)
+        if not validated_path:
+            print("❌ Database setup failed: Invalid setup file path")
             return
-        self.execute_file(setup_file)
+        self.execute_file(str(validated_path))
     
     def list_tables(self) -> None:
         """List all tables in the database"""
@@ -209,7 +216,8 @@ class SQLRunner:
             for table in tables:
                 table_name = table[0]
                 try:
-                    self.conn.execute(f"DROP TABLE IF EXISTS {table_name}")
+                    # Use identifier quoting to prevent SQL injection
+                    self.conn.execute(f'DROP TABLE IF EXISTS "{table_name}"')
                     print(f"  ✅ Dropped table: {table_name}")
                 except Exception as e:
                     print(f"  ❌ Error dropping table {table_name}: {e}")
@@ -228,23 +236,41 @@ class SQLRunner:
             if not query.strip():
                 raise ValueError("Query cannot be empty")
             
+            # Enhanced SQL injection protection
+            query_upper = query.upper().strip()
+            
+            # Check for multiple statements (semicolon not in quotes)
+            statements = self._split_sql_statements(query)
+            if len(statements) > 1:
+                print("❌ Multiple SQL statements not allowed in query mode. Use file execution instead.")
+                return
+            
+            # Only allow SELECT statements in query mode
+            if not query_upper.startswith('SELECT'):
+                print("❌ Only SELECT statements allowed in query mode. Use file execution for other commands.")
+                return
+            
+            # Additional validation: ensure no SQL keywords that could be dangerous
+            dangerous_keywords = ['UNION', 'INTO', 'OUTFILE', 'DUMPFILE', 'LOAD_FILE']
+            if any(keyword in query_upper for keyword in dangerous_keywords):
+                print("❌ Query contains restricted keywords. Use file execution instead.")
+                return
+            
             result = self.conn.execute(query)
             
-            if query.upper().strip().startswith('SELECT'):
-                columns = []
-                if hasattr(result, 'description') and result.description:
-                    columns = [desc[0] for desc in result.description]
-                
-                row_count = 0
-                # Print rows with consistent formatting, limiting to 10000 rows
-                for row in result.fetchmany(10000):
-                    print(" | ".join(str(val) for val in row))
-                    row_count += 1
-                
-                if row_count == 0:
-                    print("No results")
+            # Since we only allow SELECT, we know this is a query
+            columns = []
+            if hasattr(result, 'description') and result.description:
+                columns = [desc[0] for desc in result.description]
+            
+            # Fetch rows and format efficiently
+            rows = result.fetchmany(10000)
+            if rows:
+                # Use list comprehension and join for better performance
+                formatted_rows = [" | ".join(str(val) for val in row) for row in rows]
+                print("\n".join(formatted_rows))
             else:
-                print("✅ Query executed successfully")
+                print("No results")
                 
         except (TypeError, ValueError) as e:
             print(f"❌ Invalid query: {e}")
@@ -274,16 +300,18 @@ class SQLRunner:
                     file_path = Path(root) / file
                     try:
                         # Ensure each file is within the allowed directory
-                        file_path.resolve().relative_to(current_dir)
-                        sql_files.append(str(file_path))
+                        resolved_file = file_path.resolve()
+                        resolved_file.relative_to(current_dir)
+                        # Store relative path for user-friendly display
+                        relative_path = resolved_file.relative_to(current_dir)
+                        sql_files.append(str(relative_path))
                     except ValueError:
                         # Skip files outside allowed directory
                         continue
         return sorted(sql_files)
     
-    def interactive_mode(self) -> None:
-        """Run in interactive mode"""
-        print("🚀 SQL Runner - Interactive Mode")
+    def _show_help(self) -> None:
+        """Show help message"""
         print("Commands:")
         print("  setup    - Run setup.sql")
         print("  clean    - Drop all tables")
@@ -291,14 +319,44 @@ class SQLRunner:
         print("  files    - List available SQL files")
         print("  run <file> - Execute SQL file")
         print("  query <sql> - Execute SQL query")
-        print("  quit     - Exit")
+        print("  help     - Show this help message")
+        print("  quit/exit - Exit")
+    
+    def _handle_run_command(self, command: str) -> None:
+        """Handle run command"""
+        parts = command.split(maxsplit=1)
+        if len(parts) > 1:
+            file_input = parts[1].strip()
+            if not file_input:
+                print("❌ Please specify a file to run")
+            else:
+                self.execute_file(file_input)
+        else:
+            print("❌ Please specify a file to run")
+    
+    def _handle_query_command(self, command: str) -> None:
+        """Handle query command"""
+        parts = command.split(maxsplit=1)
+        if len(parts) > 1:
+            query_input = parts[1].strip()
+            if not query_input:
+                print("❌ Please specify a query to execute")
+            else:
+                self.run_query(query_input)
+        else:
+            print("❌ Please specify a query to execute")
+    
+    def interactive_mode(self) -> None:
+        """Run in interactive mode"""
+        print("🚀 SQL Runner - Interactive Mode")
+        self._show_help()
         print()
         
         while True:
             try:
                 command = input("sql> ").strip()
                 
-                if command == "quit":
+                if command in ("quit", "exit"):
                     break
                 elif command == "setup":
                     self.setup_database()
@@ -311,18 +369,12 @@ class SQLRunner:
                     print("📁 Available SQL files:")
                     for i, file in enumerate(files, 1):
                         print(f"  {i}. {file}")
+                elif command == "help":
+                    self._show_help()
                 elif command.startswith("run "):
-                    parts = command.split(maxsplit=1)
-                    if len(parts) > 1:
-                        self.execute_file(parts[1])
-                    else:
-                        print("❌ Please specify a file to run")
+                    self._handle_run_command(command)
                 elif command.startswith("query "):
-                    parts = command.split(maxsplit=1)
-                    if len(parts) > 1:
-                        self.run_query(parts[1])
-                    else:
-                        print("❌ Please specify a query to execute")
+                    self._handle_query_command(command)
                 elif command == "":
                     continue
                 else:
@@ -336,7 +388,11 @@ class SQLRunner:
     
     def close(self) -> None:
         """Close database connection"""
-        self.conn.close()
+        try:
+            if self.conn:
+                self.conn.close()
+        except Exception as e:
+            print(f"❌ Error closing database connection: {e}")
 
 
 def main():
