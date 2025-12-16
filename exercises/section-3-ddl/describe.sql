@@ -11,7 +11,7 @@ CREATE SCHEMA demo_schema;
 USE demo_schema;
 
 -- Create a sample table with various data types and constraints
-CREATE TABLE employees (
+CREATE TABLE employee (
     employee_id NUMERIC NOT NULL PRIMARY KEY,  -- Primary key constraint
     first_name STRING,                         -- Variable-length string
     last_name STRING,
@@ -22,8 +22,8 @@ CREATE TABLE employees (
 -- Example: DESCRIBE TABLE - Show detailed table structure
 -- This displays column names, data types, nullability, and constraints
 -- Very useful for understanding existing table schemas
-DESCRIBE TABLE employees;
+DESCRIBE TABLE employee;
 
 -- Cleanup - Remove all objects created in this demo
-DROP TABLE employees;
+DROP TABLE employee;
 DROP SCHEMA demo_schema;

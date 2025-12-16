@@ -13,7 +13,7 @@ CREATE SCHEMA demo_schema;
 USE demo_schema;
 
 -- Create a sample table
-CREATE TABLE employees (
+CREATE TABLE employee (
     employee_id NUMERIC NOT NULL PRIMARY KEY,
     first_name STRING,
     last_name STRING,
@@ -22,12 +22,12 @@ CREATE TABLE employees (
 );
 
 -- Verify objects exist before dropping
-SHOW TABLES;        -- Should show the employees table
-DESCRIBE employees;  -- Show table structure
+SHOW TABLES;        -- Should show the employee table
+DESCRIBE employee;  -- Show table structure
 
 -- Example 1: DROP TABLE - Remove a table and all its data
 -- This permanently deletes the table and all data within it
-DROP TABLE employees;
+DROP TABLE employee;
 
 -- Example 2: DROP SCHEMA - Remove a schema
 -- Note: Schema must be empty (no tables) before it can be dropped
