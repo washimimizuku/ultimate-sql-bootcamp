@@ -1,66 +1,75 @@
 #!/usr/bin/env python3
 """
-Demo script showing how to use the SQL Runner
+Demo script showing basic DuckDB usage
 """
-from sql_runner import SQLRunner
+import duckdb
 
 
 def main():
-    # Initialize the SQL runner
-    runner = None
+    # Initialize connection
+    con = None
     
     try:
-        runner = SQLRunner("sample.db")
-        print("🚀 SQL Runner Demo")
+        con = duckdb.connect("sample.db")
+        print("🚀 DuckDB Demo")
         print("=" * 50)
         
-        # 1. Setup the database
-        print("\n1. Setting up database...")
-        runner.setup_database()
+        # 1. Check if database needs setup
+        print("\n1. Checking database...")
+        tables = con.execute("SHOW TABLES").fetchall()
+        
+        if not tables:
+            print("Setting up database...")
+            with open("setup.sql", "r") as f:
+                setup_sql = f.read()
+            con.execute(setup_sql)
+        else:
+            print("Database already exists, skipping setup.")
         
         # 2. List available tables
         print("\n2. Available tables:")
-        runner.list_tables()
+        tables = con.execute("SHOW TABLES").fetchall()
+        for table in tables:
+            print(f"  - {table[0]}")
         
         # 3. Run some sample queries
         print("\n3. Sample queries:")
         
         # Query 1: Count customers by nation
         print("\n📊 Customers by nation:")
-        runner.run_query("""
+        result = con.execute("""
             SELECT n.n_name, COUNT(*) as customer_count
             FROM customer c
             JOIN nation n ON c.c_nationkey = n.n_nationkey
             GROUP BY n.n_name
             ORDER BY customer_count DESC
-        """)
+        """).fetchall()
+        
+        for row in result:
+            print(f"  {row[0]}: {row[1]} customers")
         
         # Query 2: Top customers by account balance
         print("\n💰 Top customers by account balance:")
-        runner.run_query("""
+        result = con.execute("""
             SELECT c_name, c_acctbal, n_name
             FROM customer c
             JOIN nation n ON c.c_nationkey = n.n_nationkey
             ORDER BY c_acctbal DESC
             LIMIT 5
-        """)
+        """).fetchall()
         
-        # 4. Execute an exercise file
-        print("\n4. Running exercise file...")
-        runner.execute_file("exercises/section-3-ddl/create.sql")
+        for row in result:
+            print(f"  {row[0]}: ${row[1]:.2f} ({row[2]})")
         
         print("\n✅ Demo completed!")
         
     except FileNotFoundError as e:
         print(f"❌ File not found: {e}")
-    except ImportError as e:
-        print(f"❌ Import error: {e}")
     except Exception as e:
-        print(f"❌ Unexpected error: {e}")
-        import traceback
+        print(f"❌ Error: {e}")
     finally:
-        if runner is not None:
-            runner.close()
+        if con is not None:
+            con.close()
 
 
 if __name__ == "__main__":
