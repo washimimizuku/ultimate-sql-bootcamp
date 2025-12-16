@@ -20,9 +20,16 @@ def main():
         
         if not tables:
             print("Setting up database...")
-            with open("setup.sql", "r") as f:
-                setup_sql = f.read()
-            con.execute(setup_sql)
+            try:
+                with open("setup.sql", "r", encoding='utf-8') as f:
+                    setup_sql = f.read()
+                # Split and execute statements individually
+                statements = [stmt.strip() for stmt in setup_sql.split(';') if stmt.strip()]
+                for stmt in statements:
+                    con.execute(stmt)
+            except FileNotFoundError:
+                print("❌ setup.sql file not found")
+                return
         else:
             print("Database already exists, skipping setup.")
         
@@ -63,8 +70,6 @@ def main():
         
         print("\n✅ Demo completed!")
         
-    except FileNotFoundError as e:
-        print(f"❌ File not found: {e}")
     except Exception as e:
         print(f"❌ Error: {e}")
     finally:
