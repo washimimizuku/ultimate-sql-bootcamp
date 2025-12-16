@@ -1,0 +1,1172 @@
+[
+  {
+    "name": "Tatooine",
+    "rotation_period": "23",
+    "orbital_period": "304",
+    "diameter": "10465",
+    "climate": "arid",
+    "gravity": "1 standard",
+    "terrain": "desert",
+    "surface_water": "1",
+    "population": "200000",
+    "residents": [
+      {
+        "id": 1,
+        "name": "Luke Skywalker"
+      },
+      {
+        "id": 2,
+        "name": "C-3PO"
+      },
+      {
+        "id": 4,
+        "name": "Darth Vader"
+      },
+      {
+        "id": 6,
+        "name": "Owen Lars"
+      },
+      {
+        "id": 7,
+        "name": "Beru Whitesun lars"
+      },
+      {
+        "id": 8,
+        "name": "R5-D4"
+      },
+      {
+        "id": 9,
+        "name": "Biggs Darklighter"
+      },
+      {
+        "id": 11,
+        "name": "Anakin Skywalker"
+      },
+      {
+        "id": 43,
+        "name": "Darth Maul"
+      },
+      {
+        "id": 62,
+        "name": "Poggle the Lesser"
+      }
+    ]
+  },
+  {
+    "name": "Alderaan",
+    "rotation_period": "24",
+    "orbital_period": "364",
+    "diameter": "12500",
+    "climate": "temperate",
+    "gravity": "1 standard",
+    "terrain": "grasslands, mountains",
+    "surface_water": "40",
+    "population": "2000000000",
+    "residents": [
+      {
+        "id": 5,
+        "name": "Leia Organa"
+      },
+      {
+        "id": 68,
+        "name": "Jango Fett"
+      },
+      {
+        "id": 81,
+        "name": "Sly Moore"
+      }
+    ]
+  },
+  {
+    "name": "Yavin IV",
+    "rotation_period": "24",
+    "orbital_period": "4818",
+    "diameter": "10200",
+    "climate": "temperate, tropical",
+    "gravity": "1 standard",
+    "terrain": "jungle, rainforests",
+    "surface_water": "8",
+    "population": "1000",
+    "residents": [],
+    "films": [
+      {
+        "id": 1,
+        "name": "A New Hope"
+      }
+    ]
+  },
+  {
+    "name": "Hoth",
+    "rotation_period": "23",
+    "orbital_period": "549",
+    "diameter": "7200",
+    "climate": "frozen",
+    "gravity": "1.1 standard",
+    "terrain": "tundra, ice caves, mountain ranges",
+    "surface_water": "100",
+    "population": "unknown",
+    "residents": [],
+    "films": [
+      {
+        "id": 2,
+        "name": "The Empire Strikes Back"
+      }
+    ]
+  },
+  {
+    "name": "Dagobah",
+    "rotation_period": "23",
+    "orbital_period": "341",
+    "diameter": "8900",
+    "climate": "murky",
+    "gravity": "N/A",
+    "terrain": "swamp, jungles",
+    "surface_water": "8",
+    "population": "unknown",
+    "residents": [],
+    "films": [
+      {
+        "id": 2,
+        "name": "The Empire Strikes Back"
+      },
+      {
+        "id": 3,
+        "name": "Return of the Jedi"
+      },
+      {
+        "id": 6,
+        "name": "Revenge of the Sith"
+      }
+    ]
+  },
+  {
+    "name": "Bespin",
+    "rotation_period": "12",
+    "orbital_period": "5110",
+    "diameter": "118000",
+    "climate": "temperate",
+    "gravity": "1.5 (surface), 1 standard (Cloud City)",
+    "terrain": "gas giant",
+    "surface_water": "0",
+    "population": "6000000",
+    "residents": [
+      {
+        "id": 26,
+        "name": "Ackbar"
+      }
+    ]
+  },
+  {
+    "name": "Endor",
+    "rotation_period": "18",
+    "orbital_period": "402",
+    "diameter": "4900",
+    "climate": "temperate",
+    "gravity": "0.85 standard",
+    "terrain": "forests, mountains, lakes",
+    "surface_water": "8",
+    "population": "30000000",
+    "residents": [
+      {
+        "id": 30,
+        "name": "Nien Nunb"
+      }
+    ]
+  },
+  {
+    "name": "Naboo",
+    "rotation_period": "26",
+    "orbital_period": "312",
+    "diameter": "12120",
+    "climate": "temperate",
+    "gravity": "1 standard",
+    "terrain": "grassy hills, swamps, forests, mountains",
+    "surface_water": "12",
+    "population": "4500000000",
+    "residents": [
+      {
+        "id": 3,
+        "name": "R2-D2"
+      },
+      {
+        "id": 21,
+        "name": "Boba Fett"
+      },
+      {
+        "id": 35,
+        "name": "Jar Jar Binks"
+      },
+      {
+        "id": 36,
+        "name": "Roos Tarpals"
+      },
+      {
+        "id": 37,
+        "name": "Rugor Nass"
+      },
+      {
+        "id": 38,
+        "name": "Ric Oli\u00e9"
+      },
+      {
+        "id": 39,
+        "name": "Watto"
+      },
+      {
+        "id": 42,
+        "name": "Shmi Skywalker"
+      },
+      {
+        "id": 60,
+        "name": "Cord\u00e9"
+      },
+      {
+        "id": 61,
+        "name": "Cliegg Lars"
+      },
+      {
+        "id": 66,
+        "name": "Dooku"
+      }
+    ]
+  },
+  {
+    "name": "Coruscant",
+    "rotation_period": "24",
+    "orbital_period": "368",
+    "diameter": "12240",
+    "climate": "temperate",
+    "gravity": "1 standard",
+    "terrain": "cityscape, mountains",
+    "surface_water": "unknown",
+    "population": "1000000000000",
+    "residents": [
+      {
+        "id": 34,
+        "name": "Padm\u00e9 Amidala"
+      },
+      {
+        "id": 55,
+        "name": "Saesee Tiin"
+      },
+      {
+        "id": 74,
+        "name": "R4-P17"
+      }
+    ]
+  },
+  {
+    "name": "Kamino",
+    "rotation_period": "27",
+    "orbital_period": "463",
+    "diameter": "19720",
+    "climate": "temperate",
+    "gravity": "1 standard",
+    "terrain": "ocean",
+    "surface_water": "100",
+    "population": "1000000000",
+    "residents": [
+      {
+        "id": 22,
+        "name": "IG-88"
+      },
+      {
+        "id": 72,
+        "name": "Taun We"
+      },
+      {
+        "id": 73,
+        "name": "Jocasta Nu"
+      }
+    ]
+  },
+  {
+    "name": "Geonosis",
+    "rotation_period": "30",
+    "orbital_period": "256",
+    "diameter": "11370",
+    "climate": "temperate, arid",
+    "gravity": "0.9 standard",
+    "terrain": "rock, desert, mountain, barren",
+    "surface_water": "5",
+    "population": "100000000000",
+    "residents": [
+      {
+        "id": 63,
+        "name": "Luminara Unduli"
+      }
+    ]
+  },
+  {
+    "name": "Utapau",
+    "rotation_period": "27",
+    "orbital_period": "351",
+    "diameter": "12900",
+    "climate": "temperate, arid, windy",
+    "gravity": "1 standard",
+    "terrain": "scrublands, savanna, canyons, sinkholes",
+    "surface_water": "0.9",
+    "population": "95000000",
+    "residents": [
+      "https://swapi.info/api/people/83"
+    ]
+  },
+  {
+    "name": "Mustafar",
+    "rotation_period": "36",
+    "orbital_period": "412",
+    "diameter": "4200",
+    "climate": "hot",
+    "gravity": "1 standard",
+    "terrain": "volcanoes, lava rivers, mountains, caves",
+    "surface_water": "0",
+    "population": "20000",
+    "residents": [],
+    "films": [
+      {
+        "id": 6,
+        "name": "Revenge of the Sith"
+      }
+    ]
+  },
+  {
+    "name": "Kashyyyk",
+    "rotation_period": "26",
+    "orbital_period": "381",
+    "diameter": "12765",
+    "climate": "tropical",
+    "gravity": "1 standard",
+    "terrain": "jungle, forests, lakes, rivers",
+    "surface_water": "60",
+    "population": "45000000",
+    "residents": [
+      {
+        "id": 13,
+        "name": "Chewbacca"
+      },
+      {
+        "id": 80,
+        "name": "Raymus Antilles"
+      }
+    ]
+  },
+  {
+    "name": "Polis Massa",
+    "rotation_period": "24",
+    "orbital_period": "590",
+    "diameter": "0",
+    "climate": "artificial temperate ",
+    "gravity": "0.56 standard",
+    "terrain": "airless asteroid",
+    "surface_water": "0",
+    "population": "1000000",
+    "residents": [],
+    "films": [
+      {
+        "id": 6,
+        "name": "Revenge of the Sith"
+      }
+    ]
+  },
+  {
+    "name": "Mygeeto",
+    "rotation_period": "12",
+    "orbital_period": "167",
+    "diameter": "10088",
+    "climate": "frigid",
+    "gravity": "1 standard",
+    "terrain": "glaciers, mountains, ice canyons",
+    "surface_water": "unknown",
+    "population": "19000000",
+    "residents": [],
+    "films": [
+      {
+        "id": 6,
+        "name": "Revenge of the Sith"
+      }
+    ]
+  },
+  {
+    "name": "Felucia",
+    "rotation_period": "34",
+    "orbital_period": "231",
+    "diameter": "9100",
+    "climate": "hot, humid",
+    "gravity": "0.75 standard",
+    "terrain": "fungus forests",
+    "surface_water": "unknown",
+    "population": "8500000",
+    "residents": [],
+    "films": [
+      {
+        "id": 6,
+        "name": "Revenge of the Sith"
+      }
+    ]
+  },
+  {
+    "name": "Cato Neimoidia",
+    "rotation_period": "25",
+    "orbital_period": "278",
+    "diameter": "0",
+    "climate": "temperate, moist",
+    "gravity": "1 standard",
+    "terrain": "mountains, fields, forests, rock arches",
+    "surface_water": "unknown",
+    "population": "10000000",
+    "residents": [
+      {
+        "id": 33,
+        "name": "Finis Valorum"
+      }
+    ]
+  },
+  {
+    "name": "Saleucami",
+    "rotation_period": "26",
+    "orbital_period": "392",
+    "diameter": "14920",
+    "climate": "hot",
+    "gravity": "unknown",
+    "terrain": "caves, desert, mountains, volcanoes",
+    "surface_water": "unknown",
+    "population": "1400000000",
+    "residents": [],
+    "films": [
+      {
+        "id": 6,
+        "name": "Revenge of the Sith"
+      }
+    ]
+  },
+  {
+    "name": "Stewjon",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "0",
+    "climate": "temperate",
+    "gravity": "1 standard",
+    "terrain": "grass",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 10,
+        "name": "Obi-Wan Kenobi"
+      }
+    ]
+  },
+  {
+    "name": "Eriadu",
+    "rotation_period": "24",
+    "orbital_period": "360",
+    "diameter": "13490",
+    "climate": "polluted",
+    "gravity": "1 standard",
+    "terrain": "cityscape",
+    "surface_water": "unknown",
+    "population": "22000000000",
+    "residents": [
+      {
+        "id": 12,
+        "name": "Wilhuff Tarkin"
+      }
+    ]
+  },
+  {
+    "name": "Corellia",
+    "rotation_period": "25",
+    "orbital_period": "329",
+    "diameter": "11000",
+    "climate": "temperate",
+    "gravity": "1 standard",
+    "terrain": "plains, urban, hills, forests",
+    "surface_water": "70",
+    "population": "3000000000",
+    "residents": [
+      {
+        "id": 14,
+        "name": "Han Solo"
+      },
+      {
+        "id": 18,
+        "name": "Jek Tono Porkins"
+      }
+    ]
+  },
+  {
+    "name": "Rodia",
+    "rotation_period": "29",
+    "orbital_period": "305",
+    "diameter": "7549",
+    "climate": "hot",
+    "gravity": "1 standard",
+    "terrain": "jungles, oceans, urban, swamps",
+    "surface_water": "60",
+    "population": "1300000000",
+    "residents": [
+      {
+        "id": 15,
+        "name": "Greedo"
+      }
+    ]
+  },
+  {
+    "name": "Nal Hutta",
+    "rotation_period": "87",
+    "orbital_period": "413",
+    "diameter": "12150",
+    "climate": "temperate",
+    "gravity": "1 standard",
+    "terrain": "urban, oceans, swamps, bogs",
+    "surface_water": "unknown",
+    "population": "7000000000",
+    "residents": [
+      {
+        "id": 16,
+        "name": "Jabba Desilijic Tiure"
+      }
+    ]
+  },
+  {
+    "name": "Dantooine",
+    "rotation_period": "25",
+    "orbital_period": "378",
+    "diameter": "9830",
+    "climate": "temperate",
+    "gravity": "1 standard",
+    "terrain": "oceans, savannas, mountains, grasslands",
+    "surface_water": "unknown",
+    "population": "1000",
+    "residents": [],
+    "films": [],
+    "created": "2014-12-10T17:23:29.896000Z",
+    "edited": "2014-12-20T20:58:18.461000Z",
+    "url": {
+      "id": 25,
+      "name": "Dantooine"
+    }
+  },
+  {
+    "name": "Bestine IV",
+    "rotation_period": "26",
+    "orbital_period": "680",
+    "diameter": "6400",
+    "climate": "temperate",
+    "gravity": "unknown",
+    "terrain": "rocky islands, oceans",
+    "surface_water": "98",
+    "population": "62000000",
+    "residents": [
+      {
+        "id": 19,
+        "name": "Yoda"
+      }
+    ]
+  },
+  {
+    "name": "Ord Mantell",
+    "rotation_period": "26",
+    "orbital_period": "334",
+    "diameter": "14050",
+    "climate": "temperate",
+    "gravity": "1 standard",
+    "terrain": "plains, seas, mesas",
+    "surface_water": "10",
+    "population": "4000000000",
+    "residents": [],
+    "films": [
+      {
+        "id": 2,
+        "name": "The Empire Strikes Back"
+      }
+    ]
+  },
+  {
+    "name": "unknown",
+    "rotation_period": "0",
+    "orbital_period": "0",
+    "diameter": "0",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "unknown",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 20,
+        "name": "Palpatine"
+      },
+      {
+        "id": 23,
+        "name": "Bossk"
+      },
+      {
+        "id": 29,
+        "name": "Wicket Systri Warrick"
+      },
+      {
+        "id": 32,
+        "name": "Nute Gunray"
+      },
+      {
+        "id": 75,
+        "name": "Wat Tambor"
+      }
+    ]
+  },
+  {
+    "name": "Trandosha",
+    "rotation_period": "25",
+    "orbital_period": "371",
+    "diameter": "0",
+    "climate": "arid",
+    "gravity": "0.62 standard",
+    "terrain": "mountains, seas, grasslands, deserts",
+    "surface_water": "unknown",
+    "population": "42000000",
+    "residents": [
+      {
+        "id": 24,
+        "name": "Lando Calrissian"
+      }
+    ]
+  },
+  {
+    "name": "Socorro",
+    "rotation_period": "20",
+    "orbital_period": "326",
+    "diameter": "0",
+    "climate": "arid",
+    "gravity": "1 standard",
+    "terrain": "deserts, mountains",
+    "surface_water": "unknown",
+    "population": "300000000",
+    "residents": [
+      {
+        "id": 25,
+        "name": "Lobot"
+      }
+    ]
+  },
+  {
+    "name": "Mon Cala",
+    "rotation_period": "21",
+    "orbital_period": "398",
+    "diameter": "11030",
+    "climate": "temperate",
+    "gravity": "1",
+    "terrain": "oceans, reefs, islands",
+    "surface_water": "100",
+    "population": "27000000000",
+    "residents": [
+      {
+        "id": 27,
+        "name": "Mon Mothma"
+      }
+    ]
+  },
+  {
+    "name": "Chandrila",
+    "rotation_period": "20",
+    "orbital_period": "368",
+    "diameter": "13500",
+    "climate": "temperate",
+    "gravity": "1",
+    "terrain": "plains, forests",
+    "surface_water": "40",
+    "population": "1200000000",
+    "residents": [
+      {
+        "id": 28,
+        "name": "Arvel Crynyd"
+      }
+    ]
+  },
+  {
+    "name": "Sullust",
+    "rotation_period": "20",
+    "orbital_period": "263",
+    "diameter": "12780",
+    "climate": "superheated",
+    "gravity": "1",
+    "terrain": "mountains, volcanoes, rocky deserts",
+    "surface_water": "5",
+    "population": "18500000000",
+    "residents": [
+      {
+        "id": 31,
+        "name": "Qui-Gon Jinn"
+      }
+    ]
+  },
+  {
+    "name": "Toydaria",
+    "rotation_period": "21",
+    "orbital_period": "184",
+    "diameter": "7900",
+    "climate": "temperate",
+    "gravity": "1",
+    "terrain": "swamps, lakes",
+    "surface_water": "unknown",
+    "population": "11000000",
+    "residents": [
+      {
+        "id": 40,
+        "name": "Sebulba"
+      }
+    ]
+  },
+  {
+    "name": "Malastare",
+    "rotation_period": "26",
+    "orbital_period": "201",
+    "diameter": "18880",
+    "climate": "arid, temperate, tropical",
+    "gravity": "1.56",
+    "terrain": "swamps, deserts, jungles, mountains",
+    "surface_water": "unknown",
+    "population": "2000000000",
+    "residents": [
+      {
+        "id": 41,
+        "name": "Quarsh Panaka"
+      }
+    ]
+  },
+  {
+    "name": "Dathomir",
+    "rotation_period": "24",
+    "orbital_period": "491",
+    "diameter": "10480",
+    "climate": "temperate",
+    "gravity": "0.9",
+    "terrain": "forests, deserts, savannas",
+    "surface_water": "unknown",
+    "population": "5200",
+    "residents": [
+      {
+        "id": 44,
+        "name": "Bib Fortuna"
+      }
+    ]
+  },
+  {
+    "name": "Ryloth",
+    "rotation_period": "30",
+    "orbital_period": "305",
+    "diameter": "10600",
+    "climate": "temperate, arid, subartic",
+    "gravity": "1",
+    "terrain": "mountains, valleys, deserts, tundra",
+    "surface_water": "5",
+    "population": "1500000000",
+    "residents": [
+      {
+        "id": 45,
+        "name": "Ayla Secura"
+      },
+      {
+        "id": 46,
+        "name": "Ratts Tyerel"
+      }
+    ]
+  },
+  {
+    "name": "Aleen Minor",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "unknown",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 47,
+        "name": "Dud Bolt"
+      }
+    ]
+  },
+  {
+    "name": "Vulpter",
+    "rotation_period": "22",
+    "orbital_period": "391",
+    "diameter": "14900",
+    "climate": "temperate, artic",
+    "gravity": "1",
+    "terrain": "urban, barren",
+    "surface_water": "unknown",
+    "population": "421000000",
+    "residents": [
+      {
+        "id": 48,
+        "name": "Gasgano"
+      }
+    ]
+  },
+  {
+    "name": "Troiken",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "desert, tundra, rainforests, mountains",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 49,
+        "name": "Ben Quadinaros"
+      }
+    ]
+  },
+  {
+    "name": "Tund",
+    "rotation_period": "48",
+    "orbital_period": "1770",
+    "diameter": "12190",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "barren, ash",
+    "surface_water": "unknown",
+    "population": "0",
+    "residents": [
+      {
+        "id": 50,
+        "name": "Mace Windu"
+      }
+    ]
+  },
+  {
+    "name": "Haruun Kal",
+    "rotation_period": "25",
+    "orbital_period": "383",
+    "diameter": "10120",
+    "climate": "temperate",
+    "gravity": "0.98",
+    "terrain": "toxic cloudsea, plateaus, volcanoes",
+    "surface_water": "unknown",
+    "population": "705300",
+    "residents": [
+      {
+        "id": 51,
+        "name": "Ki-Adi-Mundi"
+      }
+    ]
+  },
+  {
+    "name": "Cerea",
+    "rotation_period": "27",
+    "orbital_period": "386",
+    "diameter": "unknown",
+    "climate": "temperate",
+    "gravity": "1",
+    "terrain": "verdant",
+    "surface_water": "20",
+    "population": "450000000",
+    "residents": [
+      {
+        "id": 52,
+        "name": "Kit Fisto"
+      }
+    ]
+  },
+  {
+    "name": "Glee Anselm",
+    "rotation_period": "33",
+    "orbital_period": "206",
+    "diameter": "15600",
+    "climate": "tropical, temperate",
+    "gravity": "1",
+    "terrain": "lakes, islands, swamps, seas",
+    "surface_water": "80",
+    "population": "500000000",
+    "residents": [
+      {
+        "id": 53,
+        "name": "Eeth Koth"
+      }
+    ]
+  },
+  {
+    "name": "Iridonia",
+    "rotation_period": "29",
+    "orbital_period": "413",
+    "diameter": "unknown",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "rocky canyons, acid pools",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 54,
+        "name": "Adi Gallia"
+      }
+    ]
+  },
+  {
+    "name": "Tholoth",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "unknown",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [],
+    "films": [],
+    "created": "2014-12-20T10:28:31.117000Z",
+    "edited": "2014-12-20T20:58:18.498000Z",
+    "url": {
+      "id": 46,
+      "name": "Tholoth"
+    }
+  },
+  {
+    "name": "Iktotch",
+    "rotation_period": "22",
+    "orbital_period": "481",
+    "diameter": "unknown",
+    "climate": "arid, rocky, windy",
+    "gravity": "1",
+    "terrain": "rocky",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 56,
+        "name": "Yarael Poof"
+      }
+    ]
+  },
+  {
+    "name": "Quermia",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "unknown",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 57,
+        "name": "Plo Koon"
+      }
+    ]
+  },
+  {
+    "name": "Dorin",
+    "rotation_period": "22",
+    "orbital_period": "409",
+    "diameter": "13400",
+    "climate": "temperate",
+    "gravity": "1",
+    "terrain": "unknown",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 58,
+        "name": "Mas Amedda"
+      }
+    ]
+  },
+  {
+    "name": "Champala",
+    "rotation_period": "27",
+    "orbital_period": "318",
+    "diameter": "unknown",
+    "climate": "temperate",
+    "gravity": "1",
+    "terrain": "oceans, rainforests, plateaus",
+    "surface_water": "unknown",
+    "population": "3500000000",
+    "residents": [
+      {
+        "id": 59,
+        "name": "Gregar Typho"
+      }
+    ]
+  },
+  {
+    "name": "Mirial",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "deserts",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 64,
+        "name": "Barriss Offee"
+      },
+      {
+        "id": 65,
+        "name": "Dorm\u00e9"
+      }
+    ]
+  },
+  {
+    "name": "Serenno",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "rainforests, rivers, mountains",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 67,
+        "name": "Bail Prestor Organa"
+      }
+    ]
+  },
+  {
+    "name": "Concord Dawn",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "jungles, forests, deserts",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 69,
+        "name": "Zam Wesell"
+      }
+    ]
+  },
+  {
+    "name": "Zolan",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "unknown",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 70,
+        "name": "Dexter Jettster"
+      }
+    ]
+  },
+  {
+    "name": "Ojom",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "frigid",
+    "gravity": "unknown",
+    "terrain": "oceans, glaciers",
+    "surface_water": "100",
+    "population": "500000000",
+    "residents": [
+      {
+        "id": 71,
+        "name": "Lama Su"
+      }
+    ]
+  },
+  {
+    "name": "Skako",
+    "rotation_period": "27",
+    "orbital_period": "384",
+    "diameter": "unknown",
+    "climate": "temperate",
+    "gravity": "1",
+    "terrain": "urban, vines",
+    "surface_water": "unknown",
+    "population": "500000000000",
+    "residents": [
+      {
+        "id": 76,
+        "name": "San Hill"
+      }
+    ]
+  },
+  {
+    "name": "Muunilinst",
+    "rotation_period": "28",
+    "orbital_period": "412",
+    "diameter": "13800",
+    "climate": "temperate",
+    "gravity": "1",
+    "terrain": "plains, forests, hills, mountains",
+    "surface_water": "25",
+    "population": "5000000000",
+    "residents": [
+      {
+        "id": 77,
+        "name": "Shaak Ti"
+      }
+    ]
+  },
+  {
+    "name": "Shili",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "temperate",
+    "gravity": "1",
+    "terrain": "cities, savannahs, seas, plains",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 78,
+        "name": "Grievous"
+      }
+    ]
+  },
+  {
+    "name": "Kalee",
+    "rotation_period": "23",
+    "orbital_period": "378",
+    "diameter": "13850",
+    "climate": "arid, temperate, tropical",
+    "gravity": "1",
+    "terrain": "rainforests, cliffs, canyons, seas",
+    "surface_water": "unknown",
+    "population": "4000000000",
+    "residents": [
+      {
+        "id": 79,
+        "name": "Tarfful"
+      }
+    ]
+  },
+  {
+    "name": "Umbara",
+    "rotation_period": "unknown",
+    "orbital_period": "unknown",
+    "diameter": "unknown",
+    "climate": "unknown",
+    "gravity": "unknown",
+    "terrain": "unknown",
+    "surface_water": "unknown",
+    "population": "unknown",
+    "residents": [
+      {
+        "id": 82,
+        "name": "Tion Medon"
+      }
+    ]
+  }
+]
