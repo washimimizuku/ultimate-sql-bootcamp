@@ -90,17 +90,17 @@ class SQLRunner:
     
     def _validate_file_path(self, file_path: str) -> Optional[Path]:
         """Validate and resolve file path to prevent path traversal"""
-        # Basic security check
-        if '..' in file_path or file_path.startswith('/'):
-            print(f"❌ Invalid file path: {file_path}")
-            return None
-            
         try:
-            file_path_obj = Path(file_path)
+            # Resolve the path to its canonical form
+            file_path_obj = Path(file_path).resolve()
             
-            # If not absolute, make it relative to current directory
-            if not file_path_obj.is_absolute():
-                file_path_obj = Path.cwd() / file_path_obj
+            # Define allowed base directories (current working directory and subdirectories)
+            allowed_base = Path.cwd().resolve()
+            
+            # Check if the resolved path is within the allowed directory
+            if not str(file_path_obj).startswith(str(allowed_base)):
+                print(f"❌ Access denied: {file_path} (outside allowed directory)")
+                return None
                 
             if not file_path_obj.exists():
                 print(f"❌ File not found: {file_path}")
@@ -163,6 +163,9 @@ class SQLRunner:
     def setup_database(self, setup_file: str = "setup.sql") -> None:
         """Run the setup.sql file to initialize the database"""
         print("🔧 Setting up database...")
+        # Validate the setup file path before execution
+        if not self._validate_file_path(setup_file):
+            return
         self.execute_file(setup_file)
     
     def list_tables(self) -> None:

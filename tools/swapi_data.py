@@ -1,12 +1,20 @@
 import urllib.request
+import urllib.error
 import json
 import os
 
 def fetch_all_data(endpoint):
     url = f"https://swapi.info/api/{endpoint}/"
-    with urllib.request.urlopen(url) as response:
-        data = json.loads(response.read())
-    return data
+    try:
+        request = urllib.request.Request(url)
+        with urllib.request.urlopen(request, timeout=30) as response:
+            if response.status != 200:
+                raise urllib.error.HTTPError(url, response.status, "HTTP Error", None, None)
+            data = json.loads(response.read().decode('utf-8'))
+        return data
+    except urllib.error.URLError as e:
+        print(f"Error fetching {endpoint}: {e}")
+        raise
 
 categories = ['films', 'people', 'planets', 'species', 'vehicles', 'starships']
 output_dir = "../data/star-wars"
