@@ -34,12 +34,16 @@ VALUES (3, 'Bob');
 SELECT * FROM employee WHERE employee_id = 3;
 
 -- Example 4: Multi-row INSERT - Insert multiple records in one statement
-INSERT INTO employee
-VALUES
-    (4, 'Alice', 'Johnson', '1992-07-20', 'UK'),
-    (5, 'Charlie', 'Brown', '1988-12-30', 'AU'),
-    (6, 'Randy', 'Caldwell', '1970-01-02', 'FI');
-
+INSERT INTO employee 
+VALUES 
+    (4, 'Raj', 'Patel', '1992-01-30', 'IN'),
+    (5, 'Sophie', 'Mueller', '1987-09-12', 'DE'),
+    (6, 'Kenji', 'Tanaka', '1991-05-18', 'JP'),
+    (7, 'Maria', 'Silva', '1989-12-03', 'BR'),
+    (8, 'Ahmed', 'Hassan', '1986-08-25', 'EG'),
+    (9, 'Olga', 'Petrov', '1993-04-07', 'RU'),
+    (10, 'James', 'O''Connor', '1984-10-14', 'IE');
+    
 -- Check all inserted records
 SELECT * FROM employee;
 
