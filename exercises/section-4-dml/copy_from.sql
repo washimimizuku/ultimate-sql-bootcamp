@@ -21,36 +21,78 @@ USE demo_schema;
 -- Example 1: CREATE TABLE AS SELECT from file
 -- This automatically creates table structure based on CSV file
 -- DuckDB infers column names from header and data types from content
-CREATE TABLE movie AS SELECT * FROM 'exercises/section-4-dml/imdb_movies.csv';
+CREATE TABLE starship AS SELECT * FROM 'data/star-wars/starships.csv';
 
 -- Examine the automatically created table structure
-DESCRIBE movie;
+DESCRIBE starship;
 
 -- Show sample data loaded from CSV
-SELECT * FROM movie LIMIT 5;
+SELECT * FROM starship LIMIT 5;
 
 -- Example 2: COPY FROM into existing table
 -- First, clear the existing data
-TRUNCATE movie;
+TRUNCATE starship;
 
 -- Verify table is empty
-SELECT COUNT(*) as row_count FROM movie;
+SELECT COUNT(*) as row_count FROM starship;
 
 -- Use COPY FROM to reload data into existing table structure
 -- This is useful when you want to control the table schema first
-COPY movie FROM 'exercises/section-4-dml/imdb_movies.csv' (FORMAT CSV, HEADER, DELIMITER ',');
+COPY starship FROM 'data/star-wars/starships.csv' (FORMAT CSV, HEADER, DELIMITER ',');
 
 -- Verify data was loaded successfully
-SELECT COUNT(*) as total_movies FROM movie;
+SELECT COUNT(*) as total_starships FROM starship;
 
 -- Show sample of loaded data
-SELECT * FROM movie LIMIT 10;
+SELECT * FROM starship LIMIT 10;
 
 -- Example 3: Query file directly without creating table
 -- DuckDB allows querying files directly for exploration
 SELECT COUNT(*) as direct_count 
-FROM 'exercises/section-4-dml/imdb_movies.csv';
+FROM 'data/star-wars/starships.csv';
+
+-- Example 4: Loading Parquet files
+-- DuckDB natively supports Parquet format with automatic schema detection
+-- Parquet files are columnar and often more efficient than CSV
+CREATE TABLE passenger AS SELECT * FROM 'data/titanic/titanic.parquet';
+
+-- Examine the Parquet-based table structure
+DESCRIBE passenger;
+
+-- Show sample passenger data from Parquet file
+SELECT * FROM passenger LIMIT 5;
+
+-- Example 5: Loading multiple related CSV files
+-- Load Star Wars characters data
+CREATE TABLE character AS SELECT * FROM 'data/star-wars/characters.csv';
+SELECT * FROM character LIMIT 3;
+
+-- Load Star Wars planets data
+CREATE TABLE planet AS SELECT * FROM 'data/star-wars/planets.csv';
+SELECT * FROM planet LIMIT 3;
+
+-- Load Star Wars species data
+CREATE TABLE species AS SELECT * FROM 'data/star-wars/species.csv';
+SELECT * FROM species LIMIT 3;
+
+-- Load Star Wars vehicles data
+CREATE TABLE vehicle AS SELECT * FROM 'data/star-wars/vehicles.csv';
+SELECT * FROM vehicle LIMIT 3;
+
+-- Example 6: Query across multiple loaded tables
+-- Show total counts from all Star Wars datasets
+SELECT 
+    (SELECT COUNT(*) FROM character) as characters,
+    (SELECT COUNT(*) FROM planet) as planets,
+    (SELECT COUNT(*) FROM species) as species,
+    (SELECT COUNT(*) FROM starship) as starships,
+    (SELECT COUNT(*) FROM vehicle) as vehicles;
 
 -- Clean up - Remove all objects created in this demo
-DROP TABLE movie;
+DROP TABLE passenger;
+DROP TABLE starship;
+DROP TABLE character;
+DROP TABLE planet;
+DROP TABLE species;
+DROP TABLE vehicle;
 DROP SCHEMA demo_schema;
