@@ -1,4 +1,10 @@
+-- ============================================
 -- TPC-H Database Structure Exploration
+-- ============================================
+-- REQUIRED: This file uses the TPC-H database
+-- Setup: duckdb data/tpc-h.db < examples/tpc-h.sql
+-- Run with: duckdb data/tpc-h.db < exercises/section-6-dql-intermediate/tpch.sql
+-- ============================================
 -- This file demonstrates the structure of the TPC-H benchmark database
 
 -- Show all tables in the database
