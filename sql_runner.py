@@ -11,15 +11,21 @@ from typing import List, Optional
 
 
 class SQLRunner:
-    def __init__(self, db_path: str = "sample.db"):
+    def __init__(self, db_path: str = "data/sample.db"):
         """Initialize DuckDB connection"""
+        # Ensure data directory exists
+        data_dir = Path("data")
+        data_dir.mkdir(exist_ok=True)
+        
         # Validate database path to prevent path traversal
         try:
             db_path_obj = Path(db_path).resolve()
-            Path.cwd().resolve()
-            # Allow database files in current directory only
-            if db_path_obj.parent != Path.cwd().resolve():
-                raise ValueError(f"Database must be in current directory: {db_path}")
+            current_dir = Path.cwd().resolve()
+            data_dir_resolved = (current_dir / "data").resolve()
+            
+            # Allow database files in current directory or data subdirectory
+            if not (db_path_obj.parent == current_dir or db_path_obj.parent == data_dir_resolved):
+                raise ValueError(f"Database must be in current directory or data/ subdirectory: {db_path}")
             self.db_path = str(db_path_obj)
         except Exception as e:
             print(f"❌ Invalid database path: {e}")
@@ -165,7 +171,7 @@ class SQLRunner:
         except Exception as e:
             print(f"❌ Error reading file: {e}")
     
-    def setup_database(self, setup_file: str = "setup.sql") -> None:
+    def setup_database(self, setup_file: str = "examples/setup.sql") -> None:
         """Run the setup.sql file to initialize the database"""
         print("🔧 Setting up database...")
         # Validate the setup file path before execution
@@ -174,6 +180,35 @@ class SQLRunner:
             print("❌ Database setup failed: Invalid setup file path")
             return
         self.execute_file(str(validated_path))
+    
+    def setup_starwars(self) -> None:
+        """Create the Star Wars database using swapi_database.sql"""
+        print("🌟 Creating Star Wars database...")
+        try:
+            # Ensure data directory exists
+            data_dir = Path("data")
+            data_dir.mkdir(exist_ok=True)
+            
+            # Create a separate connection for the Star Wars database
+            starwars_conn = duckdb.connect("data/starwars.db")
+            
+            # Temporarily switch to the Star Wars database
+            original_conn = self.conn
+            self.conn = starwars_conn
+            
+            # Execute the Star Wars database script
+            self.execute_file("examples/swapi_database.sql")
+            
+            # Close the Star Wars connection and restore original
+            starwars_conn.close()
+            self.conn = original_conn
+            
+            print("✅ Star Wars database created as data/starwars.db")
+            
+        except Exception as e:
+            print(f"❌ Error creating Star Wars database: {e}")
+            # Restore original connection if something went wrong
+            self.conn = original_conn if 'original_conn' in locals() else self.conn
     
     def list_tables(self) -> None:
         """List all tables in the database"""
@@ -314,6 +349,7 @@ class SQLRunner:
         """Show help message"""
         print("Commands:")
         print("  setup    - Run setup.sql")
+        print("  starwars - Create Star Wars database")
         print("  clean    - Drop all tables")
         print("  tables   - List all tables")
         print("  files    - List available SQL files")
@@ -360,6 +396,8 @@ class SQLRunner:
                     break
                 elif command == "setup":
                     self.setup_database()
+                elif command == "starwars":
+                    self.setup_starwars()
                 elif command == "clean":
                     self.clean_database()
                 elif command == "tables":
@@ -397,7 +435,7 @@ class SQLRunner:
 
 def main():
     parser = argparse.ArgumentParser(description="SQL Runner for DuckDB")
-    parser.add_argument("--db", default="sample.db", help="Database file path")
+    parser.add_argument("--db", default="data/sample.db", help="Database file path")
     parser.add_argument("--setup", action="store_true", help="Run setup.sql first")
     parser.add_argument("--file", help="SQL file to execute")
     parser.add_argument("--query", help="SQL query to execute")

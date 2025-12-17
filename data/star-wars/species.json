@@ -8,29 +8,26 @@
     "hair_colors": "blonde, brown, black, red",
     "eye_colors": "brown, blue, green, hazel, grey, amber",
     "average_lifespan": "120",
-    "homeworld": {
-      "id": 9,
-      "name": "Coruscant"
-    },
+    "homeworld": "https://swapi.info/api/planets/9",
     "language": "Galactic Basic",
     "people": [
-      {
-        "id": 66,
-        "name": "Dooku"
-      },
-      {
-        "id": 67,
-        "name": "Bail Prestor Organa"
-      },
-      {
-        "id": 68,
-        "name": "Jango Fett"
-      },
-      {
-        "id": 74,
-        "name": "R4-P17"
-      }
-    ]
+      "https://swapi.info/api/people/66",
+      "https://swapi.info/api/people/67",
+      "https://swapi.info/api/people/68",
+      "https://swapi.info/api/people/74"
+    ],
+    "films": [
+      "https://swapi.info/api/films/1",
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3",
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-10T13:52:11.567000Z",
+    "edited": "2014-12-20T21:36:42.136000Z",
+    "url": "https://swapi.info/api/species/1",
+    "id": 1
   },
   {
     "name": "Droid",
@@ -44,23 +41,23 @@
     "homeworld": null,
     "language": "n/a",
     "people": [
-      {
-        "id": 2,
-        "name": "C-3PO"
-      },
-      {
-        "id": 3,
-        "name": "R2-D2"
-      },
-      {
-        "id": 8,
-        "name": "R5-D4"
-      },
-      {
-        "id": 23,
-        "name": "Bossk"
-      }
-    ]
+      "https://swapi.info/api/people/2",
+      "https://swapi.info/api/people/3",
+      "https://swapi.info/api/people/8",
+      "https://swapi.info/api/people/23"
+    ],
+    "films": [
+      "https://swapi.info/api/films/1",
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3",
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-10T15:16:16.259000Z",
+    "edited": "2014-12-20T21:36:42.139000Z",
+    "url": "https://swapi.info/api/species/2",
+    "id": 2
   },
   {
     "name": "Wookie",
@@ -71,21 +68,22 @@
     "hair_colors": "black, brown",
     "eye_colors": "blue, green, yellow, brown, golden, red",
     "average_lifespan": "400",
-    "homeworld": {
-      "id": 14,
-      "name": "Kashyyyk"
-    },
+    "homeworld": "https://swapi.info/api/planets/14",
     "language": "Shyriiwook",
     "people": [
-      {
-        "id": 13,
-        "name": "Chewbacca"
-      },
-      {
-        "id": 80,
-        "name": "Raymus Antilles"
-      }
-    ]
+      "https://swapi.info/api/people/13",
+      "https://swapi.info/api/people/80"
+    ],
+    "films": [
+      "https://swapi.info/api/films/1",
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-10T16:44:31.486000Z",
+    "edited": "2014-12-20T21:36:42.142000Z",
+    "url": "https://swapi.info/api/species/3",
+    "id": 3
   },
   {
     "name": "Rodian",
@@ -96,17 +94,18 @@
     "hair_colors": "n/a",
     "eye_colors": "black",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 23,
-      "name": "Rodia"
-    },
+    "homeworld": "https://swapi.info/api/planets/23",
     "language": "Galatic Basic",
     "people": [
-      {
-        "id": 15,
-        "name": "Greedo"
-      }
-    ]
+      "https://swapi.info/api/people/15"
+    ],
+    "films": [
+      "https://swapi.info/api/films/1"
+    ],
+    "created": "2014-12-10T17:05:26.471000Z",
+    "edited": "2014-12-20T21:36:42.144000Z",
+    "url": "https://swapi.info/api/species/4",
+    "id": 4
   },
   {
     "name": "Hutt",
@@ -117,17 +116,19 @@
     "hair_colors": "n/a",
     "eye_colors": "yellow, red",
     "average_lifespan": "1000",
-    "homeworld": {
-      "id": 24,
-      "name": "Nal Hutta"
-    },
+    "homeworld": "https://swapi.info/api/planets/24",
     "language": "Huttese",
     "people": [
-      {
-        "id": 16,
-        "name": "Jabba Desilijic Tiure"
-      }
-    ]
+      "https://swapi.info/api/people/16"
+    ],
+    "films": [
+      "https://swapi.info/api/films/1",
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-10T17:12:50.410000Z",
+    "edited": "2014-12-20T21:36:42.146000Z",
+    "url": "https://swapi.info/api/species/5",
+    "id": 5
   },
   {
     "name": "Yoda's species",
@@ -138,17 +139,22 @@
     "hair_colors": "brown, white",
     "eye_colors": "brown, green, yellow",
     "average_lifespan": "900",
-    "homeworld": {
-      "id": 28,
-      "name": "unknown"
-    },
+    "homeworld": "https://swapi.info/api/planets/28",
     "language": "Galactic basic",
     "people": [
-      {
-        "id": 20,
-        "name": "Palpatine"
-      }
-    ]
+      "https://swapi.info/api/people/20"
+    ],
+    "films": [
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3",
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-15T12:27:22.877000Z",
+    "edited": "2014-12-20T21:36:42.148000Z",
+    "url": "https://swapi.info/api/species/6",
+    "id": 6
   },
   {
     "name": "Trandoshan",
@@ -159,17 +165,18 @@
     "hair_colors": "none",
     "eye_colors": "yellow, orange",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 29,
-      "name": "Trandosha"
-    },
+    "homeworld": "https://swapi.info/api/planets/29",
     "language": "Dosh",
     "people": [
-      {
-        "id": 24,
-        "name": "Lando Calrissian"
-      }
-    ]
+      "https://swapi.info/api/people/24"
+    ],
+    "films": [
+      "https://swapi.info/api/films/2"
+    ],
+    "created": "2014-12-15T13:07:47.704000Z",
+    "edited": "2014-12-20T21:36:42.151000Z",
+    "url": "https://swapi.info/api/species/7",
+    "id": 7
   },
   {
     "name": "Mon Calamari",
@@ -180,17 +187,18 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 31,
-      "name": "Mon Cala"
-    },
+    "homeworld": "https://swapi.info/api/planets/31",
     "language": "Mon Calamarian",
     "people": [
-      {
-        "id": 27,
-        "name": "Mon Mothma"
-      }
-    ]
+      "https://swapi.info/api/people/27"
+    ],
+    "films": [
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-18T11:09:52.263000Z",
+    "edited": "2014-12-20T21:36:42.153000Z",
+    "url": "https://swapi.info/api/species/8",
+    "id": 8
   },
   {
     "name": "Ewok",
@@ -201,17 +209,18 @@
     "hair_colors": "white, brown, black",
     "eye_colors": "orange, brown",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 7,
-      "name": "Endor"
-    },
+    "homeworld": "https://swapi.info/api/planets/7",
     "language": "Ewokese",
     "people": [
-      {
-        "id": 30,
-        "name": "Nien Nunb"
-      }
-    ]
+      "https://swapi.info/api/people/30"
+    ],
+    "films": [
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-18T11:22:00.285000Z",
+    "edited": "2014-12-20T21:36:42.155000Z",
+    "url": "https://swapi.info/api/species/9",
+    "id": 9
   },
   {
     "name": "Sullustan",
@@ -222,17 +231,18 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 33,
-      "name": "Sullust"
-    },
+    "homeworld": "https://swapi.info/api/planets/33",
     "language": "Sullutese",
     "people": [
-      {
-        "id": 31,
-        "name": "Qui-Gon Jinn"
-      }
-    ]
+      "https://swapi.info/api/people/31"
+    ],
+    "films": [
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-18T11:26:20.103000Z",
+    "edited": "2014-12-20T21:36:42.157000Z",
+    "url": "https://swapi.info/api/species/10",
+    "id": 10
   },
   {
     "name": "Neimodian",
@@ -243,17 +253,18 @@
     "hair_colors": "none",
     "eye_colors": "red, pink",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 18,
-      "name": "Cato Neimoidia"
-    },
+    "homeworld": "https://swapi.info/api/planets/18",
     "language": "Neimoidia",
     "people": [
-      {
-        "id": 33,
-        "name": "Finis Valorum"
-      }
-    ]
+      "https://swapi.info/api/people/33"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4"
+    ],
+    "created": "2014-12-19T17:07:31.319000Z",
+    "edited": "2014-12-20T21:36:42.160000Z",
+    "url": "https://swapi.info/api/species/11",
+    "id": 11
   },
   {
     "name": "Gungan",
@@ -264,25 +275,21 @@
     "hair_colors": "none",
     "eye_colors": "orange",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 8,
-      "name": "Naboo"
-    },
+    "homeworld": "https://swapi.info/api/planets/8",
     "language": "Gungan basic",
     "people": [
-      {
-        "id": 36,
-        "name": "Roos Tarpals"
-      },
-      {
-        "id": 37,
-        "name": "Rugor Nass"
-      },
-      {
-        "id": 38,
-        "name": "Ric Oli\u00e9"
-      }
-    ]
+      "https://swapi.info/api/people/36",
+      "https://swapi.info/api/people/37",
+      "https://swapi.info/api/people/38"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-19T17:30:37.341000Z",
+    "edited": "2014-12-20T21:36:42.163000Z",
+    "url": "https://swapi.info/api/species/12",
+    "id": 12
   },
   {
     "name": "Toydarian",
@@ -293,17 +300,19 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "91",
-    "homeworld": {
-      "id": 34,
-      "name": "Toydaria"
-    },
+    "homeworld": "https://swapi.info/api/planets/34",
     "language": "Toydarian",
     "people": [
-      {
-        "id": 40,
-        "name": "Sebulba"
-      }
-    ]
+      "https://swapi.info/api/people/40"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-19T17:48:56.893000Z",
+    "edited": "2014-12-20T21:36:42.165000Z",
+    "url": "https://swapi.info/api/species/13",
+    "id": 13
   },
   {
     "name": "Dug",
@@ -314,17 +323,18 @@
     "hair_colors": "none",
     "eye_colors": "yellow, blue",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 35,
-      "name": "Malastare"
-    },
+    "homeworld": "https://swapi.info/api/planets/35",
     "language": "Dugese",
     "people": [
-      {
-        "id": 41,
-        "name": "Quarsh Panaka"
-      }
-    ]
+      "https://swapi.info/api/people/41"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4"
+    ],
+    "created": "2014-12-19T17:53:11.214000Z",
+    "edited": "2014-12-20T21:36:42.167000Z",
+    "url": "https://swapi.info/api/species/14",
+    "id": 14
   },
   {
     "name": "Twi'lek",
@@ -335,21 +345,22 @@
     "hair_colors": "none",
     "eye_colors": "blue, brown, orange, pink",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 37,
-      "name": "Ryloth"
-    },
+    "homeworld": "https://swapi.info/api/planets/37",
     "language": "Twi'leki",
     "people": [
-      {
-        "id": 45,
-        "name": "Ayla Secura"
-      },
-      {
-        "id": 46,
-        "name": "Ratts Tyerel"
-      }
-    ]
+      "https://swapi.info/api/people/45",
+      "https://swapi.info/api/people/46"
+    ],
+    "films": [
+      "https://swapi.info/api/films/3",
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T09:48:02.406000Z",
+    "edited": "2014-12-20T21:36:42.169000Z",
+    "url": "https://swapi.info/api/species/15",
+    "id": 15
   },
   {
     "name": "Aleena",
@@ -360,17 +371,18 @@
     "hair_colors": "none",
     "eye_colors": "unknown",
     "average_lifespan": "79",
-    "homeworld": {
-      "id": 38,
-      "name": "Aleen Minor"
-    },
+    "homeworld": "https://swapi.info/api/planets/38",
     "language": "Aleena",
     "people": [
-      {
-        "id": 47,
-        "name": "Dud Bolt"
-      }
-    ]
+      "https://swapi.info/api/people/47"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4"
+    ],
+    "created": "2014-12-20T09:53:16.481000Z",
+    "edited": "2014-12-20T21:36:42.171000Z",
+    "url": "https://swapi.info/api/species/16",
+    "id": 16
   },
   {
     "name": "Vulptereen",
@@ -381,17 +393,18 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 39,
-      "name": "Vulpter"
-    },
+    "homeworld": "https://swapi.info/api/planets/39",
     "language": "vulpterish",
     "people": [
-      {
-        "id": 48,
-        "name": "Gasgano"
-      }
-    ]
+      "https://swapi.info/api/people/48"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4"
+    ],
+    "created": "2014-12-20T09:57:33.128000Z",
+    "edited": "2014-12-20T21:36:42.173000Z",
+    "url": "https://swapi.info/api/species/17",
+    "id": 17
   },
   {
     "name": "Xexto",
@@ -402,17 +415,18 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 40,
-      "name": "Troiken"
-    },
+    "homeworld": "https://swapi.info/api/planets/40",
     "language": "Xextese",
     "people": [
-      {
-        "id": 49,
-        "name": "Ben Quadinaros"
-      }
-    ]
+      "https://swapi.info/api/people/49"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4"
+    ],
+    "created": "2014-12-20T10:02:13.915000Z",
+    "edited": "2014-12-20T21:36:42.175000Z",
+    "url": "https://swapi.info/api/species/18",
+    "id": 18
   },
   {
     "name": "Toong",
@@ -423,17 +437,19 @@
     "hair_colors": "none",
     "eye_colors": "orange",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 41,
-      "name": "Tund"
-    },
+    "homeworld": "https://swapi.info/api/planets/41",
     "language": "Tundan",
     "people": [
-      {
-        "id": 50,
-        "name": "Mace Windu"
-      }
-    ]
+      "https://swapi.info/api/people/50"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T10:08:36.795000Z",
+    "edited": "2014-12-20T21:36:42.177000Z",
+    "url": "https://swapi.info/api/species/19",
+    "id": 19
   },
   {
     "name": "Cerean",
@@ -444,17 +460,19 @@
     "hair_colors": "red, blond, black, white",
     "eye_colors": "hazel",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 43,
-      "name": "Cerea"
-    },
+    "homeworld": "https://swapi.info/api/planets/43",
     "language": "Cerean",
     "people": [
-      {
-        "id": 52,
-        "name": "Kit Fisto"
-      }
-    ]
+      "https://swapi.info/api/people/52"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T10:15:33.765000Z",
+    "edited": "2014-12-20T21:36:42.179000Z",
+    "url": "https://swapi.info/api/species/20",
+    "id": 20
   },
   {
     "name": "Nautolan",
@@ -465,17 +483,18 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "70",
-    "homeworld": {
-      "id": 44,
-      "name": "Glee Anselm"
-    },
+    "homeworld": "https://swapi.info/api/planets/44",
     "language": "Nautila",
     "people": [
-      {
-        "id": 53,
-        "name": "Eeth Koth"
-      }
-    ]
+      "https://swapi.info/api/people/53"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4"
+    ],
+    "created": "2014-12-20T10:18:58.610000Z",
+    "edited": "2014-12-20T21:36:42.181000Z",
+    "url": "https://swapi.info/api/species/21",
+    "id": 21
   },
   {
     "name": "Zabrak",
@@ -486,21 +505,19 @@
     "hair_colors": "black",
     "eye_colors": "brown, orange",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 45,
-      "name": "Iridonia"
-    },
+    "homeworld": "https://swapi.info/api/planets/45",
     "language": "Zabraki",
     "people": [
-      {
-        "id": 44,
-        "name": "Bib Fortuna"
-      },
-      {
-        "id": 54,
-        "name": "Adi Gallia"
-      }
-    ]
+      "https://swapi.info/api/people/44",
+      "https://swapi.info/api/people/54"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4"
+    ],
+    "created": "2014-12-20T10:26:59.894000Z",
+    "edited": "2014-12-20T21:36:42.183000Z",
+    "url": "https://swapi.info/api/species/22",
+    "id": 22
   },
   {
     "name": "Tholothian",
@@ -511,17 +528,19 @@
     "hair_colors": "unknown",
     "eye_colors": "blue, indigo",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 46,
-      "name": "Tholoth"
-    },
+    "homeworld": "https://swapi.info/api/planets/46",
     "language": "unknown",
     "people": [
-      {
-        "id": 55,
-        "name": "Saesee Tiin"
-      }
-    ]
+      "https://swapi.info/api/people/55"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T10:29:13.798000Z",
+    "edited": "2014-12-20T21:36:42.186000Z",
+    "url": "https://swapi.info/api/species/23",
+    "id": 23
   },
   {
     "name": "Iktotchi",
@@ -532,17 +551,19 @@
     "hair_colors": "none",
     "eye_colors": "orange",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 47,
-      "name": "Iktotch"
-    },
+    "homeworld": "https://swapi.info/api/planets/47",
     "language": "Iktotchese",
     "people": [
-      {
-        "id": 56,
-        "name": "Yarael Poof"
-      }
-    ]
+      "https://swapi.info/api/people/56"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T10:32:13.046000Z",
+    "edited": "2014-12-20T21:36:42.188000Z",
+    "url": "https://swapi.info/api/species/24",
+    "id": 24
   },
   {
     "name": "Quermian",
@@ -553,17 +574,19 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "86",
-    "homeworld": {
-      "id": 48,
-      "name": "Quermia"
-    },
+    "homeworld": "https://swapi.info/api/planets/48",
     "language": "Quermian",
     "people": [
-      {
-        "id": 57,
-        "name": "Plo Koon"
-      }
-    ]
+      "https://swapi.info/api/people/57"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T10:34:50.827000Z",
+    "edited": "2014-12-20T21:36:42.189000Z",
+    "url": "https://swapi.info/api/species/25",
+    "id": 25
   },
   {
     "name": "Kel Dor",
@@ -574,17 +597,19 @@
     "hair_colors": "none",
     "eye_colors": "black, silver",
     "average_lifespan": "70",
-    "homeworld": {
-      "id": 49,
-      "name": "Dorin"
-    },
+    "homeworld": "https://swapi.info/api/planets/49",
     "language": "Kel Dor",
     "people": [
-      {
-        "id": 58,
-        "name": "Mas Amedda"
-      }
-    ]
+      "https://swapi.info/api/people/58"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T10:49:21.692000Z",
+    "edited": "2014-12-20T21:36:42.191000Z",
+    "url": "https://swapi.info/api/species/26",
+    "id": 26
   },
   {
     "name": "Chagrian",
@@ -595,17 +620,19 @@
     "hair_colors": "none",
     "eye_colors": "blue",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 50,
-      "name": "Champala"
-    },
+    "homeworld": "https://swapi.info/api/planets/50",
     "language": "Chagria",
     "people": [
-      {
-        "id": 59,
-        "name": "Gregar Typho"
-      }
-    ]
+      "https://swapi.info/api/people/59"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T10:53:28.795000Z",
+    "edited": "2014-12-20T21:36:42.193000Z",
+    "url": "https://swapi.info/api/species/27",
+    "id": 27
   },
   {
     "name": "Geonosian",
@@ -616,17 +643,19 @@
     "hair_colors": "none",
     "eye_colors": "green, hazel",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 11,
-      "name": "Geonosis"
-    },
+    "homeworld": "https://swapi.info/api/planets/11",
     "language": "Geonosian",
     "people": [
-      {
-        "id": 63,
-        "name": "Luminara Unduli"
-      }
-    ]
+      "https://swapi.info/api/people/63"
+    ],
+    "films": [
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T16:40:45.618000Z",
+    "edited": "2014-12-20T21:36:42.195000Z",
+    "url": "https://swapi.info/api/species/28",
+    "id": 28
   },
   {
     "name": "Mirialan",
@@ -637,21 +666,20 @@
     "hair_colors": "black, brown",
     "eye_colors": "blue, green, red, yellow, brown, orange",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 51,
-      "name": "Mirial"
-    },
+    "homeworld": "https://swapi.info/api/planets/51",
     "language": "Mirialan",
     "people": [
-      {
-        "id": 64,
-        "name": "Barriss Offee"
-      },
-      {
-        "id": 65,
-        "name": "Dorm\u00e9"
-      }
-    ]
+      "https://swapi.info/api/people/64",
+      "https://swapi.info/api/people/65"
+    ],
+    "films": [
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T16:46:48.290000Z",
+    "edited": "2014-12-20T21:36:42.197000Z",
+    "url": "https://swapi.info/api/species/29",
+    "id": 29
   },
   {
     "name": "Clawdite",
@@ -662,17 +690,19 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "70",
-    "homeworld": {
-      "id": 54,
-      "name": "Zolan"
-    },
+    "homeworld": "https://swapi.info/api/planets/54",
     "language": "Clawdite",
     "people": [
-      {
-        "id": 70,
-        "name": "Dexter Jettster"
-      }
-    ]
+      "https://swapi.info/api/people/70"
+    ],
+    "films": [
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T16:57:46.171000Z",
+    "edited": "2014-12-20T21:36:42.199000Z",
+    "url": "https://swapi.info/api/species/30",
+    "id": 30
   },
   {
     "name": "Besalisk",
@@ -683,17 +713,18 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "75",
-    "homeworld": {
-      "id": 55,
-      "name": "Ojom"
-    },
+    "homeworld": "https://swapi.info/api/planets/55",
     "language": "besalisk",
     "people": [
-      {
-        "id": 71,
-        "name": "Lama Su"
-      }
-    ]
+      "https://swapi.info/api/people/71"
+    ],
+    "films": [
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-20T17:28:28.821000Z",
+    "edited": "2014-12-20T21:36:42.200000Z",
+    "url": "https://swapi.info/api/species/31",
+    "id": 31
   },
   {
     "name": "Kaminoan",
@@ -704,21 +735,19 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "80",
-    "homeworld": {
-      "id": 10,
-      "name": "Kamino"
-    },
+    "homeworld": "https://swapi.info/api/planets/10",
     "language": "Kaminoan",
     "people": [
-      {
-        "id": 72,
-        "name": "Taun We"
-      },
-      {
-        "id": 73,
-        "name": "Jocasta Nu"
-      }
-    ]
+      "https://swapi.info/api/people/72",
+      "https://swapi.info/api/people/73"
+    ],
+    "films": [
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-20T17:31:24.838000Z",
+    "edited": "2014-12-20T21:36:42.202000Z",
+    "url": "https://swapi.info/api/species/32",
+    "id": 32
   },
   {
     "name": "Skakoan",
@@ -729,17 +758,19 @@
     "hair_colors": "none",
     "eye_colors": "unknown",
     "average_lifespan": "unknown",
-    "homeworld": {
-      "id": 56,
-      "name": "Skako"
-    },
+    "homeworld": "https://swapi.info/api/planets/56",
     "language": "Skakoan",
     "people": [
-      {
-        "id": 76,
-        "name": "San Hill"
-      }
-    ]
+      "https://swapi.info/api/people/76"
+    ],
+    "films": [
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T17:53:54.515000Z",
+    "edited": "2014-12-20T21:36:42.204000Z",
+    "url": "https://swapi.info/api/species/33",
+    "id": 33
   },
   {
     "name": "Muun",
@@ -750,17 +781,19 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "100",
-    "homeworld": {
-      "id": 57,
-      "name": "Muunilinst"
-    },
+    "homeworld": "https://swapi.info/api/planets/57",
     "language": "Muun",
     "people": [
-      {
-        "id": 77,
-        "name": "Shaak Ti"
-      }
-    ]
+      "https://swapi.info/api/people/77"
+    ],
+    "films": [
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T17:58:19.088000Z",
+    "edited": "2014-12-20T21:36:42.207000Z",
+    "url": "https://swapi.info/api/species/34",
+    "id": 34
   },
   {
     "name": "Togruta",
@@ -771,17 +804,19 @@
     "hair_colors": "none",
     "eye_colors": "red, orange, yellow, green, blue, black",
     "average_lifespan": "94",
-    "homeworld": {
-      "id": 58,
-      "name": "Shili"
-    },
+    "homeworld": "https://swapi.info/api/planets/58",
     "language": "Togruti",
     "people": [
-      {
-        "id": 78,
-        "name": "Grievous"
-      }
-    ]
+      "https://swapi.info/api/people/78"
+    ],
+    "films": [
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T18:44:03.246000Z",
+    "edited": "2014-12-20T21:36:42.209000Z",
+    "url": "https://swapi.info/api/species/35",
+    "id": 35
   },
   {
     "name": "Kaleesh",
@@ -792,17 +827,18 @@
     "hair_colors": "none",
     "eye_colors": "yellow",
     "average_lifespan": "80",
-    "homeworld": {
-      "id": 59,
-      "name": "Kalee"
-    },
+    "homeworld": "https://swapi.info/api/planets/59",
     "language": "Kaleesh",
     "people": [
-      {
-        "id": 79,
-        "name": "Tarfful"
-      }
-    ]
+      "https://swapi.info/api/people/79"
+    ],
+    "films": [
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T19:45:42.537000Z",
+    "edited": "2014-12-20T21:36:42.210000Z",
+    "url": "https://swapi.info/api/species/36",
+    "id": 36
   },
   {
     "name": "Pau'an",
@@ -813,13 +849,17 @@
     "hair_colors": "none",
     "eye_colors": "black",
     "average_lifespan": "700",
-    "homeworld": {
-      "id": 12,
-      "name": "Utapau"
-    },
+    "homeworld": "https://swapi.info/api/planets/12",
     "language": "Utapese",
     "people": [
       "https://swapi.info/api/people/83"
-    ]
+    ],
+    "films": [
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T20:35:06.777000Z",
+    "edited": "2014-12-20T21:36:42.212000Z",
+    "url": "https://swapi.info/api/species/37",
+    "id": 37
   }
 ]
