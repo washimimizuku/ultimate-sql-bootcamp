@@ -1,0 +1,1622 @@
+[
+  {
+    "title": "A New Hope",
+    "episode_id": 4,
+    "opening_crawl": "It is a period of civil war.\r\nRebel spaceships, striking\r\nfrom a hidden base, have won\r\ntheir first victory against\r\nthe evil Galactic Empire.\r\n\r\nDuring the battle, Rebel\r\nspies managed to steal secret\r\nplans to the Empire's\r\nultimate weapon, the DEATH\r\nSTAR, an armored space\r\nstation with enough power\r\nto destroy an entire planet.\r\n\r\nPursued by the Empire's\r\nsinister agents, Princess\r\nLeia races home aboard her\r\nstarship, custodian of the\r\nstolen plans that can save her\r\npeople and restore\r\nfreedom to the galaxy....",
+    "director": "George Lucas",
+    "producer": "Gary Kurtz, Rick McCallum",
+    "release_date": "1977-05-25",
+    "characters": [
+      {
+        "id": 1,
+        "name": "Luke Skywalker"
+      },
+      {
+        "id": 2,
+        "name": "C-3PO"
+      },
+      {
+        "id": 3,
+        "name": "R2-D2"
+      },
+      {
+        "id": 4,
+        "name": "Darth Vader"
+      },
+      {
+        "id": 5,
+        "name": "Leia Organa"
+      },
+      {
+        "id": 6,
+        "name": "Owen Lars"
+      },
+      {
+        "id": 7,
+        "name": "Beru Whitesun lars"
+      },
+      {
+        "id": 8,
+        "name": "R5-D4"
+      },
+      {
+        "id": 9,
+        "name": "Biggs Darklighter"
+      },
+      {
+        "id": 10,
+        "name": "Obi-Wan Kenobi"
+      },
+      {
+        "id": 12,
+        "name": "Wilhuff Tarkin"
+      },
+      {
+        "id": 13,
+        "name": "Chewbacca"
+      },
+      {
+        "id": 14,
+        "name": "Han Solo"
+      },
+      {
+        "id": 15,
+        "name": "Greedo"
+      },
+      {
+        "id": 16,
+        "name": "Jabba Desilijic Tiure"
+      },
+      {
+        "id": 18,
+        "name": "Jek Tono Porkins"
+      },
+      {
+        "id": 19,
+        "name": "Yoda"
+      },
+      {
+        "id": 81,
+        "name": "Sly Moore"
+      }
+    ],
+    "planets": [
+      {
+        "id": 1,
+        "name": "Tatooine"
+      },
+      {
+        "id": 2,
+        "name": "Alderaan"
+      },
+      {
+        "id": 3,
+        "name": "Yavin IV"
+      }
+    ],
+    "starships": [
+      {
+        "id": 2,
+        "name": "Star Destroyer"
+      },
+      {
+        "id": 3,
+        "name": "Sentinel-class landing craft"
+      },
+      {
+        "id": 5,
+        "name": "Millennium Falcon"
+      },
+      {
+        "id": 9,
+        "name": "Executor"
+      },
+      {
+        "id": 10,
+        "name": "Rebel transport"
+      },
+      {
+        "id": 11,
+        "name": "Slave 1"
+      },
+      {
+        "id": 12,
+        "name": "Imperial shuttle"
+      },
+      {
+        "id": 13,
+        "name": "EF76 Nebulon-B escort frigate"
+      }
+    ],
+    "vehicles": [
+      {
+        "id": 4,
+        "name": "TIE/LN starfighter"
+      },
+      {
+        "id": 6,
+        "name": "TIE bomber"
+      },
+      {
+        "id": 7,
+        "name": "AT-AT"
+      },
+      {
+        "id": 8,
+        "name": "AT-ST"
+      }
+    ],
+    "species": [
+      {
+        "id": 1,
+        "name": "Human"
+      },
+      {
+        "id": 2,
+        "name": "Droid"
+      },
+      {
+        "id": 3,
+        "name": "Wookie"
+      },
+      {
+        "id": 4,
+        "name": "Rodian"
+      },
+      {
+        "id": 5,
+        "name": "Hutt"
+      }
+    ],
+    "created": "2014-12-10T14:23:31.880000Z",
+    "edited": "2014-12-20T19:49:45.256000Z",
+    "url": "https://swapi.info/api/films/1",
+    "id": 1
+  },
+  {
+    "title": "The Empire Strikes Back",
+    "episode_id": 5,
+    "opening_crawl": "It is a dark time for the\r\nRebellion. Although the Death\r\nStar has been destroyed,\r\nImperial troops have driven the\r\nRebel forces from their hidden\r\nbase and pursued them across\r\nthe galaxy.\r\n\r\nEvading the dreaded Imperial\r\nStarfleet, a group of freedom\r\nfighters led by Luke Skywalker\r\nhas established a new secret\r\nbase on the remote ice world\r\nof Hoth.\r\n\r\nThe evil lord Darth Vader,\r\nobsessed with finding young\r\nSkywalker, has dispatched\r\nthousands of remote probes into\r\nthe far reaches of space....",
+    "director": "Irvin Kershner",
+    "producer": "Gary Kurtz, Rick McCallum",
+    "release_date": "1980-05-17",
+    "characters": [
+      {
+        "id": 1,
+        "name": "Luke Skywalker"
+      },
+      {
+        "id": 2,
+        "name": "C-3PO"
+      },
+      {
+        "id": 3,
+        "name": "R2-D2"
+      },
+      {
+        "id": 4,
+        "name": "Darth Vader"
+      },
+      {
+        "id": 5,
+        "name": "Leia Organa"
+      },
+      {
+        "id": 10,
+        "name": "Obi-Wan Kenobi"
+      },
+      {
+        "id": 13,
+        "name": "Chewbacca"
+      },
+      {
+        "id": 14,
+        "name": "Han Solo"
+      },
+      {
+        "id": 18,
+        "name": "Jek Tono Porkins"
+      },
+      {
+        "id": 20,
+        "name": "Palpatine"
+      },
+      {
+        "id": 21,
+        "name": "Boba Fett"
+      },
+      {
+        "id": 22,
+        "name": "IG-88"
+      },
+      {
+        "id": 23,
+        "name": "Bossk"
+      },
+      {
+        "id": 24,
+        "name": "Lando Calrissian"
+      },
+      {
+        "id": 25,
+        "name": "Lobot"
+      },
+      {
+        "id": 26,
+        "name": "Ackbar"
+      }
+    ],
+    "planets": [
+      {
+        "id": 4,
+        "name": "Hoth"
+      },
+      {
+        "id": 5,
+        "name": "Dagobah"
+      },
+      {
+        "id": 6,
+        "name": "Bespin"
+      },
+      {
+        "id": 27,
+        "name": "Ord Mantell"
+      }
+    ],
+    "starships": [
+      {
+        "id": 3,
+        "name": "Sentinel-class landing craft"
+      },
+      {
+        "id": 10,
+        "name": "Rebel transport"
+      },
+      {
+        "id": 11,
+        "name": "Slave 1"
+      },
+      {
+        "id": 12,
+        "name": "Imperial shuttle"
+      },
+      {
+        "id": 15,
+        "name": "A-wing"
+      },
+      {
+        "id": 17,
+        "name": "Republic Cruiser"
+      },
+      {
+        "id": 21,
+        "name": "Scimitar"
+      },
+      {
+        "id": 22,
+        "name": "J-type diplomatic barge"
+      },
+      {
+        "id": 23,
+        "name": "AA-9 Coruscant freighter"
+      }
+    ],
+    "vehicles": [
+      {
+        "id": 8,
+        "name": "AT-ST"
+      },
+      {
+        "id": 14,
+        "name": "Vulture Droid"
+      },
+      {
+        "id": 16,
+        "name": "Armored Assault Tank"
+      },
+      {
+        "id": 18,
+        "name": "C-9979 landing craft"
+      },
+      {
+        "id": 19,
+        "name": "Tribubble bongo"
+      },
+      {
+        "id": 20,
+        "name": "Sith speeder"
+      }
+    ],
+    "species": [
+      {
+        "id": 1,
+        "name": "Human"
+      },
+      {
+        "id": 2,
+        "name": "Droid"
+      },
+      {
+        "id": 3,
+        "name": "Wookie"
+      },
+      {
+        "id": 6,
+        "name": "Yoda's species"
+      },
+      {
+        "id": 7,
+        "name": "Trandoshan"
+      }
+    ],
+    "created": "2014-12-12T11:26:24.656000Z",
+    "edited": "2014-12-15T13:07:53.386000Z",
+    "url": "https://swapi.info/api/films/2",
+    "id": 2
+  },
+  {
+    "title": "Return of the Jedi",
+    "episode_id": 6,
+    "opening_crawl": "Luke Skywalker has returned to\r\nhis home planet of Tatooine in\r\nan attempt to rescue his\r\nfriend Han Solo from the\r\nclutches of the vile gangster\r\nJabba the Hutt.\r\n\r\nLittle does Luke know that the\r\nGALACTIC EMPIRE has secretly\r\nbegun construction on a new\r\narmored space station even\r\nmore powerful than the first\r\ndreaded Death Star.\r\n\r\nWhen completed, this ultimate\r\nweapon will spell certain doom\r\nfor the small band of rebels\r\nstruggling to restore freedom\r\nto the galaxy...",
+    "director": "Richard Marquand",
+    "producer": "Howard G. Kazanjian, George Lucas, Rick McCallum",
+    "release_date": "1983-05-25",
+    "characters": [
+      {
+        "id": 1,
+        "name": "Luke Skywalker"
+      },
+      {
+        "id": 2,
+        "name": "C-3PO"
+      },
+      {
+        "id": 3,
+        "name": "R2-D2"
+      },
+      {
+        "id": 4,
+        "name": "Darth Vader"
+      },
+      {
+        "id": 5,
+        "name": "Leia Organa"
+      },
+      {
+        "id": 10,
+        "name": "Obi-Wan Kenobi"
+      },
+      {
+        "id": 13,
+        "name": "Chewbacca"
+      },
+      {
+        "id": 14,
+        "name": "Han Solo"
+      },
+      {
+        "id": 16,
+        "name": "Jabba Desilijic Tiure"
+      },
+      {
+        "id": 18,
+        "name": "Jek Tono Porkins"
+      },
+      {
+        "id": 20,
+        "name": "Palpatine"
+      },
+      {
+        "id": 21,
+        "name": "Boba Fett"
+      },
+      {
+        "id": 22,
+        "name": "IG-88"
+      },
+      {
+        "id": 25,
+        "name": "Lobot"
+      },
+      {
+        "id": 27,
+        "name": "Mon Mothma"
+      },
+      {
+        "id": 28,
+        "name": "Arvel Crynyd"
+      },
+      {
+        "id": 29,
+        "name": "Wicket Systri Warrick"
+      },
+      {
+        "id": 30,
+        "name": "Nien Nunb"
+      },
+      {
+        "id": 31,
+        "name": "Qui-Gon Jinn"
+      },
+      {
+        "id": 45,
+        "name": "Ayla Secura"
+      }
+    ],
+    "planets": [
+      {
+        "id": 1,
+        "name": "Tatooine"
+      },
+      {
+        "id": 5,
+        "name": "Dagobah"
+      },
+      {
+        "id": 7,
+        "name": "Endor"
+      },
+      {
+        "id": 8,
+        "name": "Naboo"
+      },
+      {
+        "id": 9,
+        "name": "Coruscant"
+      }
+    ],
+    "starships": [
+      {
+        "id": 2,
+        "name": "Star Destroyer"
+      },
+      {
+        "id": 3,
+        "name": "Sentinel-class landing craft"
+      },
+      {
+        "id": 10,
+        "name": "Rebel transport"
+      },
+      {
+        "id": 11,
+        "name": "Slave 1"
+      },
+      {
+        "id": 12,
+        "name": "Imperial shuttle"
+      },
+      {
+        "id": 15,
+        "name": "A-wing"
+      },
+      {
+        "id": 17,
+        "name": "Republic Cruiser"
+      },
+      {
+        "id": 22,
+        "name": "J-type diplomatic barge"
+      },
+      {
+        "id": 23,
+        "name": "AA-9 Coruscant freighter"
+      },
+      {
+        "id": 27,
+        "name": "Solar Sailer"
+      },
+      {
+        "id": 28,
+        "name": "Trade Federation cruiser"
+      },
+      {
+        "id": 29,
+        "name": "Theta-class T-2c shuttle"
+      }
+    ],
+    "vehicles": [
+      {
+        "id": 8,
+        "name": "AT-ST"
+      },
+      {
+        "id": 16,
+        "name": "Armored Assault Tank"
+      },
+      {
+        "id": 18,
+        "name": "C-9979 landing craft"
+      },
+      {
+        "id": 19,
+        "name": "Tribubble bongo"
+      },
+      {
+        "id": 24,
+        "name": "LAAT/i"
+      },
+      {
+        "id": 25,
+        "name": "LAAT/c"
+      },
+      {
+        "id": 26,
+        "name": "AT-TE"
+      },
+      {
+        "id": 30,
+        "name": "Geonosian starfighter"
+      }
+    ],
+    "species": [
+      {
+        "id": 1,
+        "name": "Human"
+      },
+      {
+        "id": 2,
+        "name": "Droid"
+      },
+      {
+        "id": 3,
+        "name": "Wookie"
+      },
+      {
+        "id": 5,
+        "name": "Hutt"
+      },
+      {
+        "id": 6,
+        "name": "Yoda's species"
+      },
+      {
+        "id": 8,
+        "name": "Mon Calamari"
+      },
+      {
+        "id": 9,
+        "name": "Ewok"
+      },
+      {
+        "id": 10,
+        "name": "Sullustan"
+      },
+      {
+        "id": 15,
+        "name": "Twi'lek"
+      }
+    ],
+    "created": "2014-12-18T10:39:33.255000Z",
+    "edited": "2014-12-20T09:48:37.462000Z",
+    "url": "https://swapi.info/api/films/3",
+    "id": 3
+  },
+  {
+    "title": "The Phantom Menace",
+    "episode_id": 1,
+    "opening_crawl": "Turmoil has engulfed the\r\nGalactic Republic. The taxation\r\nof trade routes to outlying star\r\nsystems is in dispute.\r\n\r\nHoping to resolve the matter\r\nwith a blockade of deadly\r\nbattleships, the greedy Trade\r\nFederation has stopped all\r\nshipping to the small planet\r\nof Naboo.\r\n\r\nWhile the Congress of the\r\nRepublic endlessly debates\r\nthis alarming chain of events,\r\nthe Supreme Chancellor has\r\nsecretly dispatched two Jedi\r\nKnights, the guardians of\r\npeace and justice in the\r\ngalaxy, to settle the conflict....",
+    "director": "George Lucas",
+    "producer": "Rick McCallum",
+    "release_date": "1999-05-19",
+    "characters": [
+      {
+        "id": 2,
+        "name": "C-3PO"
+      },
+      {
+        "id": 3,
+        "name": "R2-D2"
+      },
+      {
+        "id": 10,
+        "name": "Obi-Wan Kenobi"
+      },
+      {
+        "id": 11,
+        "name": "Anakin Skywalker"
+      },
+      {
+        "id": 16,
+        "name": "Jabba Desilijic Tiure"
+      },
+      {
+        "id": 20,
+        "name": "Palpatine"
+      },
+      {
+        "id": 21,
+        "name": "Boba Fett"
+      },
+      {
+        "id": 32,
+        "name": "Nute Gunray"
+      },
+      {
+        "id": 33,
+        "name": "Finis Valorum"
+      },
+      {
+        "id": 34,
+        "name": "Padm\u00e9 Amidala"
+      },
+      {
+        "id": 35,
+        "name": "Jar Jar Binks"
+      },
+      {
+        "id": 36,
+        "name": "Roos Tarpals"
+      },
+      {
+        "id": 37,
+        "name": "Rugor Nass"
+      },
+      {
+        "id": 38,
+        "name": "Ric Oli\u00e9"
+      },
+      {
+        "id": 39,
+        "name": "Watto"
+      },
+      {
+        "id": 40,
+        "name": "Sebulba"
+      },
+      {
+        "id": 41,
+        "name": "Quarsh Panaka"
+      },
+      {
+        "id": 42,
+        "name": "Shmi Skywalker"
+      },
+      {
+        "id": 43,
+        "name": "Darth Maul"
+      },
+      {
+        "id": 44,
+        "name": "Bib Fortuna"
+      },
+      {
+        "id": 46,
+        "name": "Ratts Tyerel"
+      },
+      {
+        "id": 47,
+        "name": "Dud Bolt"
+      },
+      {
+        "id": 48,
+        "name": "Gasgano"
+      },
+      {
+        "id": 49,
+        "name": "Ben Quadinaros"
+      },
+      {
+        "id": 50,
+        "name": "Mace Windu"
+      },
+      {
+        "id": 51,
+        "name": "Ki-Adi-Mundi"
+      },
+      {
+        "id": 52,
+        "name": "Kit Fisto"
+      },
+      {
+        "id": 53,
+        "name": "Eeth Koth"
+      },
+      {
+        "id": 54,
+        "name": "Adi Gallia"
+      },
+      {
+        "id": 55,
+        "name": "Saesee Tiin"
+      },
+      {
+        "id": 56,
+        "name": "Yarael Poof"
+      },
+      {
+        "id": 57,
+        "name": "Plo Koon"
+      },
+      {
+        "id": 58,
+        "name": "Mas Amedda"
+      },
+      {
+        "id": 59,
+        "name": "Gregar Typho"
+      }
+    ],
+    "planets": [
+      {
+        "id": 1,
+        "name": "Tatooine"
+      },
+      {
+        "id": 8,
+        "name": "Naboo"
+      },
+      {
+        "id": 9,
+        "name": "Coruscant"
+      }
+    ],
+    "starships": [
+      {
+        "id": 31,
+        "name": "Naboo star skiff"
+      },
+      {
+        "id": 32,
+        "name": "Jedi Interceptor"
+      },
+      {
+        "id": 39,
+        "name": "Unknown starships 39"
+      },
+      {
+        "id": 40,
+        "name": "Unknown starships 40"
+      },
+      {
+        "id": 41,
+        "name": "Unknown starships 41"
+      }
+    ],
+    "vehicles": [
+      {
+        "id": 33,
+        "name": "Droid tri-fighter"
+      },
+      {
+        "id": 34,
+        "name": "Oevvaor jet catamaran"
+      },
+      {
+        "id": 35,
+        "name": "Raddaugh Gnasp fluttercraft"
+      },
+      {
+        "id": 36,
+        "name": "Clone turbo tank"
+      },
+      {
+        "id": 37,
+        "name": "Corporate Alliance tank droid"
+      },
+      {
+        "id": 38,
+        "name": "Droid gunship"
+      },
+      {
+        "id": 42,
+        "name": "Unknown vehicles 42"
+      }
+    ],
+    "species": [
+      {
+        "id": 1,
+        "name": "Human"
+      },
+      {
+        "id": 2,
+        "name": "Droid"
+      },
+      {
+        "id": 6,
+        "name": "Yoda's species"
+      },
+      {
+        "id": 11,
+        "name": "Neimodian"
+      },
+      {
+        "id": 12,
+        "name": "Gungan"
+      },
+      {
+        "id": 13,
+        "name": "Toydarian"
+      },
+      {
+        "id": 14,
+        "name": "Dug"
+      },
+      {
+        "id": 15,
+        "name": "Twi'lek"
+      },
+      {
+        "id": 16,
+        "name": "Aleena"
+      },
+      {
+        "id": 17,
+        "name": "Vulptereen"
+      },
+      {
+        "id": 18,
+        "name": "Xexto"
+      },
+      {
+        "id": 19,
+        "name": "Toong"
+      },
+      {
+        "id": 20,
+        "name": "Cerean"
+      },
+      {
+        "id": 21,
+        "name": "Nautolan"
+      },
+      {
+        "id": 22,
+        "name": "Zabrak"
+      },
+      {
+        "id": 23,
+        "name": "Tholothian"
+      },
+      {
+        "id": 24,
+        "name": "Iktotchi"
+      },
+      {
+        "id": 25,
+        "name": "Quermian"
+      },
+      {
+        "id": 26,
+        "name": "Kel Dor"
+      },
+      {
+        "id": 27,
+        "name": "Chagrian"
+      }
+    ],
+    "created": "2014-12-19T16:52:55.740000Z",
+    "edited": "2014-12-20T10:54:07.216000Z",
+    "url": "https://swapi.info/api/films/4",
+    "id": 4
+  },
+  {
+    "title": "Attack of the Clones",
+    "episode_id": 2,
+    "opening_crawl": "There is unrest in the Galactic\r\nSenate. Several thousand solar\r\nsystems have declared their\r\nintentions to leave the Republic.\r\n\r\nThis separatist movement,\r\nunder the leadership of the\r\nmysterious Count Dooku, has\r\nmade it difficult for the limited\r\nnumber of Jedi Knights to maintain \r\npeace and order in the galaxy.\r\n\r\nSenator Amidala, the former\r\nQueen of Naboo, is returning\r\nto the Galactic Senate to vote\r\non the critical issue of creating\r\nan ARMY OF THE REPUBLIC\r\nto assist the overwhelmed\r\nJedi....",
+    "director": "George Lucas",
+    "producer": "Rick McCallum",
+    "release_date": "2002-05-16",
+    "characters": [
+      {
+        "id": 2,
+        "name": "C-3PO"
+      },
+      {
+        "id": 3,
+        "name": "R2-D2"
+      },
+      {
+        "id": 6,
+        "name": "Owen Lars"
+      },
+      {
+        "id": 7,
+        "name": "Beru Whitesun lars"
+      },
+      {
+        "id": 10,
+        "name": "Obi-Wan Kenobi"
+      },
+      {
+        "id": 11,
+        "name": "Anakin Skywalker"
+      },
+      {
+        "id": 20,
+        "name": "Palpatine"
+      },
+      {
+        "id": 21,
+        "name": "Boba Fett"
+      },
+      {
+        "id": 22,
+        "name": "IG-88"
+      },
+      {
+        "id": 33,
+        "name": "Finis Valorum"
+      },
+      {
+        "id": 35,
+        "name": "Jar Jar Binks"
+      },
+      {
+        "id": 36,
+        "name": "Roos Tarpals"
+      },
+      {
+        "id": 40,
+        "name": "Sebulba"
+      },
+      {
+        "id": 43,
+        "name": "Darth Maul"
+      },
+      {
+        "id": 46,
+        "name": "Ratts Tyerel"
+      },
+      {
+        "id": 51,
+        "name": "Ki-Adi-Mundi"
+      },
+      {
+        "id": 52,
+        "name": "Kit Fisto"
+      },
+      {
+        "id": 53,
+        "name": "Eeth Koth"
+      },
+      {
+        "id": 58,
+        "name": "Mas Amedda"
+      },
+      {
+        "id": 59,
+        "name": "Gregar Typho"
+      },
+      {
+        "id": 60,
+        "name": "Cord\u00e9"
+      },
+      {
+        "id": 61,
+        "name": "Cliegg Lars"
+      },
+      {
+        "id": 62,
+        "name": "Poggle the Lesser"
+      },
+      {
+        "id": 63,
+        "name": "Luminara Unduli"
+      },
+      {
+        "id": 64,
+        "name": "Barriss Offee"
+      },
+      {
+        "id": 65,
+        "name": "Dorm\u00e9"
+      },
+      {
+        "id": 66,
+        "name": "Dooku"
+      },
+      {
+        "id": 67,
+        "name": "Bail Prestor Organa"
+      },
+      {
+        "id": 68,
+        "name": "Jango Fett"
+      },
+      {
+        "id": 69,
+        "name": "Zam Wesell"
+      },
+      {
+        "id": 70,
+        "name": "Dexter Jettster"
+      },
+      {
+        "id": 71,
+        "name": "Lama Su"
+      },
+      {
+        "id": 72,
+        "name": "Taun We"
+      },
+      {
+        "id": 73,
+        "name": "Jocasta Nu"
+      },
+      {
+        "id": 74,
+        "name": "R4-P17"
+      },
+      {
+        "id": 75,
+        "name": "Wat Tambor"
+      },
+      {
+        "id": 76,
+        "name": "San Hill"
+      },
+      {
+        "id": 77,
+        "name": "Shaak Ti"
+      },
+      {
+        "id": 78,
+        "name": "Grievous"
+      },
+      {
+        "id": 82,
+        "name": "Tion Medon"
+      }
+    ],
+    "planets": [
+      {
+        "id": 1,
+        "name": "Tatooine"
+      },
+      {
+        "id": 8,
+        "name": "Naboo"
+      },
+      {
+        "id": 9,
+        "name": "Coruscant"
+      },
+      {
+        "id": 10,
+        "name": "Kamino"
+      },
+      {
+        "id": 11,
+        "name": "Geonosis"
+      }
+    ],
+    "starships": [
+      {
+        "id": 21,
+        "name": "Scimitar"
+      },
+      {
+        "id": 32,
+        "name": "Jedi Interceptor"
+      },
+      {
+        "id": 39,
+        "name": "Unknown starships 39"
+      },
+      {
+        "id": 43,
+        "name": "Unknown starships 43"
+      },
+      {
+        "id": 47,
+        "name": "Unknown starships 47"
+      },
+      {
+        "id": 48,
+        "name": "Unknown starships 48"
+      },
+      {
+        "id": 49,
+        "name": "Unknown starships 49"
+      },
+      {
+        "id": 52,
+        "name": "Unknown starships 52"
+      },
+      {
+        "id": 58,
+        "name": "Unknown starships 58"
+      }
+    ],
+    "vehicles": [
+      {
+        "id": 4,
+        "name": "TIE/LN starfighter"
+      },
+      {
+        "id": 44,
+        "name": "Unknown vehicles 44"
+      },
+      {
+        "id": 45,
+        "name": "Unknown vehicles 45"
+      },
+      {
+        "id": 46,
+        "name": "Unknown vehicles 46"
+      },
+      {
+        "id": 50,
+        "name": "Unknown vehicles 50"
+      },
+      {
+        "id": 51,
+        "name": "Unknown vehicles 51"
+      },
+      {
+        "id": 53,
+        "name": "Unknown vehicles 53"
+      },
+      {
+        "id": 54,
+        "name": "Unknown vehicles 54"
+      },
+      {
+        "id": 55,
+        "name": "Unknown vehicles 55"
+      },
+      {
+        "id": 56,
+        "name": "Unknown vehicles 56"
+      },
+      {
+        "id": 57,
+        "name": "Unknown vehicles 57"
+      }
+    ],
+    "species": [
+      {
+        "id": 1,
+        "name": "Human"
+      },
+      {
+        "id": 2,
+        "name": "Droid"
+      },
+      {
+        "id": 6,
+        "name": "Yoda's species"
+      },
+      {
+        "id": 12,
+        "name": "Gungan"
+      },
+      {
+        "id": 13,
+        "name": "Toydarian"
+      },
+      {
+        "id": 15,
+        "name": "Twi'lek"
+      },
+      {
+        "id": 28,
+        "name": "Geonosian"
+      },
+      {
+        "id": 29,
+        "name": "Mirialan"
+      },
+      {
+        "id": 30,
+        "name": "Clawdite"
+      },
+      {
+        "id": 31,
+        "name": "Besalisk"
+      },
+      {
+        "id": 32,
+        "name": "Kaminoan"
+      },
+      {
+        "id": 33,
+        "name": "Skakoan"
+      },
+      {
+        "id": 34,
+        "name": "Muun"
+      },
+      {
+        "id": 35,
+        "name": "Togruta"
+      }
+    ],
+    "created": "2014-12-20T10:57:57.886000Z",
+    "edited": "2014-12-20T20:18:48.516000Z",
+    "url": "https://swapi.info/api/films/5",
+    "id": 5
+  },
+  {
+    "title": "Revenge of the Sith",
+    "episode_id": 3,
+    "opening_crawl": "War! The Republic is crumbling\r\nunder attacks by the ruthless\r\nSith Lord, Count Dooku.\r\nThere are heroes on both sides.\r\nEvil is everywhere.\r\n\r\nIn a stunning move, the\r\nfiendish droid leader, General\r\nGrievous, has swept into the\r\nRepublic capital and kidnapped\r\nChancellor Palpatine, leader of\r\nthe Galactic Senate.\r\n\r\nAs the Separatist Droid Army\r\nattempts to flee the besieged\r\ncapital with their valuable\r\nhostage, two Jedi Knights lead a\r\ndesperate mission to rescue the\r\ncaptive Chancellor....",
+    "director": "George Lucas",
+    "producer": "Rick McCallum",
+    "release_date": "2005-05-19",
+    "characters": [
+      {
+        "id": 1,
+        "name": "Luke Skywalker"
+      },
+      {
+        "id": 2,
+        "name": "C-3PO"
+      },
+      {
+        "id": 3,
+        "name": "R2-D2"
+      },
+      {
+        "id": 4,
+        "name": "Darth Vader"
+      },
+      {
+        "id": 5,
+        "name": "Leia Organa"
+      },
+      {
+        "id": 6,
+        "name": "Owen Lars"
+      },
+      {
+        "id": 7,
+        "name": "Beru Whitesun lars"
+      },
+      {
+        "id": 10,
+        "name": "Obi-Wan Kenobi"
+      },
+      {
+        "id": 11,
+        "name": "Anakin Skywalker"
+      },
+      {
+        "id": 12,
+        "name": "Wilhuff Tarkin"
+      },
+      {
+        "id": 13,
+        "name": "Chewbacca"
+      },
+      {
+        "id": 20,
+        "name": "Palpatine"
+      },
+      {
+        "id": 21,
+        "name": "Boba Fett"
+      },
+      {
+        "id": 33,
+        "name": "Finis Valorum"
+      },
+      {
+        "id": 35,
+        "name": "Jar Jar Binks"
+      },
+      {
+        "id": 46,
+        "name": "Ratts Tyerel"
+      },
+      {
+        "id": 51,
+        "name": "Ki-Adi-Mundi"
+      },
+      {
+        "id": 52,
+        "name": "Kit Fisto"
+      },
+      {
+        "id": 53,
+        "name": "Eeth Koth"
+      },
+      {
+        "id": 54,
+        "name": "Adi Gallia"
+      },
+      {
+        "id": 55,
+        "name": "Saesee Tiin"
+      },
+      {
+        "id": 56,
+        "name": "Yarael Poof"
+      },
+      {
+        "id": 58,
+        "name": "Mas Amedda"
+      },
+      {
+        "id": 63,
+        "name": "Luminara Unduli"
+      },
+      {
+        "id": 64,
+        "name": "Barriss Offee"
+      },
+      {
+        "id": 67,
+        "name": "Bail Prestor Organa"
+      },
+      {
+        "id": 68,
+        "name": "Jango Fett"
+      },
+      {
+        "id": 75,
+        "name": "Wat Tambor"
+      },
+      {
+        "id": 78,
+        "name": "Grievous"
+      },
+      {
+        "id": 79,
+        "name": "Tarfful"
+      },
+      {
+        "id": 80,
+        "name": "Raymus Antilles"
+      },
+      {
+        "id": 81,
+        "name": "Sly Moore"
+      },
+      {
+        "id": 82,
+        "name": "Tion Medon"
+      },
+      {
+        "id": 83,
+        "name": "Unknown people 83"
+      }
+    ],
+    "planets": [
+      {
+        "id": 1,
+        "name": "Tatooine"
+      },
+      {
+        "id": 2,
+        "name": "Alderaan"
+      },
+      {
+        "id": 5,
+        "name": "Dagobah"
+      },
+      {
+        "id": 8,
+        "name": "Naboo"
+      },
+      {
+        "id": 9,
+        "name": "Coruscant"
+      },
+      {
+        "id": 12,
+        "name": "Utapau"
+      },
+      {
+        "id": 13,
+        "name": "Mustafar"
+      },
+      {
+        "id": 14,
+        "name": "Kashyyyk"
+      },
+      {
+        "id": 15,
+        "name": "Polis Massa"
+      },
+      {
+        "id": 16,
+        "name": "Mygeeto"
+      },
+      {
+        "id": 17,
+        "name": "Felucia"
+      },
+      {
+        "id": 18,
+        "name": "Cato Neimoidia"
+      },
+      {
+        "id": 19,
+        "name": "Saleucami"
+      }
+    ],
+    "starships": [
+      {
+        "id": 2,
+        "name": "Star Destroyer"
+      },
+      {
+        "id": 32,
+        "name": "Jedi Interceptor"
+      },
+      {
+        "id": 48,
+        "name": "Unknown starships 48"
+      },
+      {
+        "id": 59,
+        "name": "Unknown starships 59"
+      },
+      {
+        "id": 61,
+        "name": "Unknown starships 61"
+      },
+      {
+        "id": 63,
+        "name": "Unknown starships 63"
+      },
+      {
+        "id": 64,
+        "name": "Unknown starships 64"
+      },
+      {
+        "id": 65,
+        "name": "Unknown starships 65"
+      },
+      {
+        "id": 66,
+        "name": "Unknown starships 66"
+      },
+      {
+        "id": 68,
+        "name": "Unknown starships 68"
+      },
+      {
+        "id": 74,
+        "name": "Unknown starships 74"
+      },
+      {
+        "id": 75,
+        "name": "Unknown starships 75"
+      }
+    ],
+    "vehicles": [
+      {
+        "id": 33,
+        "name": "Droid tri-fighter"
+      },
+      {
+        "id": 50,
+        "name": "Unknown vehicles 50"
+      },
+      {
+        "id": 53,
+        "name": "Unknown vehicles 53"
+      },
+      {
+        "id": 56,
+        "name": "Unknown vehicles 56"
+      },
+      {
+        "id": 60,
+        "name": "Unknown vehicles 60"
+      },
+      {
+        "id": 62,
+        "name": "Unknown vehicles 62"
+      },
+      {
+        "id": 67,
+        "name": "Unknown vehicles 67"
+      },
+      {
+        "id": 69,
+        "name": "Unknown vehicles 69"
+      },
+      {
+        "id": 70,
+        "name": "Unknown vehicles 70"
+      },
+      {
+        "id": 71,
+        "name": "Unknown vehicles 71"
+      },
+      {
+        "id": 72,
+        "name": "Unknown vehicles 72"
+      },
+      {
+        "id": 73,
+        "name": "Unknown vehicles 73"
+      },
+      {
+        "id": 76,
+        "name": "Unknown vehicles 76"
+      }
+    ],
+    "species": [
+      {
+        "id": 1,
+        "name": "Human"
+      },
+      {
+        "id": 2,
+        "name": "Droid"
+      },
+      {
+        "id": 3,
+        "name": "Wookie"
+      },
+      {
+        "id": 6,
+        "name": "Yoda's species"
+      },
+      {
+        "id": 15,
+        "name": "Twi'lek"
+      },
+      {
+        "id": 19,
+        "name": "Toong"
+      },
+      {
+        "id": 20,
+        "name": "Cerean"
+      },
+      {
+        "id": 23,
+        "name": "Tholothian"
+      },
+      {
+        "id": 24,
+        "name": "Iktotchi"
+      },
+      {
+        "id": 25,
+        "name": "Quermian"
+      },
+      {
+        "id": 26,
+        "name": "Kel Dor"
+      },
+      {
+        "id": 27,
+        "name": "Chagrian"
+      },
+      {
+        "id": 28,
+        "name": "Geonosian"
+      },
+      {
+        "id": 29,
+        "name": "Mirialan"
+      },
+      {
+        "id": 30,
+        "name": "Clawdite"
+      },
+      {
+        "id": 33,
+        "name": "Skakoan"
+      },
+      {
+        "id": 34,
+        "name": "Muun"
+      },
+      {
+        "id": 35,
+        "name": "Togruta"
+      },
+      {
+        "id": 36,
+        "name": "Kaleesh"
+      },
+      {
+        "id": 37,
+        "name": "Pau'an"
+      }
+    ],
+    "created": "2014-12-20T18:49:38.403000Z",
+    "edited": "2014-12-20T20:47:52.073000Z",
+    "url": "https://swapi.info/api/films/6",
+    "id": 6
+  }
+]

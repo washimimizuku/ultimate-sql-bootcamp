@@ -35,10 +35,12 @@ def resolve_references(data, all_data):
                 for url in value:
                     ref_id = extract_id_from_url(url)
                     url_type = url.split('/')[-2]  # Extract type from URL (people, planets, etc.)
+                    # Map people URLs to characters data
+                    data_key = 'characters' if url_type == 'people' else url_type
                     
-                    if url_type in all_data and ref_id:
+                    if data_key in all_data and ref_id:
                         # Find the referenced item by ID
-                        ref_item = find_item_by_id(ref_id, all_data[url_type])
+                        ref_item = find_item_by_id(ref_id, all_data[data_key])
                         if ref_item:
                             resolved_refs.append({
                                 'id': ref_id,
@@ -57,13 +59,15 @@ def resolve_references(data, all_data):
                     resolved[key] = value
                     logging.warning(f"Kept original URLs in {key} (no successful resolutions)")
                     
-            elif isinstance(value, str) and value.startswith('https://swapi'):
-                # Single URL reference
+            elif isinstance(value, str) and value.startswith('https://swapi') and key != 'url':
+                # Single URL reference (skip 'url' field)
                 ref_id = extract_id_from_url(value)
                 url_type = value.split('/')[-2]
+                # Map people URLs to characters data
+                data_key = 'characters' if url_type == 'people' else url_type
                 
-                if url_type in all_data and ref_id:
-                    ref_item = find_item_by_id(ref_id, all_data[url_type])
+                if data_key in all_data and ref_id:
+                    ref_item = find_item_by_id(ref_id, all_data[data_key])
                     if ref_item:
                         resolved[key] = {
                             'id': ref_id,
@@ -85,8 +89,8 @@ def resolve_references(data, all_data):
         return data
 
 def main():
-    data_dir = "../data/star-wars"
-    categories = ['films', 'people', 'planets', 'species', 'vehicles', 'starships']
+    data_dir = "data/star-wars"
+    categories = ['films', 'characters', 'planets', 'species', 'vehicles', 'starships']
     
     # Load all existing JSON files
     logging.info("Loading existing JSON files...")
@@ -112,8 +116,8 @@ def main():
             logging.info(f"Processing {category}...")
             resolved_data = resolve_references(all_data[category], all_data)
             
-            # Save resolved data
-            filepath = os.path.join(data_dir, f"{category}.json")
+            # Save resolved data to enriched file
+            filepath = os.path.join(data_dir, f"{category}_enriched.json")
             try:
                 with open(filepath, 'w') as f:
                     json.dump(resolved_data, f, indent=2)

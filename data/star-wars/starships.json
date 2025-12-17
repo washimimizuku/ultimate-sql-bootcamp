@@ -15,19 +15,14 @@
     "starship_class": "corvette",
     "pilots": [],
     "films": [
-      {
-        "id": 1,
-        "name": "A New Hope"
-      },
-      {
-        "id": 3,
-        "name": "Return of the Jedi"
-      },
-      {
-        "id": 6,
-        "name": "Revenge of the Sith"
-      }
-    ]
+      "https://swapi.info/api/films/1",
+      "https://swapi.info/api/films/3",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-10T14:20:33.369000Z",
+    "edited": "2014-12-20T21:23:49.867000Z",
+    "url": "https://swapi.info/api/starships/2",
+    "id": 2
   },
   {
     "name": "Star Destroyer",
@@ -45,19 +40,14 @@
     "starship_class": "Star Destroyer",
     "pilots": [],
     "films": [
-      {
-        "id": 1,
-        "name": "A New Hope"
-      },
-      {
-        "id": 2,
-        "name": "The Empire Strikes Back"
-      },
-      {
-        "id": 3,
-        "name": "Return of the Jedi"
-      }
-    ]
+      "https://swapi.info/api/films/1",
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-10T15:08:19.848000Z",
+    "edited": "2014-12-20T21:23:49.870000Z",
+    "url": "https://swapi.info/api/starships/3",
+    "id": 3
   },
   {
     "name": "Sentinel-class landing craft",
@@ -75,11 +65,12 @@
     "starship_class": "landing craft",
     "pilots": [],
     "films": [
-      {
-        "id": 1,
-        "name": "A New Hope"
-      }
-    ]
+      "https://swapi.info/api/films/1"
+    ],
+    "created": "2014-12-10T15:48:00.586000Z",
+    "edited": "2014-12-20T21:23:49.873000Z",
+    "url": "https://swapi.info/api/starships/5",
+    "id": 5
   },
   {
     "name": "Death Star",
@@ -97,11 +88,12 @@
     "starship_class": "Deep Space Mobile Battlestation",
     "pilots": [],
     "films": [
-      {
-        "id": 1,
-        "name": "A New Hope"
-      }
-    ]
+      "https://swapi.info/api/films/1"
+    ],
+    "created": "2014-12-10T16:36:50.509000Z",
+    "edited": "2014-12-20T21:26:24.783000Z",
+    "url": "https://swapi.info/api/starships/9",
+    "id": 9
   },
   {
     "name": "Millennium Falcon",
@@ -118,23 +110,20 @@
     "MGLT": "75",
     "starship_class": "Light freighter",
     "pilots": [
-      {
-        "id": 13,
-        "name": "Chewbacca"
-      },
-      {
-        "id": 14,
-        "name": "Han Solo"
-      },
-      {
-        "id": 25,
-        "name": "Lobot"
-      },
-      {
-        "id": 31,
-        "name": "Qui-Gon Jinn"
-      }
-    ]
+      "https://swapi.info/api/people/13",
+      "https://swapi.info/api/people/14",
+      "https://swapi.info/api/people/25",
+      "https://swapi.info/api/people/31"
+    ],
+    "films": [
+      "https://swapi.info/api/films/1",
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-10T16:59:45.094000Z",
+    "edited": "2014-12-20T21:23:49.880000Z",
+    "url": "https://swapi.info/api/starships/10",
+    "id": 10
   },
   {
     "name": "Y-wing",
@@ -152,19 +141,14 @@
     "starship_class": "assault starfighter",
     "pilots": [],
     "films": [
-      {
-        "id": 1,
-        "name": "A New Hope"
-      },
-      {
-        "id": 2,
-        "name": "The Empire Strikes Back"
-      },
-      {
-        "id": 3,
-        "name": "Return of the Jedi"
-      }
-    ]
+      "https://swapi.info/api/films/1",
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-12T11:00:39.817000Z",
+    "edited": "2014-12-20T21:23:49.883000Z",
+    "url": "https://swapi.info/api/starships/11",
+    "id": 11
   },
   {
     "name": "X-wing",
@@ -181,23 +165,20 @@
     "MGLT": "100",
     "starship_class": "Starfighter",
     "pilots": [
-      {
-        "id": 1,
-        "name": "Luke Skywalker"
-      },
-      {
-        "id": 9,
-        "name": "Biggs Darklighter"
-      },
-      {
-        "id": 18,
-        "name": "Jek Tono Porkins"
-      },
-      {
-        "id": 19,
-        "name": "Yoda"
-      }
-    ]
+      "https://swapi.info/api/people/1",
+      "https://swapi.info/api/people/9",
+      "https://swapi.info/api/people/18",
+      "https://swapi.info/api/people/19"
+    ],
+    "films": [
+      "https://swapi.info/api/films/1",
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-12T11:19:05.340000Z",
+    "edited": "2014-12-20T21:23:49.886000Z",
+    "url": "https://swapi.info/api/starships/12",
+    "id": 12
   },
   {
     "name": "TIE Advanced x1",
@@ -214,11 +195,15 @@
     "MGLT": "105",
     "starship_class": "Starfighter",
     "pilots": [
-      {
-        "id": 4,
-        "name": "Darth Vader"
-      }
-    ]
+      "https://swapi.info/api/people/4"
+    ],
+    "films": [
+      "https://swapi.info/api/films/1"
+    ],
+    "created": "2014-12-12T11:21:32.991000Z",
+    "edited": "2014-12-20T21:23:49.889000Z",
+    "url": "https://swapi.info/api/starships/13",
+    "id": 13
   },
   {
     "name": "Executor",
@@ -236,15 +221,13 @@
     "starship_class": "Star dreadnought",
     "pilots": [],
     "films": [
-      {
-        "id": 2,
-        "name": "The Empire Strikes Back"
-      },
-      {
-        "id": 3,
-        "name": "Return of the Jedi"
-      }
-    ]
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-15T12:31:42.547000Z",
+    "edited": "2014-12-20T21:23:49.893000Z",
+    "url": "https://swapi.info/api/starships/15",
+    "id": 15
   },
   {
     "name": "Rebel transport",
@@ -262,15 +245,13 @@
     "starship_class": "Medium transport",
     "pilots": [],
     "films": [
-      {
-        "id": 2,
-        "name": "The Empire Strikes Back"
-      },
-      {
-        "id": 3,
-        "name": "Return of the Jedi"
-      }
-    ]
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-15T12:34:52.264000Z",
+    "edited": "2014-12-20T21:23:49.895000Z",
+    "url": "https://swapi.info/api/starships/17",
+    "id": 17
   },
   {
     "name": "Slave 1",
@@ -287,11 +268,16 @@
     "MGLT": "70",
     "starship_class": "Patrol craft",
     "pilots": [
-      {
-        "id": 22,
-        "name": "IG-88"
-      }
-    ]
+      "https://swapi.info/api/people/22"
+    ],
+    "films": [
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-15T13:00:56.332000Z",
+    "edited": "2014-12-20T21:23:49.897000Z",
+    "url": "https://swapi.info/api/starships/21",
+    "id": 21
   },
   {
     "name": "Imperial shuttle",
@@ -308,19 +294,18 @@
     "MGLT": "50",
     "starship_class": "Armed government transport",
     "pilots": [
-      {
-        "id": 1,
-        "name": "Luke Skywalker"
-      },
-      {
-        "id": 13,
-        "name": "Chewbacca"
-      },
-      {
-        "id": 14,
-        "name": "Han Solo"
-      }
-    ]
+      "https://swapi.info/api/people/1",
+      "https://swapi.info/api/people/13",
+      "https://swapi.info/api/people/14"
+    ],
+    "films": [
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-15T13:04:47.235000Z",
+    "edited": "2014-12-20T21:23:49.900000Z",
+    "url": "https://swapi.info/api/starships/22",
+    "id": 22
   },
   {
     "name": "EF76 Nebulon-B escort frigate",
@@ -338,15 +323,13 @@
     "starship_class": "Escort ship",
     "pilots": [],
     "films": [
-      {
-        "id": 2,
-        "name": "The Empire Strikes Back"
-      },
-      {
-        "id": 3,
-        "name": "Return of the Jedi"
-      }
-    ]
+      "https://swapi.info/api/films/2",
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-15T13:06:30.813000Z",
+    "edited": "2014-12-20T21:23:49.902000Z",
+    "url": "https://swapi.info/api/starships/23",
+    "id": 23
   },
   {
     "name": "Calamari Cruiser",
@@ -364,11 +347,12 @@
     "starship_class": "Star Cruiser",
     "pilots": [],
     "films": [
-      {
-        "id": 3,
-        "name": "Return of the Jedi"
-      }
-    ]
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-18T10:54:57.804000Z",
+    "edited": "2014-12-20T21:23:49.904000Z",
+    "url": "https://swapi.info/api/starships/27",
+    "id": 27
   },
   {
     "name": "A-wing",
@@ -385,11 +369,15 @@
     "MGLT": "120",
     "starship_class": "Starfighter",
     "pilots": [
-      {
-        "id": 29,
-        "name": "Wicket Systri Warrick"
-      }
-    ]
+      "https://swapi.info/api/people/29"
+    ],
+    "films": [
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-18T11:16:34.542000Z",
+    "edited": "2014-12-20T21:23:49.907000Z",
+    "url": "https://swapi.info/api/starships/28",
+    "id": 28
   },
   {
     "name": "B-wing",
@@ -407,11 +395,12 @@
     "starship_class": "Assault Starfighter",
     "pilots": [],
     "films": [
-      {
-        "id": 3,
-        "name": "Return of the Jedi"
-      }
-    ]
+      "https://swapi.info/api/films/3"
+    ],
+    "created": "2014-12-18T11:18:04.763000Z",
+    "edited": "2014-12-20T21:23:49.909000Z",
+    "url": "https://swapi.info/api/starships/29",
+    "id": 29
   },
   {
     "name": "Republic Cruiser",
@@ -429,11 +418,12 @@
     "starship_class": "Space cruiser",
     "pilots": [],
     "films": [
-      {
-        "id": 4,
-        "name": "The Phantom Menace"
-      }
-    ]
+      "https://swapi.info/api/films/4"
+    ],
+    "created": "2014-12-19T17:01:31.488000Z",
+    "edited": "2014-12-20T21:23:49.912000Z",
+    "url": "https://swapi.info/api/starships/31",
+    "id": 31
   },
   {
     "name": "Droid control ship",
@@ -451,19 +441,14 @@
     "starship_class": "Droid control ship",
     "pilots": [],
     "films": [
-      {
-        "id": 4,
-        "name": "The Phantom Menace"
-      },
-      {
-        "id": 5,
-        "name": "Attack of the Clones"
-      },
-      {
-        "id": 6,
-        "name": "Revenge of the Sith"
-      }
-    ]
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-19T17:04:06.323000Z",
+    "edited": "2014-12-20T21:23:49.915000Z",
+    "url": "https://swapi.info/api/starships/32",
+    "id": 32
   },
   {
     "name": "Naboo fighter",
@@ -480,19 +465,18 @@
     "MGLT": "unknown",
     "starship_class": "Starfighter",
     "pilots": [
-      {
-        "id": 11,
-        "name": "Anakin Skywalker"
-      },
-      {
-        "id": 35,
-        "name": "Jar Jar Binks"
-      },
-      {
-        "id": 60,
-        "name": "Cord\u00e9"
-      }
-    ]
+      "https://swapi.info/api/people/11",
+      "https://swapi.info/api/people/35",
+      "https://swapi.info/api/people/60"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4",
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-19T17:39:17.582000Z",
+    "edited": "2014-12-20T21:23:49.917000Z",
+    "url": "https://swapi.info/api/starships/39",
+    "id": 39
   },
   {
     "name": "Naboo Royal Starship",
@@ -509,11 +493,15 @@
     "MGLT": "unknown",
     "starship_class": "yacht",
     "pilots": [
-      {
-        "id": 39,
-        "name": "Watto"
-      }
-    ]
+      "https://swapi.info/api/people/39"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4"
+    ],
+    "created": "2014-12-19T17:45:03.506000Z",
+    "edited": "2014-12-20T21:23:49.919000Z",
+    "url": "https://swapi.info/api/starships/40",
+    "id": 40
   },
   {
     "name": "Scimitar",
@@ -530,11 +518,15 @@
     "MGLT": "unknown",
     "starship_class": "Space Transport",
     "pilots": [
-      {
-        "id": 44,
-        "name": "Bib Fortuna"
-      }
-    ]
+      "https://swapi.info/api/people/44"
+    ],
+    "films": [
+      "https://swapi.info/api/films/4"
+    ],
+    "created": "2014-12-20T09:39:56.116000Z",
+    "edited": "2014-12-20T21:23:49.922000Z",
+    "url": "https://swapi.info/api/starships/41",
+    "id": 41
   },
   {
     "name": "J-type diplomatic barge",
@@ -552,11 +544,12 @@
     "starship_class": "Diplomatic barge",
     "pilots": [],
     "films": [
-      {
-        "id": 5,
-        "name": "Attack of the Clones"
-      }
-    ]
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-20T11:05:51.237000Z",
+    "edited": "2014-12-20T21:23:49.925000Z",
+    "url": "https://swapi.info/api/starships/43",
+    "id": 43
   },
   {
     "name": "AA-9 Coruscant freighter",
@@ -574,11 +567,12 @@
     "starship_class": "freighter",
     "pilots": [],
     "films": [
-      {
-        "id": 5,
-        "name": "Attack of the Clones"
-      }
-    ]
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-20T17:24:23.509000Z",
+    "edited": "2014-12-20T21:23:49.928000Z",
+    "url": "https://swapi.info/api/starships/47",
+    "id": 47
   },
   {
     "name": "Jedi starfighter",
@@ -595,15 +589,17 @@
     "MGLT": "unknown",
     "starship_class": "Starfighter",
     "pilots": [
-      {
-        "id": 10,
-        "name": "Obi-Wan Kenobi"
-      },
-      {
-        "id": 58,
-        "name": "Mas Amedda"
-      }
-    ]
+      "https://swapi.info/api/people/10",
+      "https://swapi.info/api/people/58"
+    ],
+    "films": [
+      "https://swapi.info/api/films/5",
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T17:35:23.906000Z",
+    "edited": "2014-12-20T21:23:49.930000Z",
+    "url": "https://swapi.info/api/starships/48",
+    "id": 48
   },
   {
     "name": "H-type Nubian yacht",
@@ -620,11 +616,15 @@
     "MGLT": "unknown",
     "starship_class": "yacht",
     "pilots": [
-      {
-        "id": 35,
-        "name": "Jar Jar Binks"
-      }
-    ]
+      "https://swapi.info/api/people/35"
+    ],
+    "films": [
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-20T17:46:46.847000Z",
+    "edited": "2014-12-20T21:23:49.932000Z",
+    "url": "https://swapi.info/api/starships/49",
+    "id": 49
   },
   {
     "name": "Republic Assault ship",
@@ -642,11 +642,12 @@
     "starship_class": "assault ship",
     "pilots": [],
     "films": [
-      {
-        "id": 5,
-        "name": "Attack of the Clones"
-      }
-    ]
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-20T18:08:42.926000Z",
+    "edited": "2014-12-20T21:23:49.935000Z",
+    "url": "https://swapi.info/api/starships/52",
+    "id": 52
   },
   {
     "name": "Solar Sailer",
@@ -664,11 +665,12 @@
     "starship_class": "yacht",
     "pilots": [],
     "films": [
-      {
-        "id": 5,
-        "name": "Attack of the Clones"
-      }
-    ]
+      "https://swapi.info/api/films/5"
+    ],
+    "created": "2014-12-20T18:37:56.969000Z",
+    "edited": "2014-12-20T21:23:49.937000Z",
+    "url": "https://swapi.info/api/starships/58",
+    "id": 58
   },
   {
     "name": "Trade Federation cruiser",
@@ -685,15 +687,16 @@
     "MGLT": "unknown",
     "starship_class": "capital ship",
     "pilots": [
-      {
-        "id": 10,
-        "name": "Obi-Wan Kenobi"
-      },
-      {
-        "id": 11,
-        "name": "Anakin Skywalker"
-      }
-    ]
+      "https://swapi.info/api/people/10",
+      "https://swapi.info/api/people/11"
+    ],
+    "films": [
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T19:40:21.902000Z",
+    "edited": "2014-12-20T21:23:49.941000Z",
+    "url": "https://swapi.info/api/starships/59",
+    "id": 59
   },
   {
     "name": "Theta-class T-2c shuttle",
@@ -711,11 +714,12 @@
     "starship_class": "transport",
     "pilots": [],
     "films": [
-      {
-        "id": 6,
-        "name": "Revenge of the Sith"
-      }
-    ]
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T19:48:40.409000Z",
+    "edited": "2014-12-20T21:23:49.944000Z",
+    "url": "https://swapi.info/api/starships/61",
+    "id": 61
   },
   {
     "name": "Republic attack cruiser",
@@ -733,11 +737,12 @@
     "starship_class": "star destroyer",
     "pilots": [],
     "films": [
-      {
-        "id": 6,
-        "name": "Revenge of the Sith"
-      }
-    ]
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T19:52:56.232000Z",
+    "edited": "2014-12-20T21:23:49.946000Z",
+    "url": "https://swapi.info/api/starships/63",
+    "id": 63
   },
   {
     "name": "Naboo star skiff",
@@ -754,15 +759,16 @@
     "MGLT": "unknown",
     "starship_class": "yacht",
     "pilots": [
-      {
-        "id": 10,
-        "name": "Obi-Wan Kenobi"
-      },
-      {
-        "id": 35,
-        "name": "Jar Jar Binks"
-      }
-    ]
+      "https://swapi.info/api/people/10",
+      "https://swapi.info/api/people/35"
+    ],
+    "films": [
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T19:55:15.396000Z",
+    "edited": "2014-12-20T21:23:49.948000Z",
+    "url": "https://swapi.info/api/starships/64",
+    "id": 64
   },
   {
     "name": "Jedi Interceptor",
@@ -779,15 +785,16 @@
     "MGLT": "unknown",
     "starship_class": "starfighter",
     "pilots": [
-      {
-        "id": 10,
-        "name": "Obi-Wan Kenobi"
-      },
-      {
-        "id": 11,
-        "name": "Anakin Skywalker"
-      }
-    ]
+      "https://swapi.info/api/people/10",
+      "https://swapi.info/api/people/11"
+    ],
+    "films": [
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T19:56:57.468000Z",
+    "edited": "2014-12-20T21:23:49.951000Z",
+    "url": "https://swapi.info/api/starships/65",
+    "id": 65
   },
   {
     "name": "arc-170",
@@ -805,11 +812,12 @@
     "starship_class": "starfighter",
     "pilots": [],
     "films": [
-      {
-        "id": 6,
-        "name": "Revenge of the Sith"
-      }
-    ]
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T20:03:48.603000Z",
+    "edited": "2014-12-20T21:23:49.953000Z",
+    "url": "https://swapi.info/api/starships/66",
+    "id": 66
   },
   {
     "name": "Banking clan frigte",
@@ -827,11 +835,12 @@
     "starship_class": "cruiser",
     "pilots": [],
     "films": [
-      {
-        "id": 6,
-        "name": "Revenge of the Sith"
-      }
-    ]
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T20:07:11.538000Z",
+    "edited": "2014-12-20T21:23:49.956000Z",
+    "url": "https://swapi.info/api/starships/68",
+    "id": 68
   },
   {
     "name": "Belbullab-22 starfighter",
@@ -848,15 +857,16 @@
     "MGLT": "unknown",
     "starship_class": "starfighter",
     "pilots": [
-      {
-        "id": 10,
-        "name": "Obi-Wan Kenobi"
-      },
-      {
-        "id": 79,
-        "name": "Tarfful"
-      }
-    ]
+      "https://swapi.info/api/people/10",
+      "https://swapi.info/api/people/79"
+    ],
+    "films": [
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T20:38:05.031000Z",
+    "edited": "2014-12-20T21:23:49.959000Z",
+    "url": "https://swapi.info/api/starships/74",
+    "id": 74
   },
   {
     "name": "V-wing",
@@ -874,10 +884,11 @@
     "starship_class": "starfighter",
     "pilots": [],
     "films": [
-      {
-        "id": 6,
-        "name": "Revenge of the Sith"
-      }
-    ]
+      "https://swapi.info/api/films/6"
+    ],
+    "created": "2014-12-20T20:43:04.349000Z",
+    "edited": "2014-12-20T21:23:49.961000Z",
+    "url": "https://swapi.info/api/starships/75",
+    "id": 75
   }
 ]
