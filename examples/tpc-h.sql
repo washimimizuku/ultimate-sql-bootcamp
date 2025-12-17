@@ -189,7 +189,7 @@ INSERT INTO lineitem VALUES
     (5, 1, 1, 1, 15.00, 17554.25, 0.02, 0.04, 'R', 'F', '1994-10-31', '1994-08-31', '1994-11-20', 'NONE', 'AIR', 'ts wake furiously'),
     (5, 2, 2, 2, 26.00, 23946.04, 0.07, 0.02, 'R', 'F', '1994-10-16', '1994-09-25', '1994-10-19', 'NONE', 'FOB', 'sts use slyly quickly special instruc'),
     (5, 3, 3, 3, 50.00, 64436.00, 0.08, 0.03, 'A', 'F', '1994-08-08', '1994-10-13', '1994-08-26', 'DELIVER IN PERSON', 'AIR', 'eodolites. fluffily unusual'),
-    (32, 1, 1, 1, 28.00, 28955.12, 0.05, 0.08, 'N', 'O', '1995-10-23', '1995-08-27', '1995-10-26', 'TAKE BACK RETURN', 'TRUCK', 'sleep quickly. req');
+    (6, 1, 1, 1, 28.00, 28955.12, 0.05, 0.08, 'N', 'O', '1995-10-23', '1995-08-27', '1995-10-26', 'TAKE BACK RETURN', 'TRUCK', 'sleep quickly. req');
 
 -- Display summary
 SELECT 'Database setup complete!' AS status;
