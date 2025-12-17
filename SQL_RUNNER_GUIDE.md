@@ -28,7 +28,7 @@ poetry run python demo.py
 
 When in interactive mode (`-i`), you can use:
 
-- `setup` - Initialize database with setup.sql
+- `setup` - Initialize database with tpc-h.sql
 - `tables` - List all tables
 - `files` - Show available SQL files
 - `run <file>` - Execute a SQL file
@@ -72,7 +72,7 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 
 ## Features
 
-✅ **Automatic Setup** - Runs setup.sql to initialize database  
+✅ **Automatic Setup** - Runs tpc-h.sql to initialize database  
 ✅ **Error Handling** - Shows clear error messages  
 ✅ **Result Display** - Formats SELECT query results nicely  
 ✅ **File Discovery** - Finds all SQL files in project  

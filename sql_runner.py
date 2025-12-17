@@ -171,8 +171,8 @@ class SQLRunner:
         except Exception as e:
             print(f"❌ Error reading file: {e}")
     
-    def setup_database(self, setup_file: str = "examples/setup.sql") -> None:
-        """Run the setup.sql file to initialize the database"""
+    def setup_database(self, setup_file: str = "examples/tpc-h.sql") -> None:
+        """Run the tpc-h.sql file to initialize the database"""
         print("🔧 Setting up database...")
         # Validate the setup file path before execution
         validated_path = self._validate_file_path(setup_file)
@@ -348,7 +348,7 @@ class SQLRunner:
     def _show_help(self) -> None:
         """Show help message"""
         print("Commands:")
-        print("  setup    - Run setup.sql")
+        print("  setup    - Run tpc-h.sql")
         print("  starwars - Create Star Wars database")
         print("  clean    - Drop all tables")
         print("  tables   - List all tables")
