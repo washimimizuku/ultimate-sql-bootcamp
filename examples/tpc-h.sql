@@ -136,6 +136,28 @@ INSERT INTO orders VALUES
     (33, 10, 'F', 163243.98, '1993-10-27', '3-MEDIUM', 'Clerk#000000409', 0, 'uriously. furiously final request'),
     (34, 6, 'O', 58949.67, '1998-07-21', '3-MEDIUM', 'Clerk#000000223', 0, 'ly final packages. fluffily final deposits wake blithely ideas. spe');
 
+-- PartSupp Table (Supplier-Part relationship)
+CREATE TABLE partsupp (
+    ps_partkey INTEGER,
+    ps_suppkey INTEGER,
+    ps_availqty INTEGER,
+    ps_supplycost DECIMAL(15,2),
+    ps_comment VARCHAR(199),
+    PRIMARY KEY (ps_partkey, ps_suppkey)
+);
+
+INSERT INTO partsupp VALUES
+    (1, 1, 3325, 771.64, 'final theodolites'),
+    (1, 2, 8076, 993.49, 'ven ideas. quickly even packages print. pending multipliers must have to are fluff'),
+    (2, 1, 3956, 337.09, 'after the fluffily ironic deposits? slyl'),
+    (2, 2, 8895, 378.49, 'nal accounts are quickly carefully final requests. furiously even requests are quickly. fluffily ironic deposits'),
+    (3, 1, 4651, 357.84, 'nal instructions wake carefully. blithely express accounts nag furiously. carefully regular instructions'),
+    (3, 2, 4093, 306.39, 'blithely regular requests are. furiously even deposits wake blithely bold sentiments. regular requests haggle'),
+    (4, 1, 8713, 86.99, 'requests. final accounts cajole carefully. even, express requests sleep'),
+    (4, 2, 2096, 88.58, 'ously regular deposits haggle blithely carefully even theodolites. final deposits haggle blithely'),
+    (5, 1, 1339, 50.52, 'carefully bold requests. ironic, bold asymptotes wake blithely regular requests. final, regular deposits'),
+    (5, 2, 7735, 50.52, 'carefully bold requests. ironic, bold asymptotes wake blithely regular requests. final, regular deposits');
+
 -- LineItem Table
 CREATE TABLE lineitem (
     l_orderkey INTEGER,
