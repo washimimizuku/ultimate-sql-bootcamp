@@ -11,7 +11,7 @@ from typing import List, Optional
 
 
 class SQLRunner:
-    def __init__(self, db_path: str = "data/sample.db"):
+    def __init__(self, db_path: str = "data/tpc-h.db"):
         """Initialize DuckDB connection"""
         # Ensure data directory exists
         data_dir = Path("data")
@@ -435,7 +435,7 @@ class SQLRunner:
 
 def main():
     parser = argparse.ArgumentParser(description="SQL Runner for DuckDB")
-    parser.add_argument("--db", default="data/sample.db", help="Database file path")
+    parser.add_argument("--db", default="data/tpc-h.db", help="Database file path")
     parser.add_argument("--setup", action="store_true", help="Run setup.sql first")
     parser.add_argument("--file", help="SQL file to execute")
     parser.add_argument("--query", help="SQL query to execute")

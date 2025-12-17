@@ -81,7 +81,7 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 
 ## Tips
 
-- The database file `sample.db` is created automatically
+- The database file `tpc-h.db` is created automatically
 - Use `--setup` flag to reinitialize the database
 - SQL files are executed statement by statement
 - SELECT results are limited to first 10 rows for readability
