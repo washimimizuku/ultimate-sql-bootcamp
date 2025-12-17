@@ -1,10 +1,133 @@
--- ============================================
--- SUBQUERIES EXERCISES - TPC-H Database
+-- SQL SUBQUERIES Examples - Advanced Data Query Language (DQL)
+-- This file demonstrates subquery usage for complex data retrieval in SELECT statements
+-- Subqueries are nested queries that can be used in WHERE, FROM, SELECT clauses
 -- ============================================
 -- REQUIRED: This file uses the TPC-H database
 -- Setup: duckdb data/tpc-h.db < examples/tpc-h.sql
 -- Run with: duckdb data/tpc-h.db < exercises/section-6-dql-intermediate/subqueries.sql
 -- ============================================
+
+-- SUBQUERY TYPES:
+-- - Scalar subquery: Returns single value (one row, one column)
+-- - Single-column subquery: Returns multiple rows, single column (used with IN, ANY, ALL)
+-- - Multi-column subquery: Returns multiple rows and columns (used in FROM clause)
+-- - Correlated subquery: References outer query columns
+-- - Uncorrelated subquery: Independent of outer query
+
+-- SUBQUERY OPERATORS:
+-- - Comparison: =, !=, <>, <, >, <=, >= (with scalar subqueries)
+-- - Set: IN, NOT IN (with single-column subqueries)
+-- - Quantified: ANY, ALL (with single-column subqueries)
+-- - Existence: EXISTS, NOT EXISTS (with any subquery)
+
+-- Example 1: Uncorrelated Scalar Subquery - Find orders above 95th percentile
+-- Returns orders with total price greater than the 95th percentile value
+SELECT o_orderkey, o_totalprice
+FROM orders
+WHERE o_totalprice > (
+    SELECT APPROX_QUANTILE(o_totalprice, 0.95)
+    FROM orders
+)
+ORDER BY o_totalprice DESC;
+
+-- Helper query: Show the 95th percentile value for reference
+SELECT APPROX_QUANTILE(o_totalprice, 0.95) as percentile_95
+FROM orders;
+
+-- Example 2: Uncorrelated Single Column / Multiple Row Subquery with IN
+-- Find customer details for the top 5 customers by order value
+SELECT c_custkey, c_name, c_nationkey
+FROM customer
+WHERE c_custkey IN (
+    SELECT o_custkey
+    FROM orders
+    ORDER BY o_totalprice DESC
+    LIMIT 5
+);
+
+-- Example 3: ALL Subquery Operator - Find customers equal to ALL values in subquery
+-- This will typically return no results unless subquery returns identical values
+SELECT c_custkey, c_name, c_nationkey
+FROM customer
+WHERE c_custkey = ALL (
+    SELECT c_custkey
+    FROM customer
+    LIMIT 5
+);
+
+-- Example 4: ANY Subquery Operator - Find customers equal to ANY value in subquery
+-- Returns customers whose key matches any of the first 5 customer keys
+SELECT c_custkey, c_name, c_nationkey
+FROM customer
+WHERE c_custkey = ANY (
+    SELECT c_custkey
+    FROM customer
+    LIMIT 5
+);
+
+-- Example 5: NOT EQUAL ALL - Find customers not in low-value order group
+-- Returns customers who are not among those with small orders
+SELECT c_custkey, c_name, c_nationkey
+FROM customer
+WHERE c_custkey <> ALL (
+    SELECT o_custkey
+    FROM orders
+    WHERE o_totalprice < 10000
+    ORDER BY o_totalprice DESC
+    LIMIT 5
+);
+
+-- Example 6: Subquery in FROM Clause (Derived Table)
+-- Create a derived table with limited customer data
+SELECT c_custkey, c_name, c_nationkey
+FROM (
+    SELECT c_custkey, c_name, c_nationkey
+    FROM customer 
+    LIMIT 10
+) limited_customers;
+
+-- Example 7: Correlated Subquery - Find orders below average for their order date
+-- Each order is compared to the average for orders on the same date
+SELECT o.o_orderkey, o.o_orderdate, o.o_totalprice
+FROM orders o
+WHERE o.o_totalprice <= (
+    SELECT AVG(o_totalprice) 
+    FROM orders 
+    WHERE o_orderdate = o.o_orderdate
+)
+ORDER BY o.o_orderdate, o.o_totalprice;
+
+-- Example 8: EXISTS Subquery Operator - Basic existence check
+-- This example always returns true (not practical, just for demonstration)
+SELECT COUNT(*) as total_orders
+FROM orders
+WHERE EXISTS (SELECT 1);
+
+-- Example 9: EXISTS with Correlation - Find customers who have placed orders
+-- Returns customers who have at least one order in the orders table
+SELECT c_custkey, c_name, c_nationkey
+FROM customer c
+WHERE EXISTS (
+    SELECT 1 
+    FROM orders o 
+    WHERE o.o_custkey = c.c_custkey
+);
+
+-- Example 10: EXISTS with Complex Correlation - Find parts that have been ordered
+-- Returns parts that appear in at least one line item
+SELECT p_name
+FROM part p
+WHERE EXISTS (
+    SELECT 1
+    FROM lineitem li
+    WHERE li.l_partkey = p.p_partkey
+);
+
+-- ============================================
+-- ADDITIONAL SUBQUERY EXAMPLES
+-- ============================================
+-- The following examples provide additional patterns and use cases
+-- for subqueries organized by clause type and complexity
 
 -- ============================================
 -- SUBQUERIES IN WHERE CLAUSE
