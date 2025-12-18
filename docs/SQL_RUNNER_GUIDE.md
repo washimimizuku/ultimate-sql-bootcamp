@@ -1,0 +1,136 @@
+# SQL Runner Guide
+
+## Overview
+Three Python scripts to help you work with SQL files and DuckDB:
+
+1. **`sql_runner.py`** - Full-featured SQL runner with interactive mode
+2. **`run_sql.py`** - Simple script to run a single SQL file
+3. **`demo.py`** - Demonstration of features
+
+## Quick Start
+
+### Run a single SQL file:
+```bash
+poetry run python run_sql.py exercises/section-3-ddl/create.sql
+```
+
+### Interactive mode:
+```bash
+poetry run python sql_runner.py -i
+```
+
+### Run demo:
+```bash
+poetry run python demo.py
+```
+
+## Interactive Commands
+
+When in interactive mode (`-i`), you can use:
+
+- `setup` - Initialize database with tpc-h.sql
+- `tables` - List all tables
+- `files` - Show available SQL files
+- `run <file>` - Execute a SQL file
+- `query <sql>` - Run a SQL query directly
+- `quit` - Exit
+
+## Command Line Options
+
+```bash
+# Setup database first
+poetry run python sql_runner.py --setup
+
+# Run specific file
+poetry run python sql_runner.py --file exercises/section-3-ddl/create.sql
+
+# Execute query directly
+poetry run python sql_runner.py --query "SELECT * FROM customer LIMIT 5"
+
+# Use different database
+poetry run python sql_runner.py --db my_database.db --setup
+```
+
+## Examples
+
+### Basic Usage:
+```bash
+# Setup and run interactively
+poetry run python sql_runner.py --setup -i
+```
+
+### Run Exercise Files:
+```bash
+# DDL exercises
+poetry run python run_sql.py "exercises/section-3-ddl/create.sql"
+poetry run python run_sql.py "exercises/section-3-ddl/alter.sql"
+
+# DQL exercises  
+poetry run python run_sql.py "exercises/section-5-dql/select-where.sql"
+poetry run python run_sql.py "exercises/section-5-dql/aggregate-functions.sql"
+
+# Advanced DQL exercises (requires TPC-H database)
+poetry run python run_sql.py "exercises/section-6-dql-intermediate/subqueries.sql"
+poetry run python run_sql.py "exercises/section-6-dql-intermediate/join.sql"
+```
+
+### Quick Queries:
+```bash
+poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c JOIN nation n ON c.c_nationkey = n.n_nationkey GROUP BY n_name"
+```
+
+## Features
+
+✅ **Automatic Setup** - Runs tpc-h.sql to initialize database  
+✅ **Error Handling** - Shows clear error messages  
+✅ **Result Display** - Formats SELECT query results nicely  
+✅ **File Discovery** - Finds all SQL files in project  
+✅ **Interactive Mode** - Command-line interface for exploration  
+✅ **Batch Execution** - Run multiple statements from files  
+
+## Available Exercise Sections
+
+### Section 2: Introduction
+- `exercises/section-2-introduction/sql-anatomy.sql`
+
+### Section 3: DDL (Data Definition Language)
+- `exercises/section-3-ddl/create.sql` - CREATE statements
+- `exercises/section-3-ddl/alter.sql` - ALTER statements  
+- `exercises/section-3-ddl/drop.sql` - DROP statements
+- `exercises/section-3-ddl/show.sql` - SHOW statements
+- `exercises/section-3-ddl/describe.sql` - DESCRIBE statements
+- `exercises/section-3-ddl/use.sql` - USE statements
+
+### Section 4: DML (Data Manipulation Language)
+- `exercises/section-4-dml/insert.sql` - INSERT operations
+- `exercises/section-4-dml/update.sql` - UPDATE operations
+- `exercises/section-4-dml/delete.sql` - DELETE operations
+- `exercises/section-4-dml/merge.sql` - MERGE operations
+- `exercises/section-4-dml/copy-from.sql` - COPY FROM operations
+- `exercises/section-4-dml/truncate.sql` - TRUNCATE operations
+
+### Section 5: DQL (Data Query Language)
+- `exercises/section-5-dql/select-from.sql` - Basic SELECT
+- `exercises/section-5-dql/select-where.sql` - WHERE clauses
+- `exercises/section-5-dql/select-order-by.sql` - ORDER BY sorting
+- `exercises/section-5-dql/select-group-by.sql` - GROUP BY aggregation
+- `exercises/section-5-dql/select-having.sql` - HAVING clauses
+- `exercises/section-5-dql/aggregate-functions.sql` - Aggregate functions
+- `exercises/section-5-dql/scalar-functions.sql` - Scalar functions
+
+### Section 6: Intermediate DQL
+- `exercises/section-6-dql-intermediate/join.sql` - INNER JOINs
+- `exercises/section-6-dql-intermediate/outer-join.sql` - OUTER JOINs
+- `exercises/section-6-dql-intermediate/subqueries.sql` - Subquery patterns
+- `exercises/section-6-dql-intermediate/set-operators.sql` - UNION, INTERSECT, EXCEPT
+- `exercises/section-6-dql-intermediate/tpch.sql` - TPC-H database exploration
+
+## Tips
+
+- **Database Files**: `data/tpc-h.db` (business data) and `data/starwars.db` (sample data)
+- **Setup**: Use `--setup` flag to reinitialize the TPC-H database
+- **Execution**: SQL files are executed statement by statement
+- **Results**: SELECT results are limited to first 10 rows for readability
+- **Comments**: Comments in SQL files are automatically skipped
+- **TPC-H Exercises**: Section 6 exercises require TPC-H database setup
+- **File Requirements**: Each exercise file includes setup instructions in comments
