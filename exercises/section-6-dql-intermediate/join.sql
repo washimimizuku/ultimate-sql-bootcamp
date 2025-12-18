@@ -15,11 +15,10 @@
 -- - CROSS JOIN: Returns Cartesian product of both tables
 
 -- JOIN SYNTAX:
--- SELECT columns FROM table1 JOIN table2 ON condition;           -- Basic JOIN (same as INNER)
--- SELECT columns FROM table1 INNER JOIN table2 ON condition;    -- Explicit INNER JOIN
--- SELECT columns FROM table1 LEFT JOIN table2 ON condition;     -- LEFT OUTER JOIN
--- SELECT columns FROM table1 RIGHT JOIN table2 ON condition;    -- RIGHT OUTER JOIN
--- SELECT columns FROM table1 FULL JOIN table2 ON condition;     -- FULL OUTER JOIN
+-- SELECT columns FROM table1 [INNER] JOIN table2 ON condition;           -- INNER JOIN (INNER is optional)
+-- SELECT columns FROM table1 LEFT [OUTER] JOIN table2 ON condition;      -- LEFT OUTER JOIN
+-- SELECT columns FROM table1 RIGHT [OUTER] JOIN table2 ON condition;     -- RIGHT OUTER JOIN
+-- SELECT columns FROM table1 FULL [OUTER] JOIN table2 ON condition;      -- FULL OUTER JOIN
 
 -- Example 1: Basic JOIN (One-to-Many Relationship)
 -- Join orders with customers - each customer can have multiple orders
