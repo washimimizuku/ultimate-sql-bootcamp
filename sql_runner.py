@@ -11,7 +11,7 @@ from typing import List, Optional
 
 
 class SQLRunner:
-    def __init__(self, db_path: str = "data/tpc-h.db"):
+    def __init__(self, db_path: str = "data/databases/tpc-h.db"):
         """Initialize DuckDB connection"""
         # Ensure data directory exists
         data_dir = Path("data")
@@ -23,8 +23,11 @@ class SQLRunner:
             current_dir = Path.cwd().resolve()
             data_dir_resolved = (current_dir / "data").resolve()
             
-            # Allow database files in current directory or data subdirectory
-            if not (db_path_obj.parent == current_dir or db_path_obj.parent == data_dir_resolved):
+            # Allow database files in current directory, data/ subdirectory, or data/databases/
+            databases_dir = data_dir_resolved / "databases"
+            if not (db_path_obj.parent == current_dir or 
+                    db_path_obj.parent == data_dir_resolved or
+                    db_path_obj.parent == databases_dir):
                 raise ValueError(f"Database must be in current directory or data/ subdirectory: {db_path}")
             self.db_path = str(db_path_obj)
         except Exception as e:
@@ -171,7 +174,7 @@ class SQLRunner:
         except Exception as e:
             print(f"❌ Error reading file: {e}")
     
-    def setup_database(self, setup_file: str = "examples/tpc-h.sql") -> None:
+    def setup_database(self, setup_file: str = "database/tpc-h.sql") -> None:
         """Run the tpc-h.sql file to initialize the database"""
         print("🔧 Setting up database...")
         # Validate the setup file path before execution
@@ -190,20 +193,20 @@ class SQLRunner:
             data_dir.mkdir(exist_ok=True)
             
             # Create a separate connection for the Star Wars database
-            starwars_conn = duckdb.connect("data/starwars.db")
+            starwars_conn = duckdb.connect("data/databases/starwars.db")
             
             # Temporarily switch to the Star Wars database
             original_conn = self.conn
             self.conn = starwars_conn
             
             # Execute the Star Wars database script
-            self.execute_file("examples/swapi_database.sql")
+            self.execute_file("database/starwars.sql")
             
             # Close the Star Wars connection and restore original
             starwars_conn.close()
             self.conn = original_conn
             
-            print("✅ Star Wars database created as data/starwars.db")
+            print("✅ Star Wars database created as data/databases/starwars.db")
             
         except Exception as e:
             print(f"❌ Error creating Star Wars database: {e}")
@@ -435,7 +438,7 @@ class SQLRunner:
 
 def main():
     parser = argparse.ArgumentParser(description="SQL Runner for DuckDB")
-    parser.add_argument("--db", default="data/tpc-h.db", help="Database file path")
+    parser.add_argument("--db", default="data/databases/tpc-h.db", help="Database file path")
     parser.add_argument("--setup", action="store_true", help="Run setup.sql first")
     parser.add_argument("--file", help="SQL file to execute")
     parser.add_argument("--query", help="SQL query to execute")

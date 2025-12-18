@@ -6,14 +6,15 @@ This document provides comprehensive information about all CSV, JSON, and Parque
 
 ```
 data/
-├── star-wars/          # Star Wars universe data in multiple formats
-│   ├── *.csv          # Simplified CSV format for basic exercises
-│   ├── *.json         # Raw JSON with API references
-│   └── *_enriched.json # JSON with resolved relationships
-├── titanic/           # Titanic passenger data
-│   └── titanic.parquet # Parquet format for advanced exercises
-├── starwars.db        # Star Wars SQLite database
-└── tpc-h.db          # TPC-H business database
+├── databases/         # Database files
+│   ├── tpc-h.db      # TPC-H business database
+│   └── starwars.db   # Star Wars SQLite database
+├── star-wars/        # Star Wars universe data organized by format
+│   ├── csv/          # Simplified CSV format for basic exercises
+│   ├── json/         # Raw JSON with API references
+│   └── enriched/     # JSON with resolved relationships
+└── titanic/          # Titanic passenger data
+    └── titanic.parquet # Parquet format for advanced exercises
 ```
 
 ## Star Wars Data Files (`data/star-wars/`)
@@ -44,8 +45,8 @@ species       VARCHAR   # Species name (e.g., "Human", "Droid")
 **Sample Usage**:
 ```sql
 -- Load and query characters
-SELECT * FROM 'data/star-wars/characters.csv';
-SELECT name, height FROM 'data/star-wars/characters.csv' WHERE species = 'Human';
+SELECT * FROM 'data/star-wars/csv/characters.csv';
+SELECT name, height FROM 'data/star-wars/csv/characters.csv' WHERE species = 'Human';
 ```
 
 #### `planets.csv`
@@ -264,26 +265,26 @@ GROUP BY age_group;
 ### CSV Files
 ```sql
 -- Direct query
-SELECT * FROM 'data/star-wars/characters.csv';
+SELECT * FROM 'data/star-wars/csv/characters.csv';
 
 -- Create table from CSV
-CREATE TABLE characters AS SELECT * FROM 'data/star-wars/characters.csv';
+CREATE TABLE characters AS SELECT * FROM 'data/star-wars/csv/characters.csv';
 
 -- Load into existing table
-COPY characters FROM 'data/star-wars/characters.csv' (HEADER);
+COPY characters FROM 'data/star-wars/csv/characters.csv' (HEADER);
 ```
 
 ### JSON Files
 ```sql
 -- Query JSON directly
-SELECT * FROM 'data/star-wars/characters.json';
+SELECT * FROM 'data/star-wars/json/characters.json';
 
 -- Extract specific fields
 SELECT 
   name,
   height::INTEGER as height_cm,
   mass::INTEGER as mass_kg
-FROM 'data/star-wars/characters.json'
+FROM 'data/star-wars/json/characters.json'
 WHERE height != 'unknown';
 
 -- Work with nested JSON (enriched files)
@@ -291,7 +292,7 @@ SELECT
   name,
   homeworld.name as planet_name,
   len(films) as film_count
-FROM 'data/star-wars/characters_enriched.json';
+FROM 'data/star-wars/enriched/characters_enriched.json';
 ```
 
 ### Parquet Files

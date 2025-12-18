@@ -39,7 +39,10 @@ for category in categories:
     api_endpoint = 'people' if category == 'characters' else category
     data = fetch_all_data(api_endpoint)
     
-    filepath = os.path.join(output_dir, f"{category}.json")
+    # Ensure json subdirectory exists
+    json_dir = os.path.join(output_dir, "json")
+    os.makedirs(json_dir, exist_ok=True)
+    filepath = os.path.join(json_dir, f"{category}.json")
     try:
         with open(filepath, 'w') as f:
             json.dump(data, f, indent=2)
