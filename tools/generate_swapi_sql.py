@@ -285,7 +285,7 @@ def generate_junction_table_data(all_data):
 def main():
     """Generate complete SQL script for SWAPI database"""
     data_dir = Path("data/star-wars")
-    output_file = Path("examples/swapi_database.sql")
+    output_file = Path("database/starwars.sql")
     
     # Order matters for foreign key constraints
     categories = ['films', 'planets', 'species', 'characters', 'vehicles', 'starships']
@@ -303,7 +303,7 @@ def main():
     all_data = {}
     
     for category in categories:
-        json_file = data_dir / f"{category}.json"
+        json_file = data_dir / "json" / f"{category}.json"
         
         if json_file.exists():
             print(f"📄 Processing {category}...")

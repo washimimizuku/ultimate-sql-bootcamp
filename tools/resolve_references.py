@@ -96,7 +96,7 @@ def main():
     logging.info("Loading existing JSON files...")
     all_data = {}
     for category in categories:
-        filepath = os.path.join(data_dir, f"{category}.json")
+        filepath = os.path.join(data_dir, "json", f"{category}.json")
         if os.path.exists(filepath):
             try:
                 with open(filepath, 'r') as f:
@@ -117,7 +117,10 @@ def main():
             resolved_data = resolve_references(all_data[category], all_data)
             
             # Save resolved data to enriched file
-            filepath = os.path.join(data_dir, f"{category}_enriched.json")
+            # Ensure enriched subdirectory exists
+            enriched_dir = os.path.join(data_dir, "enriched")
+            os.makedirs(enriched_dir, exist_ok=True)
+            filepath = os.path.join(enriched_dir, f"{category}_enriched.json")
             try:
                 with open(filepath, 'w') as f:
                     json.dump(resolved_data, f, indent=2)

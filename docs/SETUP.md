@@ -37,7 +37,7 @@ poetry run python sql_runner.py -i
 ### Option B: Manual Setup
 ```bash
 # Create TPC-H database
-poetry run python -c "import duckdb; duckdb.connect('data/tpc-h.db').execute(open('examples/tpc-h.sql').read())"
+poetry run python -c "import duckdb; duckdb.connect('data/databases/tpc-h.db').execute(open('database/tpc-h.sql').read())"
 ```
 
 ## 4. Verify Installation
@@ -131,22 +131,22 @@ duckdb mydata.db < script.sql
 ### TPC-H Database (Business Analytics)
 ```bash
 # Setup TPC-H database
-duckdb data/tpc-h.db < examples/tpc-h.sql
+duckdb data/databases/tpc-h.db < database/tpc-h.sql
 
 # Query TPC-H data
-duckdb data/tpc-h.db -c "SELECT c_name, c_nationkey FROM customer LIMIT 5"
+duckdb data/databases/tpc-h.db -c "SELECT c_name, c_nationkey FROM customer LIMIT 5"
 
 # Run TPC-H exercises
-duckdb data/tpc-h.db < exercises/section-6-dql-intermediate/subqueries.sql
+duckdb data/databases/tpc-h.db < exercises/section-6-dql-intermediate/subqueries.sql
 ```
 
 ### Star Wars Database (Learning Examples)
 ```bash
 # Query Star Wars data
-duckdb data/starwars.db -c "SELECT name, height FROM people LIMIT 5"
+duckdb data/databases/starwars.db -c "SELECT name, height FROM characters LIMIT 5"
 
 # Run Star Wars exercises
-duckdb data/starwars.db < exercises/section-5-dql/select-where.sql
+duckdb data/databases/starwars.db < exercises/section-5-dql/select-where.sql
 ```
 
 ### Available Exercise Sections

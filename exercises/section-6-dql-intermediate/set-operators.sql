@@ -3,7 +3,7 @@
 -- Set operators work with compatible result sets (same number and type of columns)
 -- ============================================
 -- REQUIRED: This file uses the TPC-H database AND creates temporary tables
--- Setup: duckdb data/tpc-h.db < examples/tpc-h.sql
+-- Setup: duckdb data/tpc-h.db < database/tpc-h.sql
 -- Run with: duckdb data/tpc-h.db < exercises/section-6-dql-intermediate/set-operators.sql
 -- ============================================
 

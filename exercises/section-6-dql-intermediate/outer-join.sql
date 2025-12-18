@@ -3,7 +3,7 @@
 -- OUTER JOINs are essential for finding missing relationships and complete data sets
 -- ============================================
 -- REQUIRED: This file uses the TPC-H database
--- Setup: duckdb data/tpc-h.db < examples/tpc-h.sql
+-- Setup: duckdb data/tpc-h.db < database/tpc-h.sql
 -- Run with: duckdb data/tpc-h.db < exercises/section-6-dql-intermediate/outer-join.sql
 -- ============================================
 

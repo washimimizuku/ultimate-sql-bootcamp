@@ -3,7 +3,7 @@
 -- JOINs are essential for relational database queries and data relationships
 -- ============================================
 -- REQUIRED: This file uses the TPC-H database
--- Setup: duckdb data/tpc-h.db < examples/tpc-h.sql
+-- Setup: duckdb data/tpc-h.db < database/tpc-h.sql
 -- Run with: duckdb data/tpc-h.db < exercises/section-6-dql-intermediate/join.sql
 -- ============================================
 
