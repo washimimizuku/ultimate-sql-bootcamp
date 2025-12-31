@@ -2,6 +2,20 @@
 
 A comprehensive SQL learning environment using DuckDB and Python, featuring structured exercises from basic to advanced SQL concepts.
 
+**Based on**: [The Ultimate SQL Bootcamp](https://www.udemy.com/course/the-ultimate-sql-bootcamp/) Udemy course, adapted for DuckDB with enhanced examples and additional practice exercises.
+
+## About This Adaptation
+
+This repository adapts the original Snowflake-focused course content to work with **DuckDB**, providing:
+
+- **Local Development**: No cloud setup required - everything runs locally
+- **Enhanced Examples**: Additional practice exercises and real-world scenarios  
+- **Multiple Data Sources**: TPC-H business data, Star Wars universe, and Titanic dataset
+- **Extended Coverage**: Query optimization techniques and performance analysis
+- **Open Source**: Free alternative to expensive cloud data warehouses
+
+The `bootcamp-code/` folder contains the original Snowflake SQL files for reference, which will be removed after course completion.
+
 ## Features
 
 - **DuckDB** for fast, in-process SQL queries
@@ -13,6 +27,8 @@ A comprehensive SQL learning environment using DuckDB and Python, featuring stru
 - **Comprehensive Exercises** covering DDL, DML, DQL, and advanced topics
 
 ## Course Structure
+
+*Adapted from the original Udemy course with DuckDB-specific examples and enhanced exercises*
 
 ### Section 2: SQL Introduction
 - SQL anatomy and basic syntax
@@ -39,6 +55,17 @@ A comprehensive SQL learning environment using DuckDB and Python, featuring stru
 - **Subqueries** - Correlated and uncorrelated
 - **Set Operators** - UNION, INTERSECT, EXCEPT
 - **TPC-H Analysis** - Real-world business scenarios
+
+### Section 7: Query Performance Tuning *(Enhanced)*
+- **EXPLAIN** - Query execution plan analysis
+- **JOIN Optimization** - Advanced join techniques and CTEs
+- **ORDER BY Optimization** - Sorting performance and LIMIT strategies
+- **GROUP BY Optimization** - Aggregation and cardinality considerations
+
+### Section 8: Advanced SQL Concepts *(In Progress)*
+- **Window Functions** - Analytical functions and partitioning
+- **CTEs** - Common Table Expressions and recursive queries
+- **Transactions** - ACID properties and transaction management
 
 ## Prerequisites
 
@@ -70,6 +97,8 @@ See [docs/SETUP.md](docs/SETUP.md) for detailed setup instructions and [docs/SQL
 
 - **`data/tpc-h.db`** - TPC-H benchmark database for business analytics
 - **`data/starwars.db`** - Star Wars universe data for engaging examples
+
+*See [data/README.md](data/README.md) for detailed information about all data sources, including CSV, JSON, and Parquet files.*
 
 ## Running Exercises
 
@@ -118,7 +147,15 @@ con.close()
 2. **Master DDL (Section 3)** - Understand database structure
 3. **Practice DML (Section 4)** - Learn data manipulation
 4. **Explore DQL (Section 5)** - Master data querying
-5. **Advanced Topics (Section 6)** - JOINs, subqueries, and set operations
+5. **Advanced DQL (Section 6)** - JOINs, subqueries, and set operations
+6. **Performance Tuning (Section 7)** - Query optimization and EXPLAIN analysis
+7. **Advanced Concepts (Section 8)** - Window functions, CTEs, and transactions
+
+## Course Progress
+
+- ✅ **Sections 2-7**: Complete with enhanced DuckDB examples
+- 🔄 **Section 8**: Currently in progress
+- 📋 **Section 9**: Semi-structured data (upcoming)
 
 ## Resources
 
@@ -126,3 +163,14 @@ con.close()
 - [DuckDB SQL Reference](https://duckdb.org/docs/sql/introduction)
 - [TPC-H Benchmark Specification](http://www.tpc.org/tpch/)
 - [SQL Runner Guide](docs/SQL_RUNNER_GUIDE.md)
+- [The Ultimate SQL Bootcamp (Udemy)](https://www.udemy.com/course/the-ultimate-sql-bootcamp/) - Original course
+
+## Repository Structure
+
+- **`exercises/`** - DuckDB-adapted practice exercises organized by section
+- **`bootcamp-code/`** - Original Snowflake SQL files from the course (for reference)
+- **`data/`** - All data sources (databases, CSV, JSON, Parquet files)
+- **`docs/`** - Documentation and setup guides
+- **`tools/`** - Data generation and utility scripts
+
+*Note: The `bootcamp-code/` folder will be removed after course completion.*
