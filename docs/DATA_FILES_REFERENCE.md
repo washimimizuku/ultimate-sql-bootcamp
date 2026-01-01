@@ -11,8 +11,9 @@ data/
 │   └── starwars.db   # Star Wars SQLite database
 ├── star-wars/        # Star Wars universe data organized by format
 │   ├── csv/          # Simplified CSV format for basic exercises
-│   ├── json/         # Raw JSON with API references
-│   └── enriched/     # JSON with resolved relationships
+│   ├── json/         # Raw JSON with API references + complex hierarchies
+│   ├── enriched/     # JSON with resolved relationships
+│   └── parquet/      # Parquet files with nested data structures
 └── titanic/          # Titanic passenger data
     └── titanic.parquet # Parquet format for advanced exercises
 ```
@@ -114,15 +115,18 @@ starship_class          VARCHAR   # Ship classification
 ### JSON Files (API Format)
 
 #### Regular JSON Files (`*.json`)
-**Purpose**: Raw API data with URL references  
+**Purpose**: Raw API data with URL references + complex hierarchical structures  
 **Format**: Array of objects with SWAPI URL references  
-**Use Cases**: JSON parsing exercises, API data understanding
+**Use Cases**: JSON parsing exercises, API data understanding, nested data traversal
+
+**Files**: characters.json, films.json, planets.json, species.json, starships.json, vehicles.json, complex-hierarchy.json
 
 **Characteristics**:
 - Contains original SWAPI URLs as references
 - Relationships stored as URL arrays
 - Requires URL parsing to resolve relationships
 - Authentic API response format
+- **complex-hierarchy.json**: Multi-level nested structure for advanced JSON traversal
 
 **Example Structure**:
 ```json
@@ -134,6 +138,18 @@ starship_class          VARCHAR   # Ship classification
     "https://swapi.info/api/films/2"
   ]
 }
+```
+
+**Complex Hierarchy Example**:
+```sql
+-- Traverse multi-level nested JSON
+SELECT 
+    galaxy.name as galaxy_name,
+    sector.name as sector_name,
+    system.name as system_name
+FROM 'data/star-wars/json/complex-hierarchy.json'
+UNNEST(galaxy.sectors) as t(sector)
+UNNEST(sector.systems) as s(system);
 ```
 
 #### Enriched JSON Files (`*_enriched.json`)
@@ -166,14 +182,72 @@ starship_class          VARCHAR   # Ship classification
 
 ### Available Files by Entity
 
-| Entity | CSV | JSON | Enriched JSON |
-|--------|-----|------|---------------|
-| Characters | ✅ | ✅ | ✅ |
-| Planets | ✅ | ✅ | ✅ |
-| Species | ✅ | ✅ | ✅ |
-| Starships | ✅ | ✅ | ✅ |
-| Vehicles | ✅ | ✅ | ✅ |
-| Films | ❌ | ✅ | ✅ |
+| Entity | CSV | JSON | Enriched JSON | Nested Parquet |
+|--------|-----|------|---------------|----------------|
+| Characters | ✅ | ✅ | ✅ | ✅ |
+| Planets | ✅ | ✅ | ✅ | ❌ |
+| Species | ✅ | ✅ | ✅ | ❌ |
+| Starships | ✅ | ✅ | ✅ | ❌ |
+| Vehicles | ✅ | ✅ | ✅ | ❌ |
+| Films | ❌ | ✅ | ✅ | ✅ |
+| Complex Hierarchy | ❌ | ✅ | ❌ | ❌ |
+
+## Star Wars Parquet Files (`data/star-wars/parquet/`)
+
+### Nested Parquet Files
+**Purpose**: Advanced columnar analytics with complex data types  
+**Format**: Parquet with STRUCT, ARRAY, and MAP types  
+**Use Cases**: Nested data processing, advanced analytics, columnar storage examples
+
+#### `characters_nested.parquet`
+**Records**: ~87 characters with nested structures  
+**Features**:
+- STRUCT for physical attributes (height, mass, hair_color, etc.)
+- STRUCT for homeworld information (id, name, climate, etc.)
+- ARRAY for films the character appears in
+- Optimized columnar storage
+
+**Schema Example**:
+```sql
+name                    VARCHAR
+physical_attributes     STRUCT(height VARCHAR, mass VARCHAR, hair_color VARCHAR, ...)
+homeworld              STRUCT(id BIGINT, name VARCHAR, climate VARCHAR, ...)
+films                  VARCHAR[]  -- Array of film titles
+species                STRUCT(id BIGINT, name VARCHAR, classification VARCHAR, ...)
+```
+
+#### `films_nested.parquet`
+**Records**: ~6 films with nested character and planet arrays  
+**Features**:
+- ARRAY for characters appearing in the film
+- ARRAY for planets featured in the film
+- STRUCT for film metadata
+
+**Example Queries**:
+```sql
+-- Access nested STRUCT fields
+SELECT 
+    name,
+    physical_attributes.height,
+    physical_attributes.mass,
+    homeworld.name as planet_name
+FROM 'data/star-wars/parquet/characters_nested.parquet';
+
+-- Work with ARRAY fields
+SELECT 
+    title,
+    UNNEST(characters) as character_name
+FROM 'data/star-wars/parquet/films_nested.parquet';
+
+-- Complex nested analysis
+SELECT 
+    homeworld.climate,
+    COUNT(*) as character_count,
+    AVG(physical_attributes.height::INTEGER) as avg_height
+FROM 'data/star-wars/parquet/characters_nested.parquet'
+WHERE physical_attributes.height != 'unknown'
+GROUP BY homeworld.climate;
+```
 
 ## Titanic Dataset (`data/titanic/`)
 
@@ -252,13 +326,26 @@ GROUP BY age_group;
 - Advanced analytics with Titanic survival data
 - Nested data structure exercises
 
+### Section 7: Advanced SQL
+**Recommended Files**: All databases and data files
+- Window functions with TPC-H business data
+- CTEs with hierarchical JSON structures
+- Transaction examples with Star Wars data
+
+### Section 8: Semi-Structured Data
+**Recommended Files**: All Star Wars data formats + Titanic Parquet
+- **CSV**: Basic tabular data processing and loading
+- **JSON**: Document parsing, API responses, complex hierarchies
+- **Parquet**: Nested data structures, columnar analytics, advanced data types
+
 ## File Format Comparison
 
 | Format | Pros | Cons | Best For |
 |--------|------|------|----------|
 | **CSV** | Simple, readable, universal | Limited data types, no nesting | Basic exercises, data loading |
 | **JSON** | Flexible, nested data, web-standard | Larger files, parsing complexity | API data, nested relationships |
-| **Parquet** | Efficient, columnar, fast queries | Binary format, requires tools | Analytics, large datasets |
+| **Parquet** | Efficient, columnar, fast queries, complex types | Binary format, requires tools | Analytics, large datasets, nested data |
+| **Database** | ACID compliance, indexing, joins | Setup overhead, single format | Multi-table operations, transactions |
 
 ## Loading Data Examples
 
@@ -304,6 +391,20 @@ SELECT * FROM 'data/titanic/titanic.parquet';
 SELECT Pclass, AVG(Fare) as avg_fare
 FROM 'data/titanic/titanic.parquet'
 GROUP BY Pclass;
+
+-- Nested Parquet structures
+SELECT 
+    name,
+    physical_attributes.height,
+    UNNEST(films) as film_title
+FROM 'data/star-wars/parquet/characters_nested.parquet';
+
+-- Complex nested analysis
+SELECT 
+    homeworld.climate,
+    COUNT(*) as character_count
+FROM 'data/star-wars/parquet/characters_nested.parquet'
+GROUP BY homeworld.climate;
 ```
 
 ## Data Quality Notes

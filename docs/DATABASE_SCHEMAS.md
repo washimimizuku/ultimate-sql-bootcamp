@@ -56,6 +56,18 @@ The Star Wars database contains comprehensive data from the Star Wars universe, 
 - Complex subqueries for analytics
 - Set operations for data comparison
 
+### Section 7: Advanced SQL
+- **Both databases** for window functions and CTEs
+- TPC-H for complex analytical queries
+- Star Wars for transaction examples
+- Advanced SQL patterns and optimization
+
+### Section 8: Semi-Structured Data
+- **Star Wars CSV files** for basic tabular data processing
+- **Star Wars JSON files** for document parsing and hierarchies
+- **Star Wars Parquet files** for nested data structures
+- **Titanic Parquet** for advanced analytics
+
 ## Quick Database Setup
 
 ### TPC-H Database

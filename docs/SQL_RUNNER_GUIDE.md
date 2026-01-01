@@ -125,6 +125,16 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 - `exercises/section-6-dql-intermediate/set-operators.sql` - UNION, INTERSECT, EXCEPT
 - `exercises/section-6-dql-intermediate/tpch.sql` - TPC-H database exploration
 
+### Section 7: Advanced SQL
+- `exercises/section-7-advanced-sql/window-functions.sql` - Window functions and analytics
+- `exercises/section-7-advanced-sql/cte.sql` - Common Table Expressions
+- `exercises/section-7-advanced-sql/transactions.sql` - Transaction management
+
+### Section 8: Semi-Structured Data
+- `exercises/section-8-semi-structured-data/csv-data.sql` - CSV file processing
+- `exercises/section-8-semi-structured-data/json-data.sql` - JSON document analysis
+- `exercises/section-8-semi-structured-data/parquet-data.sql` - Parquet columnar analytics
+
 ## Tips
 
 - **Database Files**: `data/tpc-h.db` (business data) and `data/starwars.db` (sample data)

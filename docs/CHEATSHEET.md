@@ -207,6 +207,77 @@ GROUP BY c.c_name
 ORDER BY total_spent DESC NULLS LAST;
 ```
 
+## Window Functions (Section 7)
+
+```sql
+-- Row number and ranking
+ROW_NUMBER() OVER (ORDER BY c_acctbal DESC)
+RANK() OVER (ORDER BY c_acctbal DESC)
+DENSE_RANK() OVER (ORDER BY c_acctbal DESC)
+
+-- Partitioned window functions
+ROW_NUMBER() OVER (PARTITION BY c_nationkey ORDER BY c_acctbal DESC)
+AVG(c_acctbal) OVER (PARTITION BY c_nationkey)
+
+-- Running totals and moving averages
+SUM(o_totalprice) OVER (ORDER BY o_orderdate ROWS UNBOUNDED PRECEDING)
+AVG(o_totalprice) OVER (ORDER BY o_orderdate ROWS 2 PRECEDING)
+
+-- Lead and lag
+LAG(o_totalprice, 1) OVER (ORDER BY o_orderdate)
+LEAD(o_totalprice, 1) OVER (ORDER BY o_orderdate)
+```
+
+## CTEs (Section 7)
+
+```sql
+-- Basic CTE
+WITH high_value_customers AS (
+    SELECT c_custkey, c_name, c_acctbal 
+    FROM customer 
+    WHERE c_acctbal > 5000
+)
+SELECT * FROM high_value_customers;
+
+-- Recursive CTE
+WITH RECURSIVE employee_hierarchy AS (
+    SELECT employee_id, name, manager_id, 1 as level
+    FROM employees 
+    WHERE manager_id IS NULL
+    UNION ALL
+    SELECT e.employee_id, e.name, e.manager_id, eh.level + 1
+    FROM employees e
+    JOIN employee_hierarchy eh ON e.manager_id = eh.employee_id
+)
+SELECT * FROM employee_hierarchy;
+```
+
+## Semi-Structured Data (Section 8)
+
+```sql
+-- CSV files
+SELECT * FROM 'data/star-wars/csv/characters.csv';
+SELECT name, height::INTEGER FROM 'data/star-wars/csv/characters.csv' WHERE height != 'unknown';
+
+-- JSON files
+SELECT * FROM 'data/star-wars/json/characters.json';
+SELECT name, homeworld.name as planet FROM 'data/star-wars/enriched/characters_enriched.json';
+
+-- Complex JSON traversal
+SELECT 
+    galaxy.name as galaxy_name,
+    sector.name as sector_name
+FROM 'data/star-wars/json/complex-hierarchy.json'
+UNNEST(galaxy.sectors) as t(sector);
+
+-- Parquet files with nested structures
+SELECT 
+    name,
+    physical_attributes.height,
+    UNNEST(films) as film_title
+FROM 'data/star-wars/parquet/characters_nested.parquet';
+```
+
 ## DuckDB Specific
 
 ```sql
@@ -219,4 +290,10 @@ COPY (SELECT * FROM customer LIMIT 10) TO 'output.csv' (HEADER, DELIMITER ',');
 -- Show tables and schema
 SHOW TABLES;
 DESCRIBE customer;
+
+-- JSON extraction
+SELECT json_extract(data, '$.name') FROM json_table;
+
+-- Array operations
+SELECT UNNEST(['a', 'b', 'c']) as items;
 ```
