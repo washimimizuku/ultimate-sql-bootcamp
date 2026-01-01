@@ -1,0 +1,271 @@
+[
+  {
+    "galaxy": {
+      "name": "Far Far Away Galaxy",
+      "sectors": [
+        {
+          "name": "Outer Rim Territories",
+          "systems": [
+            {
+              "name": "Tatooine System",
+              "star": "Tatoo I & Tatoo II",
+              "planets": [
+                {
+                  "name": "Tatooine",
+                  "type": "desert",
+                  "settlements": [
+                    {
+                      "name": "Mos Eisley",
+                      "type": "spaceport",
+                      "population": 80000,
+                      "districts": [
+                        {
+                          "name": "Cantina District",
+                          "establishments": [
+                            {
+                              "name": "Chalmun's Spaceport Cantina",
+                              "type": "cantina",
+                              "owner": "Chalmun",
+                              "patrons": [
+                                {"name": "Han Solo", "species": "Human", "occupation": "smuggler"},
+                                {"name": "Greedo", "species": "Rodian", "occupation": "bounty hunter"},
+                                {"name": "Obi-Wan Kenobi", "species": "Human", "occupation": "jedi"}
+                              ],
+                              "incidents": [
+                                {
+                                  "date": "0 BBY",
+                                  "description": "Han Solo shoots Greedo",
+                                  "participants": ["Han Solo", "Greedo"],
+                                  "outcome": "fatal"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Docking Bay District",
+                          "docking_bays": [
+                            {
+                              "number": 94,
+                              "ships": [
+                                {
+                                  "name": "Millennium Falcon",
+                                  "class": "YT-1300 light freighter",
+                                  "crew": [
+                                    {"name": "Han Solo", "role": "captain"},
+                                    {"name": "Chewbacca", "role": "co-pilot"}
+                                  ],
+                                  "modifications": [
+                                    {"type": "hyperdrive", "rating": 0.5},
+                                    {"type": "shields", "strength": "military grade"},
+                                    {"type": "weapons", "count": 2, "weapon_type": "quad laser cannons"}
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "name": "Anchorhead",
+                      "type": "settlement",
+                      "population": 2000,
+                      "districts": [
+                        {
+                          "name": "Tosche Station",
+                          "establishments": [
+                            {
+                              "name": "Power Converters Shop",
+                              "type": "electronics",
+                              "owner": "Fixer",
+                              "inventory": [
+                                {"item": "T-16 power converters", "quantity": 15, "price": 250},
+                                {"item": "Moisture vaporator parts", "quantity": 8, "price": 500}
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "Dagobah System",
+              "star": "Dagobah Prime",
+              "planets": [
+                {
+                  "name": "Dagobah",
+                  "type": "swamp",
+                  "settlements": [
+                    {
+                      "name": "Yoda's Dwelling",
+                      "type": "hermitage",
+                      "population": 1,
+                      "districts": [
+                        {
+                          "name": "Swamp Clearing",
+                          "structures": [
+                            {
+                              "name": "Yoda's Hut",
+                              "type": "dwelling",
+                              "occupant": {
+                                "name": "Yoda",
+                                "species": "Unknown",
+                                "age": 900,
+                                "abilities": [
+                                  {"name": "Force Sensitivity", "level": "Grand Master"},
+                                  {"name": "Lightsaber Combat", "forms": ["Ataru", "Shii-Cho"]},
+                                  {"name": "Force Lightning", "mastery": "defensive"}
+                                ],
+                                "possessions": [
+                                  {"item": "Lightsaber", "color": "green", "status": "active"},
+                                  {"item": "Gimer stick", "material": "wood", "purpose": "walking aid"}
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Core Worlds",
+          "systems": [
+            {
+              "name": "Coruscant System",
+              "star": "Coruscant Prime",
+              "planets": [
+                {
+                  "name": "Coruscant",
+                  "type": "ecumenopolis",
+                  "settlements": [
+                    {
+                      "name": "Galactic City",
+                      "type": "planetary city",
+                      "population": 1000000000000,
+                      "districts": [
+                        {
+                          "name": "Senate District",
+                          "establishments": [
+                            {
+                              "name": "Galactic Senate Building",
+                              "type": "government",
+                              "chambers": [
+                                {
+                                  "name": "Senate Chamber",
+                                  "capacity": 1024,
+                                  "senators": [
+                                    {
+                                      "name": "Padmé Amidala",
+                                      "planet": "Naboo",
+                                      "committees": ["Defense", "Judiciary"],
+                                      "voting_record": [
+                                        {"bill": "Military Creation Act", "vote": "against"},
+                                        {"bill": "Emergency Powers Act", "vote": "against"}
+                                      ]
+                                    },
+                                    {
+                                      "name": "Bail Organa",
+                                      "planet": "Alderaan",
+                                      "committees": ["Intelligence", "Appropriations"],
+                                      "voting_record": [
+                                        {"bill": "Clone Rights Bill", "vote": "for"},
+                                        {"bill": "Jedi Oversight Act", "vote": "against"}
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "name": "Jedi Temple District",
+                          "establishments": [
+                            {
+                              "name": "Jedi Temple",
+                              "type": "religious",
+                              "levels": [
+                                {
+                                  "name": "High Council Chamber",
+                                  "floor": 200,
+                                  "council_members": [
+                                    {
+                                      "name": "Mace Windu",
+                                      "rank": "Master",
+                                      "specialization": "Vaapad",
+                                      "padawans": [
+                                        {"name": "Depa Billaba", "status": "knighted", "year": "32 BBY"}
+                                      ],
+                                      "missions": [
+                                        {
+                                          "name": "Geonosis Rescue",
+                                          "year": "22 BBY",
+                                          "outcome": "success",
+                                          "casualties": 200
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "timeline": {
+      "era": "Galactic Republic",
+      "major_events": [
+        {
+          "name": "Clone Wars",
+          "start_year": "22 BBY",
+          "end_year": "19 BBY",
+          "battles": [
+            {
+              "name": "Battle of Geonosis",
+              "year": "22 BBY",
+              "participants": {
+                "republic": {
+                  "forces": [
+                    {"unit": "Clone Army", "size": 200000, "commander": "Yoda"},
+                    {"unit": "Jedi Knights", "size": 200, "commander": "Mace Windu"}
+                  ]
+                },
+                "separatists": {
+                  "forces": [
+                    {"unit": "Battle Droids", "size": 1000000, "commander": "Count Dooku"},
+                    {"unit": "Geonosian Warriors", "size": 100000, "commander": "Poggle the Lesser"}
+                  ]
+                }
+              },
+              "outcome": {
+                "victor": "Republic",
+                "casualties": {
+                  "republic": 50000,
+                  "separatists": 800000
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+]
