@@ -165,7 +165,7 @@ DELETE FROM my_table WHERE id = 1;
 TRUNCATE TABLE my_table;
 ```
 
-## Common Functions
+## Common Functions (Section 5)
 
 ```sql
 -- String functions
@@ -190,7 +190,7 @@ COALESCE(c_comment, 'No comment')
 NULLIF(c_acctbal, 0)
 ```
 
-## TPC-H Quick Queries
+## TPC-H Quick Queries (Section 6)
 
 ```sql
 -- Top customers by account balance
