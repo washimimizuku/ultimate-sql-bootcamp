@@ -392,7 +392,7 @@ SELECT
     system.name as system_name,
     planet.name as planet_name,
     settlement.name as settlement_name
-FROM read_json('data/star-wars/complex-hierarchy.json'),
+FROM read_json('data/star-wars/json/complex-hierarchy.json'),
      UNNEST(galaxy.sectors) as t(sector),
      UNNEST(sector.systems) as s(system),
      UNNEST(system.planets) as p(planet),
@@ -409,7 +409,7 @@ SELECT
     establishment.name as establishment_name,
     establishment.type as establishment_type,
     establishment.owner as owner
-FROM read_json('data/star-wars/complex-hierarchy.json'),
+FROM read_json('data/star-wars/json/complex-hierarchy.json'),
      UNNEST(galaxy.sectors) as t(sector),
      UNNEST(sector.systems) as s(system),
      UNNEST(system.planets) as p(planet),
@@ -427,7 +427,7 @@ SELECT
     patron.name as patron_name,
     patron.species,
     patron.occupation
-FROM read_json('data/star-wars/complex-hierarchy.json'),
+FROM read_json('data/star-wars/json/complex-hierarchy.json'),
      UNNEST(galaxy.sectors) as t(sector),
      UNNEST(sector.systems) as s(system),
      UNNEST(system.planets) as p(planet),
@@ -447,7 +447,7 @@ SELECT
     COUNT(DISTINCT planet.name) as planet_count,
     COUNT(DISTINCT settlement.name) as settlement_count,
     SUM(settlement.population) as total_population
-FROM read_json('data/star-wars/complex-hierarchy.json'),
+FROM read_json('data/star-wars/json/complex-hierarchy.json'),
      UNNEST(galaxy.sectors) as t(sector),
      UNNEST(sector.systems) as s(system),
      UNNEST(system.planets) as p(planet),
@@ -470,7 +470,7 @@ SELECT
         ELSE 'Outpost'
     END as settlement_category,
     len(settlement.districts) as district_count
-FROM read_json('data/star-wars/complex-hierarchy.json'),
+FROM read_json('data/star-wars/json/complex-hierarchy.json'),
      UNNEST(galaxy.sectors) as t(sector),
      UNNEST(sector.systems) as s(system),
      UNNEST(system.planets) as p(planet),
@@ -491,7 +491,7 @@ SELECT
     ability.level as ability_level,
     possession.item as possession_item,
     possession.color as item_color
-FROM read_json('data/star-wars/complex-hierarchy.json'),
+FROM read_json('data/star-wars/json/complex-hierarchy.json'),
      UNNEST(galaxy.sectors) as t(sector),
      UNNEST(sector.systems) as s(system),
      UNNEST(system.planets) as p(planet),
@@ -517,7 +517,7 @@ SELECT
     battle.outcome.victor as victor,
     battle.outcome.casualties.republic as republic_casualties,
     battle.outcome.casualties.separatists as separatist_casualties
-FROM read_json('data/star-wars/complex-hierarchy.json'),
+FROM read_json('data/star-wars/json/complex-hierarchy.json'),
      UNNEST(timeline.major_events) as ev(event),
      UNNEST(event.battles) as b(battle),
      UNNEST(battle.participants.republic.forces) as rf(republic_force),
@@ -534,7 +534,7 @@ SELECT
     committee as committee_membership,
     vote.bill as bill_name,
     vote.vote as vote_position
-FROM read_json('data/star-wars/complex-hierarchy.json'),
+FROM read_json('data/star-wars/json/complex-hierarchy.json'),
      UNNEST(galaxy.sectors) as t(sector),
      UNNEST(sector.systems) as s(system),
      UNNEST(system.planets) as p(planet),
