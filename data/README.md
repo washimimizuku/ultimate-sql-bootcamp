@@ -11,8 +11,9 @@ data/
 │   └── starwars.db     # Star Wars universe database
 ├── star-wars/          # Star Wars data in multiple formats
 │   ├── csv/            # CSV files for basic exercises
-│   ├── json/           # Raw JSON from SWAPI API
-│   └── enriched/       # JSON with resolved relationships
+│   ├── json/           # Raw JSON from SWAPI API + complex hierarchies
+│   ├── enriched/       # JSON with resolved relationships
+│   └── parquet/        # Parquet files with nested data structures
 └── titanic/            # Titanic passenger dataset
     └── titanic.parquet # Parquet format for advanced analytics
 ```
@@ -46,13 +47,27 @@ SELECT name, height, species FROM 'data/star-wars/csv/characters.csv';
 ```
 
 ### JSON Files (`json/`)
-**Format**: Raw SWAPI API responses  
-**Use Case**: JSON parsing, API data understanding  
-**Files**: characters.json, films.json, planets.json, species.json, starships.json, vehicles.json
+**Format**: Raw SWAPI API responses + complex hierarchical data  
+**Use Case**: JSON parsing, API data understanding, nested data traversal  
+**Files**: characters.json, films.json, planets.json, species.json, starships.json, vehicles.json, complex-hierarchy.json
 
 **Example**:
 ```sql
 SELECT name, height::INTEGER as height_cm FROM 'data/star-wars/json/characters.json';
+```
+
+**Complex Hierarchy Example**:
+```sql
+-- Traverse multi-level nested JSON structures
+SELECT 
+    galaxy.name as galaxy_name,
+    sector.name as sector_name,
+    system.name as system_name,
+    planet.name as planet_name
+FROM 'data/star-wars/json/complex-hierarchy.json'
+UNNEST(galaxy.sectors) as t(sector)
+UNNEST(sector.systems) as s(system)  
+UNNEST(system.planets) as p(planet);
 ```
 
 ### Enriched JSON Files (`enriched/`)
@@ -63,6 +78,34 @@ SELECT name, height::INTEGER as height_cm FROM 'data/star-wars/json/characters.j
 **Example**:
 ```sql
 SELECT name, homeworld.name as planet FROM 'data/star-wars/enriched/characters_enriched.json';
+```
+
+### Parquet Files (`parquet/`)
+**Format**: Parquet with nested data structures (STRUCT, ARRAY, MAP)  
+**Use Case**: Advanced columnar analytics, nested data processing  
+**Files**: characters_nested.parquet, films_nested.parquet
+
+**Features**:
+- STRUCT types for complex objects
+- ARRAY types for collections
+- MAP types for key-value pairs
+- Optimized columnar storage
+
+**Example**:
+```sql
+-- Access nested STRUCT fields
+SELECT 
+    name,
+    physical_attributes.height,
+    physical_attributes.mass,
+    homeworld.name as planet_name
+FROM 'data/star-wars/parquet/characters_nested.parquet';
+
+-- Work with ARRAY fields
+SELECT 
+    title,
+    UNNEST(characters) as character_name
+FROM 'data/star-wars/parquet/films_nested.parquet';
 ```
 
 ## Titanic Dataset (`titanic/`)
@@ -86,23 +129,44 @@ The Star Wars data is generated using tools in the `tools/` directory:
 2. **`resolve_references.py`** - Creates enriched versions → `enriched/` folder  
 3. **`generate_swapi_sql.py`** - Creates database script → `database/starwars.sql`
 
+## Data Format Comparison
+
+| Format | Best For | Advantages | Use Cases |
+|--------|----------|------------|-----------|
+| **CSV** | Learning basics | Simple, readable, universal | Basic SQL operations, data loading |
+| **JSON** | Document data | Flexible schema, nested structures | API responses, hierarchical data |
+| **Parquet** | Analytics | Columnar storage, compression, types | Large datasets, complex analytics |
+| **Database** | Production queries | ACID compliance, indexing, joins | Multi-table operations, transactions |
+
+### When to Use Each Format
+
+- **Start with CSV** for basic SELECT, WHERE, GROUP BY operations
+- **Move to JSON** when learning document parsing and nested data
+- **Use Parquet** for advanced analytics with complex data types
+- **Use Database** for multi-table joins and transaction examples
+
 ## Usage by Section
 
 - **Section 3-4 (DDL/DML)**: Use CSV files for simple, understandable examples
 - **Section 5 (Basic DQL)**: Use CSV files and Star Wars database
 - **Section 6 (Advanced DQL)**: Use TPC-H database for complex business scenarios
-- **Advanced Topics**: Use JSON files and Parquet for format-specific exercises
+- **Section 7 (Advanced SQL)**: Use all databases for window functions, CTEs, transactions
+- **Section 8 (Semi-structured Data)**: 
+  - CSV files for basic tabular data processing
+  - JSON files for document parsing and complex hierarchies
+  - Parquet files for nested data structures and columnar analytics
 
 ## File Sizes
 
-| File/Folder | Size | Records |
-|-------------|------|---------|
-| `databases/tpc-h.db` | ~50MB | Thousands |
-| `databases/starwars.db` | ~5MB | Hundreds |
-| `star-wars/csv/` | ~100KB | ~300 total |
-| `star-wars/json/` | ~500KB | ~300 total |
-| `star-wars/enriched/` | ~800KB | ~300 total |
-| `titanic/titanic.parquet` | ~60KB | 891 |
+| File/Folder | Size | Records | Description |
+|-------------|------|---------|-------------|
+| `databases/tpc-h.db` | ~50MB | Thousands | Business analytics database |
+| `databases/starwars.db` | ~5MB | Hundreds | Star Wars universe database |
+| `star-wars/csv/` | ~100KB | ~300 total | 5 CSV files (87 characters, 61 planets, 37 species, etc.) |
+| `star-wars/json/` | ~500KB | ~300 total | 6 SWAPI files + 1 complex hierarchy |
+| `star-wars/enriched/` | ~800KB | ~300 total | 6 enriched JSON files with relationships |
+| `star-wars/parquet/` | ~150KB | ~150 total | 2 nested Parquet files with STRUCT/ARRAY/MAP |
+| `titanic/titanic.parquet` | ~60KB | 891 | Titanic passenger dataset |
 
 ## Documentation
 
