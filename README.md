@@ -2,11 +2,17 @@
 
 A comprehensive SQL learning environment using DuckDB and Python, featuring structured exercises from basic to advanced SQL concepts.
 
-**Based on**: [The Ultimate SQL Bootcamp](https://www.udemy.com/course/the-ultimate-sql-bootcamp/) Udemy course, adapted for DuckDB with enhanced examples and additional practice exercises.
+**Based on**: [The Ultimate SQL Bootcamp](https://www.udemy.com/course/the-ultimate-sql-bootcamp/) by **Tom Bailey** on Udemy, adapted for DuckDB with enhanced examples and additional practice exercises.
 
-## About This Adaptation
+## About This Course & Adaptation
 
-This repository adapts the original Snowflake-focused course content to work with **DuckDB**, providing:
+### Original Course Recommendation
+
+**I highly recommend taking Tom Bailey's original course on Udemy** - it's an excellent resource for learning SQL, especially if you're working with **Snowflake**. Tom's teaching style is clear, practical, and covers real-world scenarios that you'll encounter in data analytics and engineering roles.
+
+### This Adaptation
+
+This repository adapts Tom Bailey's Snowflake-focused course content to work with **DuckDB**, providing:
 
 - **Local Development**: No cloud setup required - everything runs locally
 - **Enhanced Examples**: Additional practice exercises and real-world scenarios  
@@ -63,8 +69,8 @@ The `bootcamp-code/` folder contains the original Snowflake SQL files for refere
 - **GROUP BY Optimization** - Aggregation and cardinality considerations
 
 ### Section 8: Advanced SQL Concepts *(In Progress)*
-- **Window Functions** - Analytical functions and partitioning
-- **CTEs** - Common Table Expressions and recursive queries
+- **Window Functions** - Analytical functions and partitioning ✅
+- **CTEs** - Common Table Expressions and recursive queries ✅
 - **Transactions** - ACID properties and transaction management
 
 ## Prerequisites
@@ -154,7 +160,7 @@ con.close()
 ## Course Progress
 
 - ✅ **Sections 2-7**: Complete with enhanced DuckDB examples
-- 🔄 **Section 8**: Currently in progress
+- 🔄 **Section 8**: Window Functions ✅, CTEs ✅, Transactions (in progress)
 - 📋 **Section 9**: Semi-structured data (upcoming)
 
 ## Resources
@@ -163,7 +169,7 @@ con.close()
 - [DuckDB SQL Reference](https://duckdb.org/docs/sql/introduction)
 - [TPC-H Benchmark Specification](http://www.tpc.org/tpch/)
 - [SQL Runner Guide](docs/SQL_RUNNER_GUIDE.md)
-- [The Ultimate SQL Bootcamp (Udemy)](https://www.udemy.com/course/the-ultimate-sql-bootcamp/) - Original course
+- [The Ultimate SQL Bootcamp (Udemy)](https://www.udemy.com/course/the-ultimate-sql-bootcamp/) - **Original course by Tom Bailey** (Highly Recommended!)
 
 ## Repository Structure
 
