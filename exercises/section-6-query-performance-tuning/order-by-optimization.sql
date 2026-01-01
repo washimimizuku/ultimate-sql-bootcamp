@@ -4,7 +4,7 @@
 -- ============================================
 -- REQUIRED: This file uses the TPC-H database
 -- Setup: duckdb data/tpc-h.db < database/tpc-h.sql
--- Run with: duckdb data/tpc-h.db < exercises/section-7-query-performance-tuning/order-by-optimization.sql
+-- Run with: duckdb data/tpc-h.db < exercises/section-6-query-performance-tuning/order-by-optimization.sql
 -- ============================================
 
 -- ORDER BY OPTIMIZATION CONCEPTS:

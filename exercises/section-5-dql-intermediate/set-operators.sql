@@ -4,7 +4,7 @@
 -- ============================================
 -- REQUIRED: This file uses the TPC-H database AND creates temporary tables
 -- Setup: duckdb data/tpc-h.db < database/tpc-h.sql
--- Run with: duckdb data/tpc-h.db < exercises/section-6-dql-intermediate/set-operators.sql
+-- Run with: duckdb data/tpc-h.db < exercises/section-5-dql-intermediate/set-operators.sql
 -- ============================================
 
 -- SET OPERATOR TYPES:

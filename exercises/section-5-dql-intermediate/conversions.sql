@@ -4,7 +4,7 @@
 -- ============================================
 -- REQUIRED: This file uses the TPC-H database
 -- Setup: duckdb data/databases/tpc-h.db < database/tpc-h.sql
--- Run with: duckdb data/databases/tpc-h.db < exercises/section-6-dql-intermediate/conversions.sql
+-- Run with: duckdb data/databases/tpc-h.db < exercises/section-5-dql-intermediate/conversions.sql
 -- ============================================
 
 -- CONVERSION FUNCTION TYPES:

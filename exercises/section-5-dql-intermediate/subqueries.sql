@@ -4,7 +4,7 @@
 -- ============================================
 -- REQUIRED: This file uses the TPC-H database
 -- Setup: duckdb data/tpc-h.db < database/tpc-h.sql
--- Run with: duckdb data/tpc-h.db < exercises/section-6-dql-intermediate/subqueries.sql
+-- Run with: duckdb data/tpc-h.db < exercises/section-5-dql-intermediate/subqueries.sql
 -- ============================================
 
 -- SUBQUERY TYPES:

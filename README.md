@@ -34,39 +34,39 @@ This repository adapts Tom Bailey's Snowflake-focused course content to work wit
 
 *Adapted from the original Udemy course with DuckDB-specific examples and enhanced exercises*
 
-### Section 2: SQL Introduction
+### Section 1: SQL Introduction
 - SQL anatomy and basic syntax
 
-### Section 3: Data Definition Language (DDL)
+### Section 2: Data Definition Language (DDL)
 - CREATE, ALTER, DROP statements
 - Database and schema management
 - Table structure operations
 
-### Section 4: Data Manipulation Language (DML)
+### Section 3: Data Manipulation Language (DML)
 - INSERT, UPDATE, DELETE operations
 - COPY FROM for data loading
 - MERGE statements
 - TRUNCATE operations
 
-### Section 5: Data Query Language (DQL)
+### Section 4: Data Query Language (DQL)
 - SELECT statements and filtering
 - Aggregate and scalar functions
 - GROUP BY and HAVING clauses
 - ORDER BY sorting
 
-### Section 6: Intermediate DQL
+### Section 5: Intermediate DQL
 - **JOINs** - Inner, outer, and cross joins
 - **Subqueries** - Correlated and uncorrelated
 - **Set Operators** - UNION, INTERSECT, EXCEPT
 - **TPC-H Analysis** - Real-world business scenarios
 
-### Section 7: Query Performance Tuning *(Enhanced)*
+### Section 6: Query Performance Tuning *(Enhanced)*
 - **EXPLAIN** - Query execution plan analysis
 - **JOIN Optimization** - Advanced join techniques and CTEs
 - **ORDER BY Optimization** - Sorting performance and LIMIT strategies
 - **GROUP BY Optimization** - Aggregation and cardinality considerations
 
-### Section 8: Advanced SQL Concepts *(In Progress)*
+### Section 7: Advanced SQL Concepts *(In Progress)*
 - **Window Functions** - Analytical functions and partitioning ✅
 - **CTEs** - Common Table Expressions and recursive queries ✅
 - **Transactions** - ACID properties and transaction management
@@ -109,7 +109,7 @@ See [docs/SETUP.md](docs/SETUP.md) for detailed setup instructions and [docs/SQL
 ### Using the SQL Runner (Recommended)
 ```bash
 # Run a specific exercise
-poetry run python run_sql.py exercises/section-5-dql/select-where.sql
+poetry run python run_sql.py exercises/section-4-dql/select-where.sql
 
 # Interactive exploration
 poetry run python sql_runner.py -i
@@ -118,10 +118,10 @@ poetry run python sql_runner.py -i
 ### Using DuckDB CLI Directly
 ```bash
 # TPC-H exercises
-duckdb data/tpc-h.db < exercises/section-6-dql-intermediate/subqueries.sql
+duckdb data/tpc-h.db < exercises/section-5-dql-intermediate/subqueries.sql
 
 # Star Wars exercises  
-duckdb data/starwars.db < exercises/section-5-dql/select-where.sql
+duckdb data/starwars.db < exercises/section-4-dql/select-where.sql
 ```
 
 ### Programmatic Usage
@@ -147,19 +147,19 @@ con.close()
 
 ## Learning Path
 
-1. **Start with Section 2** - Learn SQL basics and syntax
-2. **Master DDL (Section 3)** - Understand database structure
-3. **Practice DML (Section 4)** - Learn data manipulation
-4. **Explore DQL (Section 5)** - Master data querying
-5. **Advanced DQL (Section 6)** - JOINs, subqueries, and set operations
-6. **Performance Tuning (Section 7)** - Query optimization and EXPLAIN analysis
-7. **Advanced Concepts (Section 8)** - Window functions, CTEs, and transactions
+1. **Start with Section 1** - Learn SQL basics and syntax
+2. **Master DDL (Section 2)** - Understand database structure
+3. **Practice DML (Section 3)** - Learn data manipulation
+4. **Explore DQL (Section 4)** - Master data querying
+5. **Advanced DQL (Section 5)** - JOINs, subqueries, and set operations
+6. **Performance Tuning (Section 6)** - Query optimization and EXPLAIN analysis
+7. **Advanced Concepts (Section 7)** - Window functions, CTEs, and transactions
 
 ## Course Progress
 
-- ✅ **Sections 2-7**: Complete with enhanced DuckDB examples
-- 🔄 **Section 8**: Window Functions ✅, CTEs ✅, Transactions (in progress)
-- 📋 **Section 9**: Semi-structured data (upcoming)
+- ✅ **Sections 1-6**: Complete with enhanced DuckDB examples
+- 🔄 **Section 7**: Window Functions ✅, CTEs ✅, Transactions (in progress)
+- 📋 **Section 8**: Semi-structured data (upcoming)
 
 ## Resources
 

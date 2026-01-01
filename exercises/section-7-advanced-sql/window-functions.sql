@@ -4,7 +4,7 @@
 -- ============================================
 -- REQUIRED: This file uses the TPC-H database
 -- Setup: duckdb data/tpc-h.db < database/tpc-h.sql
--- Run with: duckdb data/tpc-h.db < exercises/section-8-advanced-sql/window-functions.sql
+-- Run with: duckdb data/tpc-h.db < exercises/section-7-advanced-sql/window-functions.sql
 -- ============================================
 
 -- WINDOW FUNCTION CONCEPTS:
