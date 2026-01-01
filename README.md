@@ -20,8 +20,6 @@ This repository adapts Tom Bailey's Snowflake-focused course content to work wit
 - **Extended Coverage**: Query optimization techniques and performance analysis
 - **Open Source**: Free alternative to expensive cloud data warehouses
 
-The `bootcamp-code/` folder contains the original Snowflake SQL files for reference, which will be removed after course completion.
-
 ## Features
 
 - **DuckDB** for fast, in-process SQL queries
@@ -174,9 +172,6 @@ con.close()
 ## Repository Structure
 
 - **`exercises/`** - DuckDB-adapted practice exercises organized by section
-- **`bootcamp-code/`** - Original Snowflake SQL files from the course (for reference)
 - **`data/`** - All data sources (databases, CSV, JSON, Parquet files)
 - **`docs/`** - Documentation and setup guides
 - **`tools/`** - Data generation and utility scripts
-
-*Note: The `bootcamp-code/` folder will be removed after course completion.*
