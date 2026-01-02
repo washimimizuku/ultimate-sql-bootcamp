@@ -80,6 +80,18 @@ This repository adapts Tom Bailey's Snowflake-focused course content to work wit
 - **JSON Data** - Complex JSON structures and hierarchy traversal ✅
 - **Parquet Data** - Columnar storage with nested data structures ✅
 
+### Section 9: Business Intelligence & Analytics *(Complete)*
+- **Data Warehousing** - Star schema, dimensional modeling, SCDs ✅
+- **KPI Calculations** - Customer metrics, churn analysis, growth rates ✅
+- **Time Series Analysis** - Trends, seasonality, cohort analysis ✅
+- **Reporting Patterns** - Pivot tables, dashboards, executive reporting ✅
+
+### Section 10: Practical Data Engineering *(Complete)*
+- **Data Quality Validation** - Profiling, duplicate detection, consistency checks ✅
+- **ETL Transformations** - Extraction, cleansing, standardization, enrichment ✅
+- **File Processing Patterns** - Batch processing, validation, error recovery ✅
+- **Data Monitoring** - Quality monitoring, pipeline health, anomaly detection ✅
+
 ## Prerequisites
 
 - Python 3.8 or higher
@@ -201,6 +213,7 @@ result = con.execute("""
 7. **Advanced Concepts (Section 7)** - Window functions, CTEs, and transactions
 8. **Semi-Structured Data (Section 8)** - CSV, JSON, and Parquet processing
 9. **Business Intelligence (Section 9)** - Data warehousing, KPIs, time series, and reporting
+10. **Data Engineering (Section 10)** - ETL, data quality, file processing, and monitoring
 
 ## Course Progress
 
@@ -208,6 +221,7 @@ result = con.execute("""
 - ✅ **Section 7**: Window Functions, CTEs, and Transactions - Complete
 - ✅ **Section 8**: Semi-structured data (CSV, JSON, Parquet) - Complete
 - ✅ **Section 9**: Business Intelligence & Analytics - Complete
+- ✅ **Section 10**: Practical Data Engineering - Complete
 - 📋 **Future Sections**: Additional advanced topics (as needed)
 
 ## Resources

@@ -77,6 +77,14 @@ poetry run python run_sql.py "exercises/section-5-dql/aggregate-functions.sql"
 # Advanced DQL exercises (requires TPC-H database)
 poetry run python run_sql.py "exercises/section-6-dql-intermediate/subqueries.sql"
 poetry run python run_sql.py "exercises/section-6-dql-intermediate/join.sql"
+
+# Business Intelligence exercises
+poetry run python run_sql.py "exercises/section-9-business-intelligence/kpi-calculations.sql"
+poetry run python run_sql.py "exercises/section-9-business-intelligence/time-series-analysis.sql"
+
+# Data Engineering exercises
+poetry run python run_sql.py "exercises/section-10-data-engineering/data-quality-validation.sql"
+poetry run python run_sql.py "exercises/section-10-data-engineering/etl-transformations.sql"
 ```
 
 ### Quick Queries:
@@ -166,6 +174,12 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 - `exercises/section-9-business-intelligence/kpi-calculations.sql` - Customer metrics and business KPIs
 - `exercises/section-9-business-intelligence/time-series-analysis.sql` - Trends, seasonality, and cohort analysis
 - `exercises/section-9-business-intelligence/reporting-patterns.sql` - Pivot tables and executive dashboards
+
+### Section 10: Practical Data Engineering
+- `exercises/section-10-data-engineering/data-quality-validation.sql` - Data profiling and quality assessment
+- `exercises/section-10-data-engineering/etl-transformations.sql` - ETL patterns and data processing
+- `exercises/section-10-data-engineering/file-processing-patterns.sql` - Batch processing and file validation
+- `exercises/section-10-data-engineering/data-monitoring.sql` - Pipeline monitoring and alerting
 
 ## Tips
 
