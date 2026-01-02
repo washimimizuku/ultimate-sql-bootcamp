@@ -61,6 +61,11 @@ poetry run python sql_runner.py --setup -i
 
 ### Run Exercise Files:
 ```bash
+# Start with Section 1 - Introduction (great for beginners!)
+poetry run python run_sql.py "exercises/section-1-introduction/sql-fundamentals.sql"
+poetry run python run_sql.py "exercises/section-1-introduction/first-steps.sql"
+poetry run python run_sql.py "exercises/section-1-introduction/data-types-intro.sql"
+
 # DDL exercises
 poetry run python run_sql.py "exercises/section-3-ddl/create.sql"
 poetry run python run_sql.py "exercises/section-3-ddl/alter.sql"
@@ -91,7 +96,10 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 ## Available Exercise Sections
 
 ### Section 1: Introduction
-- `exercises/section-1-introduction/sql-anatomy.sql`
+- `exercises/section-1-introduction/sql-fundamentals.sql` - Core database concepts and SQL introduction
+- `exercises/section-1-introduction/first-steps.sql` - Your first SQL queries and result understanding
+- `exercises/section-1-introduction/data-types-intro.sql` - Understanding different data types
+- `exercises/section-1-introduction/sql-anatomy.sql` - SQL statement structure and syntax
 
 ### Section 2: DDL (Data Definition Language)
 - `exercises/section-2-ddl/create.sql` - CREATE statements
@@ -161,10 +169,13 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 
 ## Tips
 
+- **Learning Path**: Start with Section 1 for SQL fundamentals, then progress through sections sequentially
+- **Beginners**: Section 1 provides essential concepts - don't skip the introduction files!
 - **Database Files**: `data/tpc-h.db` (business data) and `data/starwars.db` (sample data)
 - **Setup**: Use `--setup` flag to reinitialize the TPC-H database
 - **Execution**: SQL files are executed statement by statement
 - **Results**: SELECT results are limited to first 10 rows for readability
 - **Comments**: Comments in SQL files are automatically skipped
-- **TPC-H Exercises**: Section 6 exercises require TPC-H database setup
+- **TPC-H Exercises**: Section 6+ exercises require TPC-H database setup
+- **Star Wars Exercises**: Section 1-5 exercises use Star Wars database for engaging examples
 - **File Requirements**: Each exercise file includes setup instructions in comments
