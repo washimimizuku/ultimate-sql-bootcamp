@@ -27,6 +27,18 @@
 -- CUSTOMER LIFETIME VALUE (CLV)
 -- ============================================
 
+-- WHAT IT IS: Customer Lifetime Value represents the total revenue a business can expect 
+-- from a single customer over the entire duration of their relationship.
+-- 
+-- WHY IT MATTERS: CLV helps businesses understand:
+-- - How much to spend on customer acquisition (should be less than CLV)
+-- - Which customer segments are most valuable
+-- - Whether customer relationships are improving over time
+-- - ROI of retention vs acquisition strategies
+--
+-- FORMULA: CLV = Average Order Value × Purchase Frequency × Customer Lifespan
+-- BENCHMARK: CLV should be 3-5x higher than Customer Acquisition Cost (CAC)
+
 -- Example 1: Basic Customer Lifetime Value
 -- CLV = Average Order Value × Purchase Frequency × Customer Lifespan
 -- Business Question: "What is the lifetime value of our customers?"
@@ -105,6 +117,18 @@ ORDER BY avg_clv_per_customer DESC;
 -- ============================================
 -- CHURN RATE ANALYSIS
 -- ============================================
+
+-- WHAT IT IS: Churn rate measures the percentage of customers who stop doing business 
+-- with a company over a specific time period.
+--
+-- WHY IT MATTERS: Churn rate indicates:
+-- - Customer satisfaction and product-market fit
+-- - Effectiveness of customer success and retention efforts
+-- - Revenue predictability and growth sustainability
+-- - Cost efficiency (retaining customers is cheaper than acquiring new ones)
+--
+-- FORMULA: Churn Rate = (Customers Lost in Period / Customers at Start of Period) × 100
+-- BENCHMARK: Varies by industry - SaaS: 5-10% annually, E-commerce: 20-30% annually
 
 -- Example 3: Customer Churn Rate Calculation
 -- Churn Rate = (Customers Lost in Period / Customers at Start of Period) × 100
@@ -192,6 +216,18 @@ ORDER BY churn_rate_percent DESC;
 -- CUSTOMER ACQUISITION COST (CAC)
 -- ============================================
 
+-- WHAT IT IS: Customer Acquisition Cost represents the total cost of acquiring a new customer,
+-- including marketing spend, sales costs, and onboarding expenses.
+--
+-- WHY IT MATTERS: CAC helps businesses:
+-- - Determine profitability of marketing channels
+-- - Set appropriate marketing budgets
+-- - Evaluate sales efficiency
+-- - Calculate payback periods for customer investments
+--
+-- FORMULA: CAC = Total Acquisition Costs / Number of New Customers Acquired
+-- BENCHMARK: CAC Payback Period should be < 12 months, LTV:CAC ratio should be > 3:1
+
 -- Example 5: Customer Acquisition Cost Analysis
 -- CAC = Total Acquisition Costs / Number of New Customers
 -- Note: TPC-H doesn't have marketing spend data, so we'll simulate it
@@ -251,6 +287,18 @@ ORDER BY acquisition_year, acquisition_month, cac_per_customer DESC;
 -- ============================================
 -- REVENUE GROWTH METRICS
 -- ============================================
+
+-- WHAT IT IS: Revenue growth metrics track how a company's income increases over time,
+-- measured month-over-month (MoM) and year-over-year (YoY).
+--
+-- WHY IT MATTERS: Growth metrics indicate:
+-- - Business momentum and market traction
+-- - Effectiveness of sales and marketing efforts
+-- - Seasonal patterns and trends
+-- - Progress toward financial goals and investor expectations
+--
+-- FORMULA: Growth Rate = ((Current Period - Previous Period) / Previous Period) × 100
+-- BENCHMARK: Healthy SaaS companies target 15-20% MoM growth, 100%+ YoY growth
 
 -- Example 6: Month-over-Month Revenue Growth
 -- Business Question: "How is our revenue growing month over month?"
@@ -352,6 +400,18 @@ ORDER BY revenue_year;
 -- CUSTOMER RETENTION METRICS
 -- ============================================
 
+-- WHAT IT IS: Customer retention rate measures the percentage of customers who continue
+-- doing business with a company over a specific time period.
+--
+-- WHY IT MATTERS: Retention metrics show:
+-- - Customer satisfaction and loyalty
+-- - Product stickiness and value delivery
+-- - Revenue predictability and compound growth
+-- - Efficiency of customer success efforts
+--
+-- FORMULA: Retention Rate = ((Customers at End - New Customers) / Customers at Start) × 100
+-- BENCHMARK: Good retention rates vary by industry - SaaS: 90%+, E-commerce: 20-30%
+
 -- Example 8: Customer Retention Rate
 -- Retention Rate = (Customers at End - New Customers) / Customers at Start × 100
 -- Business Question: "What percentage of customers are we retaining?"
@@ -405,6 +465,18 @@ ORDER BY retention_rate_percent DESC;
 -- AVERAGE ORDER VALUE (AOV) TRENDS
 -- ============================================
 
+-- WHAT IT IS: Average Order Value measures the average amount of money customers spend
+-- per transaction or order.
+--
+-- WHY IT MATTERS: AOV helps businesses:
+-- - Understand customer purchasing behavior
+-- - Identify upselling and cross-selling opportunities
+-- - Measure the impact of pricing strategies
+-- - Track the effectiveness of promotional campaigns
+--
+-- FORMULA: AOV = Total Revenue / Number of Orders
+-- BENCHMARK: AOV should trend upward over time; varies greatly by industry and price point
+
 -- Example 9: Average Order Value Analysis
 -- Business Question: "How is our average order value trending?"
 
@@ -454,6 +526,21 @@ ORDER BY c_mktsegment, order_year, order_month;
 -- ============================================
 -- CUSTOMER SEGMENTATION BY VALUE
 -- ============================================
+
+-- WHAT IT IS: Customer segmentation divides customers into groups based on behavior,
+-- value, and engagement patterns. RFM Analysis uses Recency, Frequency, and Monetary value.
+--
+-- WHY IT MATTERS: Segmentation enables:
+-- - Targeted marketing campaigns with higher conversion rates
+-- - Personalized customer experiences and messaging
+-- - Efficient allocation of customer success resources
+-- - Identification of high-value customers for VIP treatment
+--
+-- RFM COMPONENTS:
+-- - Recency: How recently did the customer make a purchase?
+-- - Frequency: How often do they purchase?
+-- - Monetary: How much do they spend?
+-- BENCHMARK: Focus 80% of retention efforts on top 20% of customers (Pareto Principle)
 
 -- Example 10: RFM Analysis (Recency, Frequency, Monetary)
 -- Business Question: "How should we segment our customers for targeted marketing?"
@@ -534,6 +621,21 @@ ORDER BY avg_rfm_score DESC;
 -- ============================================
 -- KPI DASHBOARD SUMMARY
 -- ============================================
+
+-- WHAT IT IS: A KPI dashboard provides a consolidated view of the most important
+-- business metrics, designed for executive and management decision-making.
+--
+-- WHY IT MATTERS: Executive dashboards:
+-- - Enable data-driven decision making at the leadership level
+-- - Provide early warning signals for business issues
+-- - Track progress toward strategic goals and objectives
+-- - Facilitate quick identification of trends and opportunities
+--
+-- KEY PRINCIPLES:
+-- - Focus on actionable metrics that drive business decisions
+-- - Update frequently (daily/weekly) for timely insights
+-- - Use clear visualizations and benchmarks for context
+-- - Include both absolute numbers and growth rates
 
 -- Example 11: Executive KPI Dashboard
 -- Business Question: "What are our key metrics at a glance?"
