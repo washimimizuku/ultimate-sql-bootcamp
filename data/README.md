@@ -8,7 +8,9 @@ This directory contains all data sources used in the Ultimate SQL Bootcamp, orga
 data/
 ├── databases/           # Database files (.db)
 │   ├── tpc-h.db        # TPC-H business analytics database
-│   └── starwars.db     # Star Wars universe database
+│   ├── starwars.db     # Star Wars universe database
+│   ├── ecommerce_analytics.db    # Ecommerce analytics database (Section 12)
+│   └── financial_reporting.db    # Financial reporting database (Section 12)
 ├── star-wars/          # Star Wars data in multiple formats
 │   ├── csv/            # CSV files for basic exercises
 │   ├── json/           # Raw JSON from SWAPI API + complex hierarchies
@@ -33,6 +35,20 @@ data/
 - **Tables**: 17 tables covering Star Wars universe
 - **Use**: Basic to intermediate exercises (Sections 3-5)
 - **Setup**: Usually pre-created, or `duckdb data/databases/starwars.db < database/starwars.sql`
+
+### `ecommerce_analytics.db`
+- **Purpose**: Industry-specific ecommerce analytics scenarios
+- **Size**: ~2MB
+- **Tables**: 10 tables (products, customers, orders, cart events, web sessions, inventory, reviews)
+- **Use**: Section 12 - Ecommerce analytics with inventory management, cart abandonment, sales funnel analysis
+- **Setup**: `duckdb data/databases/ecommerce_analytics.db < exercises/section-12-industry-scenarios/ecommerce-analytics.sql`
+
+### `financial_reporting.db`
+- **Purpose**: Industry-specific financial reporting and analysis
+- **Size**: ~1MB
+- **Tables**: 6 tables (chart of accounts, general ledger, budget, cost centers, fiscal periods, detailed transactions)
+- **Use**: Section 12 - Financial reporting with P&L statements, budget analysis, balance sheet, cash flow analysis
+- **Setup**: `duckdb data/databases/financial_reporting.db < exercises/section-12-industry-scenarios/financial-reporting.sql`
 
 ## Star Wars Data Files (`star-wars/`)
 
@@ -155,6 +171,10 @@ The Star Wars data is generated using tools in the `tools/` directory:
   - CSV files for basic tabular data processing
   - JSON files for document parsing and complex hierarchies
   - Parquet files for nested data structures and columnar analytics
+- **Section 9-11 (Business Intelligence & Advanced Analytics)**: Use TPC-H database for comprehensive business scenarios
+- **Section 12 (Industry-Specific Scenarios)**: 
+  - Ecommerce analytics database for retail/online business scenarios
+  - Financial reporting database for accounting and financial analysis
 
 ## File Sizes
 
@@ -162,6 +182,8 @@ The Star Wars data is generated using tools in the `tools/` directory:
 |-------------|------|---------|-------------|
 | `databases/tpc-h.db` | ~50MB | Thousands | Business analytics database |
 | `databases/starwars.db` | ~5MB | Hundreds | Star Wars universe database |
+| `databases/ecommerce_analytics.db` | ~2MB | Hundreds | Ecommerce analytics database (Section 12) |
+| `databases/financial_reporting.db` | ~1MB | Hundreds | Financial reporting database (Section 12) |
 | `star-wars/csv/` | ~100KB | ~300 total | 5 CSV files (87 characters, 61 planets, 37 species, etc.) |
 | `star-wars/json/` | ~500KB | ~300 total | 6 SWAPI files + 1 complex hierarchy |
 | `star-wars/enriched/` | ~800KB | ~300 total | 6 enriched JSON files with relationships |

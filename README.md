@@ -96,6 +96,10 @@ This repository adapts Tom Bailey's Snowflake-focused course content to work wit
 - **Pivot and Unpivot Operations** - Data reshaping, cross-tabulation, dynamic pivots ✅
 - **Cohort Retention Analysis** - Customer lifecycle, retention patterns, churn prediction ✅
 
+### Section 12: Industry-Specific Scenarios *(Complete)*
+- **Ecommerce Analytics** - Complete ecommerce data model with inventory management, cart abandonment analysis, sales funnel optimization, and product recommendations ✅
+- **Financial Reporting** - Comprehensive financial data model with P&L statements, budget vs actual analysis, balance sheet reporting, and cash flow analysis ✅
+
 ## Prerequisites
 
 - Python 3.8 or higher
@@ -219,6 +223,7 @@ result = con.execute("""
 9. **Business Intelligence (Section 9)** - Data warehousing, KPIs, time series, and reporting
 10. **Data Engineering (Section 10)** - ETL, data quality, file processing, and monitoring
 11. **Advanced Analytics (Section 11)** - Pivot operations, cohort analysis, and retention patterns
+12. **Industry Scenarios (Section 12)** - Ecommerce analytics and financial reporting with complete data models
 
 ## Course Progress
 
@@ -228,7 +233,7 @@ result = con.execute("""
 - ✅ **Section 9**: Business Intelligence & Analytics - Complete
 - ✅ **Section 10**: Practical Data Engineering - Complete
 - ✅ **Section 11**: Advanced Analytics - Complete
-- 📋 **Future Sections**: Industry-specific scenarios (Section 12)
+- ✅ **Section 12**: Industry-Specific Scenarios - Complete
 
 ## Resources
 

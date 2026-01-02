@@ -8,7 +8,9 @@ This document provides comprehensive information about all CSV, JSON, and Parque
 data/
 ├── databases/         # Database files
 │   ├── tpc-h.db      # TPC-H business database
-│   └── starwars.db   # Star Wars SQLite database
+│   ├── starwars.db   # Star Wars SQLite database
+│   ├── ecommerce_analytics.db    # Ecommerce analytics database (Section 12)
+│   └── financial_reporting.db    # Financial reporting database (Section 12)
 ├── star-wars/        # Star Wars universe data organized by format
 │   ├── csv/          # Simplified CSV format for basic exercises
 │   ├── json/         # Raw JSON with API references + complex hierarchies

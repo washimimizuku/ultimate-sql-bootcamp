@@ -189,6 +189,10 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 - `exercises/section-11-advanced-analytics/pivot-unpivot-operations.sql` - Data reshaping and cross-tabulation analysis
 - `exercises/section-11-advanced-analytics/cohort-retention-analysis.sql` - Customer lifecycle and retention patterns
 
+### Section 12: Industry-Specific Scenarios
+- `exercises/section-12-industry-scenarios/ecommerce-analytics.sql` - Complete ecommerce analytics with inventory, cart abandonment, and sales funnel analysis (creates `data/databases/ecommerce_analytics.db`)
+- `exercises/section-12-industry-scenarios/financial-reporting.sql` - Comprehensive financial reporting with P&L, budget analysis, and cash flow statements (creates `data/databases/financial_reporting.db`)
+
 ## Tips
 
 - **Learning Path**: Start with Section 1 for SQL fundamentals, then progress through sections sequentially
