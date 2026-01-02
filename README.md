@@ -40,11 +40,14 @@ This repository adapts Tom Bailey's Snowflake-focused course content to work wit
 
 ### Section 1: SQL Introduction
 - SQL anatomy and basic syntax
+- Database fundamentals and data types
+- Setting up the development environment
 
 ### Section 2: Data Definition Language (DDL)
 - CREATE, ALTER, DROP statements
 - Database and schema management
 - Table structure operations
+- Constraints and indexes
 
 ### Section 3: Data Manipulation Language (DML)
 - INSERT, UPDATE, DELETE operations
@@ -56,49 +59,50 @@ This repository adapts Tom Bailey's Snowflake-focused course content to work wit
 - SELECT statements and filtering
 - Aggregate and scalar functions
 - GROUP BY and HAVING clauses
-- ORDER BY sorting
+- ORDER BY sorting and LIMIT operations
 
 ### Section 5: Intermediate DQL
 - **JOINs** - Inner, outer, and cross joins
 - **Subqueries** - Correlated and uncorrelated
 - **Set Operators** - UNION, INTERSECT, EXCEPT
-- **TPC-H Analysis** - Real-world business scenarios
+- **Views** - Creating and managing database views
 
-### Section 6: Query Performance Tuning *(Enhanced)*
+### Section 6: Query Performance Tuning
 - **EXPLAIN** - Query execution plan analysis
-- **JOIN Optimization** - Advanced join techniques and CTEs
+- **JOIN Optimization** - Advanced join techniques and performance
 - **ORDER BY Optimization** - Sorting performance and LIMIT strategies
 - **GROUP BY Optimization** - Aggregation and cardinality considerations
+- **Indexes** - Creating and optimizing database indexes
 
-### Section 7: Advanced SQL Concepts *(Complete)*
-- **Window Functions** - Analytical functions and partitioning ✅
-- **CTEs** - Common Table Expressions and recursive queries ✅
-- **Transactions** - ACID properties and transaction management ✅
+### Section 7: Advanced SQL Concepts
+- **Window Functions** - Analytical functions and partitioning
+- **CTEs** - Common Table Expressions and recursive queries
+- **Transactions** - ACID properties and transaction management
 
-### Section 8: Semi-Structured Data *(Complete)*
-- **CSV Data** - Reading, processing, and analyzing CSV files ✅
-- **JSON Data** - Complex JSON structures and hierarchy traversal ✅
-- **Parquet Data** - Columnar storage with nested data structures ✅
+### Section 8: Semi-Structured Data
+- **CSV Data** - Reading, processing, and analyzing CSV files
+- **JSON Data** - Complex JSON structures and hierarchy traversal
+- **Parquet Data** - Columnar storage with nested data structures
 
-### Section 9: Business Intelligence & Analytics *(Complete)*
-- **Data Warehousing** - Star schema, dimensional modeling, SCDs ✅
-- **KPI Calculations** - Customer metrics, churn analysis, growth rates ✅
-- **Time Series Analysis** - Trends, seasonality, cohort analysis ✅
-- **Reporting Patterns** - Pivot tables, dashboards, executive reporting ✅
+### Section 9: Business Intelligence & Analytics
+- **Data Warehousing** - Star schema, dimensional modeling, SCDs
+- **KPI Calculations** - Customer metrics, churn analysis, growth rates
+- **Time Series Analysis** - Trends, seasonality, cohort analysis
+- **Reporting Patterns** - Pivot tables, dashboards, executive reporting
 
-### Section 10: Practical Data Engineering *(Complete)*
-- **Data Quality Validation** - Profiling, duplicate detection, consistency checks ✅
-- **ETL Transformations** - Extraction, cleansing, standardization, enrichment ✅
-- **File Processing Patterns** - Batch processing, validation, error recovery ✅
-- **Data Monitoring** - Quality monitoring, pipeline health, anomaly detection ✅
+### Section 10: Practical Data Engineering
+- **Data Quality Validation** - Profiling, duplicate detection, consistency checks
+- **ETL Transformations** - Extraction, cleansing, standardization, enrichment
+- **File Processing Patterns** - Batch processing, validation, error recovery
+- **Data Monitoring** - Quality monitoring, pipeline health, anomaly detection
 
-### Section 11: Advanced Analytics *(Complete)*
-- **Pivot and Unpivot Operations** - Data reshaping, cross-tabulation, dynamic pivots ✅
-- **Cohort Retention Analysis** - Customer lifecycle, retention patterns, churn prediction ✅
+### Section 11: Advanced Analytics
+- **Pivot and Unpivot Operations** - Data reshaping, cross-tabulation, dynamic pivots
+- **Cohort Retention Analysis** - Customer lifecycle, retention patterns, churn prediction
 
-### Section 12: Industry-Specific Scenarios *(Complete)*
-- **Ecommerce Analytics** - Complete ecommerce data model with inventory management, cart abandonment analysis, sales funnel optimization, and product recommendations ✅
-- **Financial Reporting** - Comprehensive financial data model with P&L statements, budget vs actual analysis, balance sheet reporting, and cash flow analysis ✅
+### Section 12: Industry-Specific Scenarios
+- **Ecommerce Analytics** - Complete ecommerce data model with inventory management, cart abandonment analysis, sales funnel optimization, and product recommendations
+- **Financial Reporting** - Comprehensive financial data model with P&L statements, budget vs actual analysis, balance sheet reporting, and cash flow analysis
 
 ## Prerequisites
 
