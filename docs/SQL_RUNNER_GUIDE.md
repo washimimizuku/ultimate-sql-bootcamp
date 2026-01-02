@@ -85,6 +85,10 @@ poetry run python run_sql.py "exercises/section-9-business-intelligence/time-ser
 # Data Engineering exercises
 poetry run python run_sql.py "exercises/section-10-data-engineering/data-quality-validation.sql"
 poetry run python run_sql.py "exercises/section-10-data-engineering/etl-transformations.sql"
+
+# Advanced Analytics exercises
+poetry run python run_sql.py "exercises/section-11-advanced-analytics/pivot-unpivot-operations.sql"
+poetry run python run_sql.py "exercises/section-11-advanced-analytics/cohort-retention-analysis.sql"
 ```
 
 ### Quick Queries:
@@ -180,6 +184,10 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 - `exercises/section-10-data-engineering/etl-transformations.sql` - ETL patterns and data processing
 - `exercises/section-10-data-engineering/file-processing-patterns.sql` - Batch processing and file validation
 - `exercises/section-10-data-engineering/data-monitoring.sql` - Pipeline monitoring and alerting
+
+### Section 11: Advanced Analytics
+- `exercises/section-11-advanced-analytics/pivot-unpivot-operations.sql` - Data reshaping and cross-tabulation analysis
+- `exercises/section-11-advanced-analytics/cohort-retention-analysis.sql` - Customer lifecycle and retention patterns
 
 ## Tips
 
