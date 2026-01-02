@@ -174,27 +174,29 @@ LIMIT 20;
 -- ============================================
 
 -- Example 10: Partial index for specific conditions
--- Only index rows that meet certain criteria
-CREATE INDEX idx_customer_high_balance ON customer(c_custkey) 
-WHERE c_acctbal > 5000;
+-- NOTE: DuckDB does not currently support partial indexes
+-- This is a conceptual example for databases that support them (PostgreSQL, SQLite)
+-- CREATE INDEX idx_customer_high_balance ON customer(c_custkey) 
+-- WHERE c_acctbal > 5000;
 
--- This query can use the partial index
-EXPLAIN ANALYZE
-SELECT c_name, c_acctbal
-FROM customer
-WHERE c_acctbal > 5000 AND c_custkey < 1000;
+-- Conceptual query that would use the partial index:
+-- EXPLAIN ANALYZE
+-- SELECT c_name, c_acctbal
+-- FROM customer
+-- WHERE c_acctbal > 5000 AND c_custkey < 1000;
 
 -- Example 11: Partial index for active orders only
-CREATE INDEX idx_orders_active ON orders(o_orderdate, o_totalprice)
-WHERE o_orderstatus IN ('O', 'P');  -- Only Open and Pending orders
+-- NOTE: DuckDB does not currently support partial indexes
+-- CREATE INDEX idx_orders_active ON orders(o_orderdate, o_totalprice)
+-- WHERE o_orderstatus IN ('O', 'P');  -- Only Open and Pending orders
 
--- Query using partial index
-EXPLAIN ANALYZE
-SELECT o_orderkey, o_totalprice, o_orderdate
-FROM orders
-WHERE o_orderstatus = 'O' AND o_orderdate >= '1995-01-01'
-ORDER BY o_totalprice DESC
-LIMIT 25;
+-- Conceptual query using partial index:
+-- EXPLAIN ANALYZE
+-- SELECT o_orderkey, o_totalprice, o_orderdate
+-- FROM orders
+-- WHERE o_orderstatus = 'O' AND o_orderdate >= '1995-01-01'
+-- ORDER BY o_totalprice DESC
+-- LIMIT 25;
 
 -- ============================================
 -- INDEX SELECTIVITY AND EFFECTIVENESS
@@ -363,12 +365,19 @@ DROP INDEX IF EXISTS idx_orders_active;
 -- DROP INDEX IF EXISTS idx_orders_custkey;    -- Keep this one
 
 -- List remaining indexes (conceptual - DuckDB syntax may vary)
-SELECT 
-    table_name,
-    index_name
-FROM information_schema.statistics
-WHERE table_schema = 'main'
-ORDER BY table_name, index_name;
+-- Note: DuckDB doesn't have information_schema.statistics
+-- This is a conceptual example for other databases
+-- SELECT 
+--     table_name,
+--     index_name
+-- FROM information_schema.statistics
+-- WHERE table_schema = 'main'
+-- ORDER BY table_name, index_name;
+
+-- In DuckDB, you can check table info with:
+PRAGMA table_info(customer);
+-- Or show all tables:
+SHOW TABLES;
 
 -- ============================================
 -- COMPREHENSIVE INDEX STRATEGY
