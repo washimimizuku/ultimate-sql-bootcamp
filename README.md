@@ -200,12 +200,14 @@ result = con.execute("""
 6. **Performance Tuning (Section 6)** - Query optimization and EXPLAIN analysis
 7. **Advanced Concepts (Section 7)** - Window functions, CTEs, and transactions
 8. **Semi-Structured Data (Section 8)** - CSV, JSON, and Parquet processing
+9. **Business Intelligence (Section 9)** - Data warehousing, KPIs, time series, and reporting
 
 ## Course Progress
 
 - ✅ **Sections 1-6**: Complete with enhanced DuckDB examples
 - ✅ **Section 7**: Window Functions, CTEs, and Transactions - Complete
 - ✅ **Section 8**: Semi-structured data (CSV, JSON, Parquet) - Complete
+- ✅ **Section 9**: Business Intelligence & Analytics - Complete
 - 📋 **Future Sections**: Additional advanced topics (as needed)
 
 ## Resources

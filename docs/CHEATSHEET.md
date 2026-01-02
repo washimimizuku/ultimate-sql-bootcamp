@@ -364,3 +364,163 @@ SELECT json_extract(data, '$.name') FROM json_table;
 -- Array operations
 SELECT UNNEST(['a', 'b', 'c']) as items;
 ```
+## Business Intelligence & Analytics (Section 9)
+
+### Data Warehousing Patterns
+```sql
+-- Star Schema Query (Fact + Dimensions)
+SELECT 
+    r.r_name as region,
+    c.c_mktsegment as segment,
+    SUM(o.o_totalprice) as total_revenue,
+    COUNT(o.o_orderkey) as order_count
+FROM orders o                                    -- FACT TABLE
+INNER JOIN customer c ON o.o_custkey = c.c_custkey    -- DIMENSION
+INNER JOIN nation n ON c.c_nationkey = n.n_nationkey -- DIMENSION
+INNER JOIN region r ON n.n_regionkey = r.r_regionkey -- DIMENSION
+GROUP BY r.r_name, c.c_mktsegment;
+
+-- Data Mart Creation
+CREATE VIEW sales_data_mart AS
+SELECT 
+    o.o_orderdate,
+    EXTRACT(YEAR FROM o.o_orderdate) as order_year,
+    c.c_mktsegment as customer_segment,
+    r.r_name as region,
+    o.o_totalprice as order_total
+FROM orders o
+INNER JOIN customer c ON o.o_custkey = c.c_custkey
+INNER JOIN nation n ON c.c_nationkey = n.n_nationkey
+INNER JOIN region r ON n.n_regionkey = r.r_regionkey;
+```
+
+### KPI Calculations
+```sql
+-- Customer Lifetime Value (CLV)
+SELECT 
+    c.c_custkey,
+    COUNT(o.o_orderkey) as total_orders,
+    SUM(o.o_totalprice) as total_revenue,
+    AVG(o.o_totalprice) as avg_order_value,
+    SUM(o.o_totalprice) / COUNT(DISTINCT c.c_custkey) as clv
+FROM customer c
+INNER JOIN orders o ON c.c_custkey = o.o_custkey
+GROUP BY c.c_custkey;
+
+-- Churn Rate Analysis
+WITH customer_activity AS (
+    SELECT 
+        c.c_custkey,
+        MAX(o.o_orderdate) as last_order_date,
+        CASE WHEN MAX(o.o_orderdate) < '1995-07-01' THEN 1 ELSE 0 END as is_churned
+    FROM customer c
+    INNER JOIN orders o ON c.c_custkey = o.o_custkey
+    GROUP BY c.c_custkey
+)
+SELECT 
+    COUNT(*) as total_customers,
+    SUM(is_churned) as churned_customers,
+    ROUND(SUM(is_churned) * 100.0 / COUNT(*), 2) as churn_rate_percent
+FROM customer_activity;
+
+-- Growth Rate Calculation
+SELECT 
+    EXTRACT(MONTH FROM o_orderdate) as month,
+    SUM(o_totalprice) as monthly_revenue,
+    LAG(SUM(o_totalprice)) OVER (ORDER BY EXTRACT(MONTH FROM o_orderdate)) as prev_month_revenue,
+    ROUND((SUM(o_totalprice) - LAG(SUM(o_totalprice)) OVER (ORDER BY EXTRACT(MONTH FROM o_orderdate))) * 100.0 / 
+          LAG(SUM(o_totalprice)) OVER (ORDER BY EXTRACT(MONTH FROM o_orderdate)), 2) as growth_rate_percent
+FROM orders
+GROUP BY EXTRACT(MONTH FROM o_orderdate);
+```
+
+### Time Series Analysis
+```sql
+-- Moving Averages
+SELECT 
+    o_orderdate,
+    SUM(o_totalprice) as daily_revenue,
+    AVG(SUM(o_totalprice)) OVER (
+        ORDER BY o_orderdate 
+        ROWS BETWEEN 6 PRECEDING AND CURRENT ROW
+    ) as revenue_7day_avg
+FROM orders
+GROUP BY o_orderdate
+ORDER BY o_orderdate;
+
+-- Seasonality Analysis
+SELECT 
+    EXTRACT(MONTH FROM o_orderdate) as month,
+    SUM(o_totalprice) as monthly_revenue,
+    ROUND(SUM(o_totalprice) * 100.0 / SUM(SUM(o_totalprice)) OVER (), 2) as pct_of_annual_revenue
+FROM orders
+GROUP BY EXTRACT(MONTH FROM o_orderdate)
+ORDER BY month;
+
+-- Cohort Analysis
+WITH customer_cohorts AS (
+    SELECT 
+        c.c_custkey,
+        DATE_TRUNC('month', MIN(o.o_orderdate)) as acquisition_month
+    FROM customer c
+    INNER JOIN orders o ON c.c_custkey = o.o_custkey
+    GROUP BY c.c_custkey
+)
+SELECT 
+    acquisition_month,
+    COUNT(*) as cohort_size,
+    SUM(o.o_totalprice) as cohort_revenue
+FROM customer_cohorts cc
+INNER JOIN orders o ON cc.c_custkey = o.o_custkey
+GROUP BY acquisition_month;
+```
+
+### Reporting Patterns
+```sql
+-- Pivot Table (Cross-tabulation)
+SELECT 
+    c.c_mktsegment,
+    SUM(CASE WHEN r.r_name = 'AFRICA' THEN o.o_totalprice ELSE 0 END) as africa_revenue,
+    SUM(CASE WHEN r.r_name = 'AMERICA' THEN o.o_totalprice ELSE 0 END) as america_revenue,
+    SUM(CASE WHEN r.r_name = 'ASIA' THEN o.o_totalprice ELSE 0 END) as asia_revenue,
+    SUM(CASE WHEN r.r_name = 'EUROPE' THEN o.o_totalprice ELSE 0 END) as europe_revenue
+FROM orders o
+INNER JOIN customer c ON o.o_custkey = c.c_custkey
+INNER JOIN nation n ON c.c_nationkey = n.n_nationkey
+INNER JOIN region r ON n.n_regionkey = r.r_regionkey
+GROUP BY c.c_mktsegment;
+
+-- Year-over-Year Comparison
+WITH yearly_metrics AS (
+    SELECT 
+        EXTRACT(YEAR FROM o_orderdate) as year,
+        SUM(o_totalprice) as annual_revenue
+    FROM orders
+    GROUP BY EXTRACT(YEAR FROM o_orderdate)
+)
+SELECT 
+    year,
+    annual_revenue,
+    LAG(annual_revenue) OVER (ORDER BY year) as prev_year_revenue,
+    ROUND((annual_revenue - LAG(annual_revenue) OVER (ORDER BY year)) * 100.0 / 
+          LAG(annual_revenue) OVER (ORDER BY year), 2) as yoy_growth_percent
+FROM yearly_metrics;
+
+-- Exception Reporting (Outliers)
+WITH revenue_stats AS (
+    SELECT 
+        AVG(o_totalprice) as avg_revenue,
+        STDDEV(o_totalprice) as stddev_revenue
+    FROM orders
+)
+SELECT 
+    o.o_orderkey,
+    o.o_totalprice,
+    CASE 
+        WHEN ABS(o.o_totalprice - rs.avg_revenue) > 2 * rs.stddev_revenue THEN 'Outlier'
+        ELSE 'Normal'
+    END as revenue_classification
+FROM orders o
+CROSS JOIN revenue_stats rs
+WHERE ABS(o.o_totalprice - rs.avg_revenue) > 2 * rs.stddev_revenue;
+```

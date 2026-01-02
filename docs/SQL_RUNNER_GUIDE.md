@@ -153,6 +153,12 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 - `exercises/section-8-semi-structured-data/json-data.sql` - JSON document analysis
 - `exercises/section-8-semi-structured-data/parquet-data.sql` - Parquet columnar analytics
 
+### Section 9: Business Intelligence & Analytics
+- `exercises/section-9-business-intelligence/data-warehousing-patterns.sql` - Star schema and dimensional modeling
+- `exercises/section-9-business-intelligence/kpi-calculations.sql` - Customer metrics and business KPIs
+- `exercises/section-9-business-intelligence/time-series-analysis.sql` - Trends, seasonality, and cohort analysis
+- `exercises/section-9-business-intelligence/reporting-patterns.sql` - Pivot tables and executive dashboards
+
 ## Tips
 
 - **Database Files**: `data/tpc-h.db` (business data) and `data/starwars.db` (sample data)

@@ -68,6 +68,13 @@ The Star Wars database contains comprehensive data from the Star Wars universe, 
 - **Star Wars Parquet files** for nested data structures
 - **Titanic Parquet** for advanced analytics
 
+### Section 9: Business Intelligence & Analytics
+- **TPC-H database** for comprehensive business intelligence scenarios
+- Dimensional modeling with realistic business relationships
+- KPI calculations using customer and order data
+- Time series analysis with date-based order patterns
+- Executive reporting and dashboard creation
+
 ## Quick Database Setup
 
 ### TPC-H Database
