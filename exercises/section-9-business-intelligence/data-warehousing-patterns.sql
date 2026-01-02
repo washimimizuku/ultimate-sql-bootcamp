@@ -26,6 +26,20 @@
 -- UNDERSTANDING THE EXISTING STAR SCHEMA
 -- ============================================
 
+-- WHAT IT IS: Star schema is a dimensional modeling approach where a central fact table
+-- is surrounded by dimension tables, resembling a star when visualized.
+--
+-- WHY IT MATTERS: Star schema provides:
+-- - Simplified queries that are easier to write and understand
+-- - Better query performance through denormalized structure
+-- - Intuitive business user experience for reporting and analysis
+-- - Clear separation between measures (facts) and attributes (dimensions)
+--
+-- KEY COMPONENTS:
+-- - Fact Tables: Store quantitative measures and foreign keys to dimensions
+-- - Dimension Tables: Store descriptive attributes for filtering and grouping
+-- BENCHMARK: Well-designed star schemas can improve query performance by 10-100x vs normalized schemas
+
 -- The TPC-H database already follows dimensional modeling principles
 -- Let's analyze the existing structure:
 
@@ -86,6 +100,18 @@ FROM supplier;
 -- STAR SCHEMA ANALYSIS
 -- ============================================
 
+-- WHAT IT IS: Star schema analysis demonstrates how to query across fact and dimension
+-- tables to answer complex business questions using simple, intuitive SQL.
+--
+-- WHY IT MATTERS: This pattern enables:
+-- - Business users to write their own queries without complex joins
+-- - Consistent results across different reports and analysts
+-- - Fast query performance through optimized table relationships
+-- - Scalable analytics that work with growing data volumes
+--
+-- QUERY PATTERN: Start with fact table, join to dimensions as needed
+-- BENCHMARK: Star schema queries should be 2-5x simpler than equivalent normalized queries
+
 -- Example 2: Classic Star Schema Query
 -- Business Question: "What are our sales by customer segment and region?"
 -- This demonstrates the star schema in action
@@ -134,6 +160,18 @@ ORDER BY supplier_nation, order_year, order_quarter, total_revenue DESC;
 -- ============================================
 -- CREATING DATA MART VIEWS
 -- ============================================
+
+-- WHAT IT IS: Data marts are subject-specific subsets of a data warehouse, designed
+-- for particular business functions or departments (sales, marketing, finance).
+--
+-- WHY IT MATTERS: Data marts provide:
+-- - Focused datasets that meet specific business needs
+-- - Improved query performance through pre-aggregated or filtered data
+-- - Simplified access for business users in specific domains
+-- - Better security by limiting access to relevant data only
+--
+-- TYPES: Dependent (sourced from data warehouse) vs Independent (standalone)
+-- BENCHMARK: Data marts should reduce query complexity by 50-80% for domain-specific analysis
 
 -- Example 4: Sales Data Mart
 -- Create a focused view for sales analysis team
@@ -235,6 +273,21 @@ LIMIT 15;
 -- SLOWLY CHANGING DIMENSIONS (SCD)
 -- ============================================
 
+-- WHAT IT IS: Slowly Changing Dimensions are techniques for handling changes to
+-- dimension data over time while preserving historical accuracy and context.
+--
+-- WHY IT MATTERS: SCD strategies enable:
+-- - Historical reporting with accurate point-in-time data
+-- - Trend analysis that accounts for changing business conditions
+-- - Compliance with audit and regulatory requirements
+-- - Consistent reporting across different time periods
+--
+-- SCD TYPES:
+-- - Type 1: Overwrite (lose history, keep current state only)
+-- - Type 2: Add new record (preserve full history with effective dates)
+-- - Type 3: Add new column (keep limited history)
+-- BENCHMARK: Type 2 SCD is most common for critical business dimensions (80% of use cases)
+
 -- Example 6: SCD Type 1 - Overwrite (Most Common)
 -- Scenario: Customer changes address, we only keep current address
 -- This is what most systems do by default
@@ -321,6 +374,19 @@ ORDER BY customer_count DESC;
 -- DIMENSIONAL HIERARCHY NAVIGATION
 -- ============================================
 
+-- WHAT IT IS: Dimensional hierarchies represent natural drill-down paths in business
+-- data, allowing users to analyze information from summary to detail levels.
+--
+-- WHY IT MATTERS: Hierarchies enable:
+-- - Intuitive drill-down and roll-up analysis (Region → Country → State → City)
+-- - Consistent aggregation at different levels of detail
+-- - Self-service analytics where users can explore data independently
+-- - Efficient storage through normalized dimension structures
+--
+-- COMMON HIERARCHIES: Geographic (Region→Country), Time (Year→Quarter→Month→Day), 
+-- Product (Category→Subcategory→Product), Organizational (Division→Department→Team)
+-- BENCHMARK: Well-designed hierarchies should support 3-5 levels of drill-down
+
 -- Example 9: Geographic Hierarchy Drill-Down
 -- Business Question: "Sales performance from region down to nation level"
 
@@ -358,6 +424,18 @@ ORDER BY r.r_name, revenue DESC;
 -- ============================================
 -- FACT TABLE GRANULARITY EXAMPLES
 -- ============================================
+
+-- WHAT IT IS: Fact table granularity defines the level of detail stored in the fact table,
+-- determining what each row represents (transaction, daily summary, monthly total, etc.).
+--
+-- WHY IT MATTERS: Granularity choices affect:
+-- - Query performance (more detailed = larger tables, slower aggregations)
+-- - Storage requirements (detailed data requires more space)
+-- - Analytical flexibility (can't analyze below the grain level)
+-- - Data freshness and loading complexity
+--
+-- GRANULARITY LEVELS: Transaction (most detailed), Daily, Weekly, Monthly (most summarized)
+-- BENCHMARK: Choose the finest grain that supports 80% of business questions
 
 -- Example 10: Different Levels of Aggregation
 -- Show how the same data can be viewed at different granularities
@@ -400,6 +478,18 @@ ORDER BY year, month;
 -- ============================================
 -- CONFORMED DIMENSIONS
 -- ============================================
+
+-- WHAT IT IS: Conformed dimensions are shared dimension tables that are used consistently
+-- across multiple fact tables, ensuring integrated and consistent reporting.
+--
+-- WHY IT MATTERS: Conformed dimensions provide:
+-- - Consistent definitions and values across different business processes
+-- - Ability to combine and compare data from different fact tables
+-- - Single source of truth for dimensional attributes
+-- - Reduced data redundancy and maintenance overhead
+--
+-- EXAMPLES: Customer dimension used by Sales, Marketing, and Support fact tables
+-- BENCHMARK: 70-80% of dimensions should be conformed in a mature data warehouse
 
 -- Example 11: Shared Dimensions Across Facts
 -- Both ORDERS and LINEITEM share the same customer dimension
@@ -451,6 +541,18 @@ LIMIT 20;
 -- ============================================
 -- DATA WAREHOUSE BEST PRACTICES
 -- ============================================
+
+-- WHAT IT IS: Surrogate keys are artificial, system-generated primary keys used in
+-- data warehouse dimension tables instead of natural business keys.
+--
+-- WHY IT MATTERS: Surrogate keys provide:
+-- - Stability when business keys change or have quality issues
+-- - Better performance through smaller, integer-based joins
+-- - Support for slowly changing dimensions and historical tracking
+-- - Independence from source system key changes
+--
+-- CHARACTERISTICS: Usually auto-incrementing integers, meaningless to business users
+-- BENCHMARK: 95%+ of data warehouse dimensions should use surrogate keys
 
 -- Example 12: Surrogate Keys vs Natural Keys
 -- In a real data warehouse, we'd use surrogate keys for dimensions
