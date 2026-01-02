@@ -90,33 +90,51 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 
 ## Available Exercise Sections
 
-### Section 2: Introduction
-- `exercises/section-2-introduction/sql-anatomy.sql`
+### Section 1: Introduction
+- `exercises/section-1-introduction/sql-anatomy.sql`
 
-### Section 3: DDL (Data Definition Language)
-- `exercises/section-3-ddl/create.sql` - CREATE statements
-- `exercises/section-3-ddl/alter.sql` - ALTER statements  
-- `exercises/section-3-ddl/drop.sql` - DROP statements
-- `exercises/section-3-ddl/show.sql` - SHOW statements
-- `exercises/section-3-ddl/describe.sql` - DESCRIBE statements
-- `exercises/section-3-ddl/use.sql` - USE statements
+### Section 2: DDL (Data Definition Language)
+- `exercises/section-2-ddl/create.sql` - CREATE statements
+- `exercises/section-2-ddl/alter.sql` - ALTER statements  
+- `exercises/section-2-ddl/drop.sql` - DROP statements
+- `exercises/section-2-ddl/show.sql` - SHOW statements
+- `exercises/section-2-ddl/describe.sql` - DESCRIBE statements
+- `exercises/section-2-ddl/use.sql` - USE statements
 
-### Section 4: DML (Data Manipulation Language)
-- `exercises/section-4-dml/insert.sql` - INSERT operations
-- `exercises/section-4-dml/update.sql` - UPDATE operations
-- `exercises/section-4-dml/delete.sql` - DELETE operations
-- `exercises/section-4-dml/merge.sql` - MERGE operations
-- `exercises/section-4-dml/copy-from.sql` - COPY FROM operations
-- `exercises/section-4-dml/truncate.sql` - TRUNCATE operations
+### Section 3: DML (Data Manipulation Language)
+- `exercises/section-3-dml/insert.sql` - INSERT operations
+- `exercises/section-3-dml/update.sql` - UPDATE operations
+- `exercises/section-3-dml/delete.sql` - DELETE operations
+- `exercises/section-3-dml/merge.sql` - MERGE operations
+- `exercises/section-3-dml/copy-from.sql` - COPY FROM operations
+- `exercises/section-3-dml/truncate.sql` - TRUNCATE operations
 
-### Section 5: DQL (Data Query Language)
-- `exercises/section-5-dql/select-from.sql` - Basic SELECT
-- `exercises/section-5-dql/select-where.sql` - WHERE clauses
-- `exercises/section-5-dql/select-order-by.sql` - ORDER BY sorting
-- `exercises/section-5-dql/select-group-by.sql` - GROUP BY aggregation
-- `exercises/section-5-dql/select-having.sql` - HAVING clauses
-- `exercises/section-5-dql/aggregate-functions.sql` - Aggregate functions
-- `exercises/section-5-dql/scalar-functions.sql` - Scalar functions
+### Section 4: DQL (Data Query Language)
+- `exercises/section-4-dql/select-from.sql` - Basic SELECT
+- `exercises/section-4-dql/select-where.sql` - WHERE clauses
+- `exercises/section-4-dql/select-order-by.sql` - ORDER BY sorting
+- `exercises/section-4-dql/select-group-by.sql` - GROUP BY aggregation
+- `exercises/section-4-dql/select-having.sql` - HAVING clauses
+- `exercises/section-4-dql/aggregate-functions.sql` - Aggregate functions
+- `exercises/section-4-dql/scalar-functions.sql` - Scalar functions
+
+### Section 5: Intermediate DQL
+- `exercises/section-5-dql-intermediate/join.sql` - INNER JOINs
+- `exercises/section-5-dql-intermediate/outer-join.sql` - OUTER JOINs
+- `exercises/section-5-dql-intermediate/subqueries.sql` - Subquery patterns
+- `exercises/section-5-dql-intermediate/set-operators.sql` - UNION, INTERSECT, EXCEPT
+- `exercises/section-5-dql-intermediate/tpch.sql` - TPC-H database exploration
+- `exercises/section-5-dql-intermediate/views.sql` - Basic view creation and usage
+- `exercises/section-5-dql-intermediate/views-advanced.sql` - Advanced view patterns and optimization
+- `exercises/section-5-dql-intermediate/conditional-expressions.sql` - CASE statements and conditionals
+- `exercises/section-5-dql-intermediate/conversions.sql` - Data type conversions
+
+### Section 6: Query Performance Tuning
+- `exercises/section-6-query-performance-tuning/explain.sql` - Query execution plan analysis
+- `exercises/section-6-query-performance-tuning/join-optimization.sql` - Advanced join techniques
+- `exercises/section-6-query-performance-tuning/order-by-optimization.sql` - Sorting performance
+- `exercises/section-6-query-performance-tuning/group-by-optimization.sql` - Aggregation optimization
+- `exercises/section-6-query-performance-tuning/indexes.sql` - Comprehensive index strategies
 
 ### Section 6: Intermediate DQL
 - `exercises/section-6-dql-intermediate/join.sql` - INNER JOINs

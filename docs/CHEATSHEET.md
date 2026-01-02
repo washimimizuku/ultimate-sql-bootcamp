@@ -214,9 +214,12 @@ ORDER BY total_spent DESC NULLS LAST;
 EXPLAIN SELECT * FROM customer WHERE c_acctbal > 5000;
 EXPLAIN ANALYZE SELECT * FROM customer WHERE c_acctbal > 5000;
 
--- Index usage patterns
+-- Index creation and optimization
 CREATE INDEX idx_customer_acctbal ON customer(c_acctbal);
-CREATE INDEX idx_customer_nation ON customer(c_nationkey);
+CREATE INDEX idx_customer_nation_balance ON customer(c_nationkey, c_acctbal);
+
+-- Partial indexes for specific conditions
+CREATE INDEX idx_customer_high_balance ON customer(c_custkey) WHERE c_acctbal > 5000;
 
 -- Join optimization
 -- Use smaller table as driving table
@@ -228,6 +231,47 @@ WHERE c.c_acctbal > 5000;
 -- Avoid functions in WHERE clauses
 -- Bad: WHERE UPPER(c_name) = 'CUSTOMER'
 -- Good: WHERE c_name = 'Customer'
+```
+
+## Views (Section 5)
+
+```sql
+-- Basic view creation
+CREATE VIEW customer_summary AS
+SELECT 
+    c.c_custkey,
+    c.c_name,
+    c.c_acctbal,
+    n.n_name as nation
+FROM customer c
+JOIN nation n ON c.c_nationkey = n.n_nationkey;
+
+-- View with aggregations
+CREATE VIEW customer_order_stats AS
+SELECT 
+    c.c_custkey,
+    c.c_name,
+    COUNT(o.o_orderkey) as total_orders,
+    SUM(o.o_totalprice) as lifetime_value
+FROM customer c
+LEFT JOIN orders o ON c.c_custkey = o.o_custkey
+GROUP BY c.c_custkey, c.c_name;
+
+-- Views with window functions
+CREATE VIEW customer_ranking AS
+SELECT 
+    c_name,
+    c_acctbal,
+    ROW_NUMBER() OVER (ORDER BY c_acctbal DESC) as balance_rank,
+    NTILE(4) OVER (ORDER BY c_acctbal) as balance_quartile
+FROM customer;
+
+-- Update or replace views
+CREATE OR REPLACE VIEW customer_summary AS
+SELECT c.c_custkey, c.c_name, c.c_acctbal FROM customer;
+
+-- Drop views
+DROP VIEW IF EXISTS customer_summary;
 ```
 
 ## Window Functions (Section 7)
