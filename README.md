@@ -39,27 +39,29 @@ This repository adapts Tom Bailey's Snowflake-focused course content to work wit
 *Adapted from the original Udemy course with DuckDB-specific examples and enhanced exercises*
 
 ### Section 1: SQL Introduction
-- SQL anatomy and basic syntax
-- Database fundamentals and data types
-- Setting up the development environment
+- **SQL Fundamentals** - SQL anatomy, basic syntax, and query structure
+- **Database Concepts** - Understanding databases, tables, and data types
+- **Development Environment** - Setting up DuckDB and development tools
 
 ### Section 2: Data Definition Language (DDL)
-- CREATE, ALTER, DROP statements
-- Database and schema management
-- Table structure operations
-- Constraints and indexes
+- **CREATE Statements** - Creating databases, schemas, and tables
+- **ALTER Operations** - Modifying table structures and columns
+- **DROP Operations** - Removing database objects
+- **Constraints and Indexes** - Primary keys, foreign keys, and performance optimization
 
 ### Section 3: Data Manipulation Language (DML)
-- INSERT, UPDATE, DELETE operations
-- COPY FROM for data loading
-- MERGE statements
-- TRUNCATE operations
+- **INSERT Operations** - Adding data to tables with various methods
+- **UPDATE Operations** - Modifying existing data with conditions
+- **DELETE Operations** - Removing data safely and efficiently
+- **COPY FROM** - Bulk data loading from files
+- **MERGE and TRUNCATE** - Advanced data manipulation techniques
 
 ### Section 4: Data Query Language (DQL)
-- SELECT statements and filtering
-- Aggregate and scalar functions
-- GROUP BY and HAVING clauses
-- ORDER BY sorting and LIMIT operations
+- **SELECT Statements** - Basic querying and column selection
+- **WHERE Clauses** - Filtering data with conditions and operators
+- **Aggregate Functions** - SUM, COUNT, AVG, MIN, MAX operations
+- **GROUP BY and HAVING** - Grouping data and filtering groups
+- **ORDER BY and LIMIT** - Sorting results and controlling output size
 
 ### Section 5: Intermediate DQL
 - **JOINs** - Inner, outer, and cross joins
@@ -228,16 +230,6 @@ result = con.execute("""
 10. **Data Engineering (Section 10)** - ETL, data quality, file processing, and monitoring
 11. **Advanced Analytics (Section 11)** - Pivot operations, cohort analysis, and retention patterns
 12. **Industry Scenarios (Section 12)** - Ecommerce analytics and financial reporting with complete data models
-
-## Course Progress
-
-- ✅ **Sections 1-6**: Complete with enhanced DuckDB examples
-- ✅ **Section 7**: Window Functions, CTEs, and Transactions - Complete
-- ✅ **Section 8**: Semi-structured data (CSV, JSON, Parquet) - Complete
-- ✅ **Section 9**: Business Intelligence & Analytics - Complete
-- ✅ **Section 10**: Practical Data Engineering - Complete
-- ✅ **Section 11**: Advanced Analytics - Complete
-- ✅ **Section 12**: Industry-Specific Scenarios - Complete
 
 ## Resources
 
