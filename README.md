@@ -80,6 +80,7 @@ This repository adapts Tom Bailey's Snowflake-focused course content to work wit
 - **Window Functions** - Analytical functions and partitioning
 - **CTEs** - Common Table Expressions and recursive queries
 - **Transactions** - ACID properties and transaction management
+- **Collations** - Text sorting, comparison rules, and internationalization
 
 ### Section 8: Semi-Structured Data
 - **CSV Data** - Reading, processing, and analyzing CSV files

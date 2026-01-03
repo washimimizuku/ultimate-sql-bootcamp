@@ -167,6 +167,7 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 - `exercises/section-7-advanced-sql/window-functions.sql` - Window functions and analytics
 - `exercises/section-7-advanced-sql/cte.sql` - Common Table Expressions
 - `exercises/section-7-advanced-sql/transactions.sql` - Transaction management
+- `exercises/section-7-advanced-sql/collations.sql` - Text sorting and comparison rules
 
 ### Section 8: Semi-Structured Data
 - `exercises/section-8-semi-structured-data/csv-data.sql` - CSV file processing
