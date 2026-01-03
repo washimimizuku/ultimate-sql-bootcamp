@@ -2,7 +2,7 @@
 
 A comprehensive SQL learning environment using DuckDB and Python, featuring structured exercises from basic to advanced SQL concepts.
 
-**Based on**: [The Ultimate SQL Bootcamp](https://www.udemy.com/course/the-ultimate-sql-bootcamp/) by **Tom Bailey** on Udemy, adapted for DuckDB with enhanced examples and additional practice exercises.
+**Based on**: [The Ultimate SQL Bootcamp](https://www.udemy.com/course/the-ultimate-modern-sql-course) by **Tom Bailey** on Udemy, adapted for DuckDB with enhanced examples and additional practice exercises.
 
 ## About This Course & Adaptation
 
