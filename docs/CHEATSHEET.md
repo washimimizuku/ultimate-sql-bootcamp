@@ -364,6 +364,84 @@ SELECT json_extract(data, '$.name') FROM json_table;
 -- Array operations
 SELECT UNNEST(['a', 'b', 'c']) as items;
 ```
+## Advanced SQL Concepts (Section 7)
+
+### SQL Macros
+```sql
+-- Basic macro creation
+CREATE MACRO calculate_tax(amount, rate := 0.1) AS 
+    amount * rate;
+
+-- Business logic macro
+CREATE MACRO classify_customer(total_spent) AS 
+    CASE 
+        WHEN total_spent >= 100000 THEN 'VIP'
+        WHEN total_spent >= 50000 THEN 'Premium'
+        ELSE 'Standard'
+    END;
+
+-- Using macros
+SELECT 
+    c_name,
+    c_acctbal,
+    calculate_tax(c_acctbal, 0.08) as tax_amount,
+    classify_customer(c_acctbal) as customer_tier
+FROM customer;
+
+-- Complex macro with multiple parameters
+CREATE MACRO shipping_cost(weight, distance, is_express, customer_tier) AS 
+    CASE customer_tier
+        WHEN 'VIP' THEN 0  -- Free shipping
+        WHEN 'Premium' THEN 
+            CASE WHEN is_express THEN weight * 0.5 + distance * 0.1
+                 ELSE weight * 0.3 + distance * 0.05
+            END * 0.5
+        ELSE 
+            CASE WHEN is_express THEN weight * 0.5 + distance * 0.1
+                 ELSE weight * 0.3 + distance * 0.05
+            END
+    END;
+```
+
+### Python UDFs
+```python
+# Register Python UDF (run in Python script first)
+import duckdb
+
+def calculate_compound_interest(principal, rate, years, compounds_per_year=12):
+    return principal * (1 + rate / compounds_per_year) ** (compounds_per_year * years)
+
+conn = duckdb.connect('database.db')
+conn.create_function("py_compound_interest", calculate_compound_interest, 
+                    [duckdb.typing.DOUBLE, duckdb.typing.DOUBLE, duckdb.typing.INTEGER, duckdb.typing.INTEGER], 
+                    duckdb.typing.DOUBLE)
+
+# Use in SQL after registration
+SELECT 
+    customer_id,
+    py_compound_interest(1000, 0.05, 10, 12) as investment_value
+FROM customers;
+```
+
+### Collations
+```sql
+-- Case-insensitive operations
+SELECT * FROM customer WHERE c_name = 'customer' COLLATE NOCASE;
+
+-- Accent-insensitive comparisons
+SELECT * FROM customer WHERE c_name = 'José' COLLATE NOACCENT;
+
+-- Combined collations
+SELECT * FROM customer ORDER BY c_name COLLATE NOCASE.NOACCENT;
+
+-- Column-level collations
+CREATE TABLE products (
+    id INTEGER,
+    name VARCHAR COLLATE NOCASE,
+    description VARCHAR COLLATE NOCASE.NOACCENT
+);
+```
+
 ## Business Intelligence & Analytics (Section 9)
 
 ### Data Warehousing Patterns

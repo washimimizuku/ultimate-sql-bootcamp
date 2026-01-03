@@ -21,7 +21,11 @@ cd ultimate-sql-bootcamp
 poetry install
 ```
 
-This creates a virtual environment and installs all required dependencies including DuckDB.
+This creates a virtual environment and installs all required dependencies including:
+- **DuckDB** - Fast in-process analytical database
+- **Pandas** - Data manipulation and analysis library (for Python UDFs)
+- **NumPy** - Numerical computing library (for Python UDFs)
+- **Requests** - HTTP library for data fetching
 
 ## 3. Setup Databases
 
@@ -127,6 +131,19 @@ duckdb mydata.db < script.sql
 ```
 
 ## Working with Databases
+
+### Python UDFs (User-Defined Functions)
+Section 7 includes Python UDF examples that extend SQL with Python libraries:
+
+```bash
+# Register Python UDFs (run this first)
+poetry run python exercises/section-7-advanced-sql/python-udfs.py
+
+# Then run SQL demonstrations
+poetry run python sql_runner.py --file exercises/section-7-advanced-sql/python-udfs-demo.sql
+```
+
+**Note**: Python UDFs must be registered in each session before use. The registration script (`python-udfs.py`) creates 25+ functions for mathematical calculations, string processing, business logic, and data validation.
 
 ### TPC-H Database (Business Analytics)
 ```bash
