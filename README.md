@@ -12,7 +12,7 @@ A comprehensive SQL learning environment using DuckDB and Python, featuring stru
 
 ### This Adaptation
 
-This repository adapts Tom Bailey's Snowflake-focused course content to work with **DuckDB**, providing:
+This repository adapts Tom Bailey's Snowflake-focused course content to work with **DuckDB**, and heavily augments on it, providing:
 
 - **Local Development**: No cloud setup required - everything runs locally
 - **Enhanced Examples**: Additional practice exercises and real-world scenarios  
