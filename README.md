@@ -24,7 +24,7 @@ This repository adapts Tom Bailey's Snowflake-focused course content to work wit
 
 - **DuckDB** for fast, in-process SQL queries
 - **Poetry** for dependency management and isolated virtual environment
-- **Structured Learning Path** with 8 progressive sections
+- **Structured Learning Path** with 12 progressive sections
 - **Multiple Data Formats** - SQL databases, CSV, JSON, and Parquet files
 - **TPC-H Database** for realistic business scenarios
 - **Star Wars Database** for engaging practice examples
@@ -134,8 +134,10 @@ See [docs/SETUP.md](docs/SETUP.md) for detailed setup instructions and [docs/SQL
 
 ## Available Databases
 
-- **`data/tpc-h.db`** - TPC-H benchmark database for business analytics
-- **`data/starwars.db`** - Star Wars universe data for engaging examples
+- **`data/databases/tpc-h.db`** - TPC-H benchmark database for business analytics
+- **`data/databases/starwars.db`** - Star Wars universe data for engaging examples
+- **`data/databases/ecommerce_analytics.db`** - Ecommerce analytics database (Section 12)
+- **`data/databases/financial_reporting.db`** - Financial reporting database (Section 12)
 
 ## Available Data Sources
 
@@ -165,10 +167,10 @@ poetry run python sql_runner.py -i
 ### Using DuckDB CLI Directly
 ```bash
 # TPC-H exercises
-duckdb data/tpc-h.db < exercises/section-5-dql-intermediate/subqueries.sql
+duckdb data/databases/tpc-h.db < exercises/section-5-dql-intermediate/subqueries.sql
 
 # Star Wars exercises  
-duckdb data/starwars.db < exercises/section-4-dql/select-where.sql
+duckdb data/databases/starwars.db < exercises/section-4-dql/select-where.sql
 ```
 
 ### Programmatic Usage
@@ -176,7 +178,7 @@ duckdb data/starwars.db < exercises/section-4-dql/select-where.sql
 import duckdb
 
 # Connect to TPC-H database
-con = duckdb.connect('data/tpc-h.db')
+con = duckdb.connect('data/databases/tpc-h.db')
 
 # Run business analytics queries
 result = con.execute("""
@@ -243,7 +245,7 @@ result = con.execute("""
 
 - **`exercises/`** - DuckDB-adapted practice exercises organized by section
 - **`data/`** - All data sources (databases, CSV, JSON, Parquet files)
-  - **`databases/`** - SQLite database files
+  - **`databases/`** - DuckDB database files
   - **`star-wars/`** - Star Wars data in multiple formats (CSV, JSON, Parquet)
   - **`titanic/`** - Titanic dataset in Parquet format
 - **`docs/`** - Documentation and setup guides

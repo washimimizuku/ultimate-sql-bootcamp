@@ -4,7 +4,7 @@ This document provides an overview of the databases available in the Ultimate SQ
 
 ## Available Databases
 
-### 1. TPC-H Database (`data/tpc-h.db`)
+### 1. TPC-H Database (`data/databases/tpc-h.db`)
 
 **Purpose**: Business analytics and decision support  
 **Use Case**: Advanced SQL exercises, complex joins, business intelligence queries  
@@ -20,7 +20,7 @@ The TPC-H database represents a wholesale supplier business scenario with custom
 
 **Best For**: Section 6 exercises (JOINs, subqueries, set operators)
 
-### 2. Star Wars Database (`data/starwars.db`)
+### 2. Star Wars Database (`data/databases/starwars.db`)
 
 **Purpose**: Engaging learning examples with familiar content  
 **Use Case**: Basic to intermediate SQL exercises, fun data exploration  
@@ -31,6 +31,40 @@ The Star Wars database contains comprehensive data from the Star Wars universe, 
 **Key Tables**: characters, films, planets, species, starships, vehicles
 
 **Best For**: Sections 3-5 exercises (DDL, DML, basic DQL)
+
+### 3. Ecommerce Analytics Database (`data/databases/ecommerce_analytics.db`)
+
+**Purpose**: Industry-specific ecommerce analytics scenarios  
+**Use Case**: Section 12 - Comprehensive ecommerce business analysis  
+**Schema**: Complete ecommerce data model with 10 tables
+
+The ecommerce database represents a modern online retail business with products, customers, orders, cart events, web sessions, inventory, and reviews. It's designed for:
+- Inventory management analytics
+- Cart abandonment analysis
+- Sales funnel optimization
+- Product recommendation systems
+- Customer behavior analysis
+
+**Key Tables**: products, customers, orders, cart_events, web_sessions, inventory, product_reviews
+
+**Best For**: Section 12 - Industry-specific ecommerce scenarios
+
+### 4. Financial Reporting Database (`data/databases/financial_reporting.db`)
+
+**Purpose**: Industry-specific financial reporting and analysis  
+**Use Case**: Section 12 - Comprehensive financial business analysis  
+**Schema**: Complete financial data model with 6 tables
+
+The financial database represents a complete accounting system with chart of accounts, general ledger, budgets, cost centers, and fiscal periods. It's designed for:
+- Profit & Loss statement generation
+- Budget vs actual variance analysis
+- Balance sheet reporting
+- Cash flow analysis
+- Financial ratio calculations
+
+**Key Tables**: chart_of_accounts, general_ledger, budget, cost_centers, fiscal_periods
+
+**Best For**: Section 12 - Industry-specific financial scenarios
 
 ## Database Usage by Section
 
@@ -68,12 +102,19 @@ The Star Wars database contains comprehensive data from the Star Wars universe, 
 - **Star Wars Parquet files** for nested data structures
 - **Titanic Parquet** for advanced analytics
 
-### Section 9: Business Intelligence & Analytics
+### Section 9-11: Business Intelligence & Advanced Analytics
 - **TPC-H database** for comprehensive business intelligence scenarios
 - Dimensional modeling with realistic business relationships
 - KPI calculations using customer and order data
 - Time series analysis with date-based order patterns
 - Executive reporting and dashboard creation
+- Advanced analytics with pivot operations and cohort analysis
+
+### Section 12: Industry-Specific Scenarios
+- **Ecommerce Analytics database** for retail and online business scenarios
+- **Financial Reporting database** for accounting and financial analysis
+- Complete industry-specific data models with realistic business relationships
+- Advanced analytical queries for specialized business domains
 
 ## Quick Database Setup
 
@@ -83,16 +124,33 @@ The Star Wars database contains comprehensive data from the Star Wars universe, 
 poetry run python sql_runner.py --setup
 
 # Manual setup
-duckdb data/tpc-h.db < examples/tpc-h.sql
+duckdb data/databases/tpc-h.db < database/tpc-h.sql
 
 # Verify
-duckdb data/tpc-h.db -c "SELECT COUNT(*) FROM customer"
+duckdb data/databases/tpc-h.db -c "SELECT COUNT(*) FROM customer"
 ```
 
 ### Star Wars Database
 ```bash
 # Already available, verify with:
-duckdb data/starwars.db -c "SELECT COUNT(*) FROM characters"
+duckdb data/databases/starwars.db -c "SELECT COUNT(*) FROM characters"
+
+### Ecommerce Analytics Database
+```bash
+# Create database
+duckdb data/databases/ecommerce_analytics.db < exercises/section-12-industry-scenarios/ecommerce-analytics.sql
+
+# Verify
+duckdb data/databases/ecommerce_analytics.db -c "SELECT COUNT(*) FROM products"
+```
+
+### Financial Reporting Database
+```bash
+# Create database
+duckdb data/databases/financial_reporting.db < exercises/section-12-industry-scenarios/financial-reporting.sql
+
+# Verify
+duckdb data/databases/financial_reporting.db -c "SELECT COUNT(*) FROM chart_of_accounts"
 ```
 
 ## Choosing the Right Database
@@ -111,16 +169,23 @@ duckdb data/starwars.db -c "SELECT COUNT(*) FROM characters"
 - Teaching basic to intermediate concepts
 - Students need familiar context
 
+**Use Section 12 Databases when:**
+- Teaching industry-specific scenarios
+- Demonstrating complete business data models
+- Advanced analytical use cases
+- Real-world business intelligence applications
+- Specialized domain knowledge (ecommerce, finance)
+
 ## Schema Complexity Comparison
 
-| Aspect | Star Wars | TPC-H |
-|--------|-----------|-------|
-| **Complexity** | Medium | High |
-| **Tables** | 17 tables | 8 core tables |
-| **Relationships** | Many-to-many via junction tables | Business hierarchy |
-| **Data Types** | Mixed (strings, numbers, dates) | Business-focused (decimals, dates) |
-| **Query Complexity** | Basic to intermediate | Intermediate to advanced |
-| **Real-world Relevance** | Entertainment | Business analytics |
+| Aspect | Star Wars | TPC-H | Section 12 |
+|--------|-----------|-------|------------|
+| **Complexity** | Medium | High | High |
+| **Tables** | 17 tables | 8 core tables | 6-10 tables each |
+| **Relationships** | Many-to-many via junction tables | Business hierarchy | Industry-specific models |
+| **Data Types** | Mixed (strings, numbers, dates) | Business-focused (decimals, dates) | Domain-specific (financial, ecommerce) |
+| **Query Complexity** | Basic to intermediate | Intermediate to advanced | Advanced analytical |
+| **Real-world Relevance** | Entertainment | Business analytics | Industry scenarios |
 
 ## Data Files
 

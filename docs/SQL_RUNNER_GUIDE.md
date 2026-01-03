@@ -197,7 +197,7 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 
 - **Learning Path**: Start with Section 1 for SQL fundamentals, then progress through sections sequentially
 - **Beginners**: Section 1 provides essential concepts - don't skip the introduction files!
-- **Database Files**: `data/tpc-h.db` (business data) and `data/starwars.db` (sample data)
+- **Database Files**: `data/databases/tpc-h.db` (business data), `data/databases/starwars.db` (sample data), and Section 12 databases
 - **Setup**: Use `--setup` flag to reinitialize the TPC-H database
 - **Execution**: SQL files are executed statement by statement
 - **Results**: SELECT results are limited to first 10 rows for readability

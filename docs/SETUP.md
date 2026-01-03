@@ -50,7 +50,7 @@ python -c "import duckdb; print(f'DuckDB version: {duckdb.__version__}')"
 poetry run python sql_runner.py --query "SELECT COUNT(*) as customers FROM customer"
 
 # Test Star Wars database  
-poetry run python sql_runner.py --db data/starwars.db --query "SELECT COUNT(*) as characters FROM people"
+poetry run python sql_runner.py --db data/databases/starwars.db --query "SELECT COUNT(*) as characters FROM characters"
 ```
 
 ## 5. Environment Options
@@ -137,7 +137,7 @@ duckdb data/databases/tpc-h.db < database/tpc-h.sql
 duckdb data/databases/tpc-h.db -c "SELECT c_name, c_nationkey FROM customer LIMIT 5"
 
 # Run TPC-H exercises
-duckdb data/databases/tpc-h.db < exercises/section-6-dql-intermediate/subqueries.sql
+duckdb data/databases/tpc-h.db < exercises/section-5-dql-intermediate/subqueries.sql
 ```
 
 ### Star Wars Database (Learning Examples)
@@ -146,28 +146,35 @@ duckdb data/databases/tpc-h.db < exercises/section-6-dql-intermediate/subqueries
 duckdb data/databases/starwars.db -c "SELECT name, height FROM characters LIMIT 5"
 
 # Run Star Wars exercises
-duckdb data/databases/starwars.db < exercises/section-5-dql/select-where.sql
+duckdb data/databases/starwars.db < exercises/section-4-dql/select-where.sql
 ```
 
 ### Available Exercise Sections
 
-1. **Section 2: Introduction** - SQL basics and syntax
-2. **Section 3: DDL** - CREATE, ALTER, DROP operations
-3. **Section 4: DML** - INSERT, UPDATE, DELETE operations  
-4. **Section 5: DQL** - SELECT queries and functions
-5. **Section 6: Intermediate DQL** - JOINs, subqueries, set operations
+1. **Section 1: Introduction** - SQL basics and syntax
+2. **Section 2: DDL** - CREATE, ALTER, DROP operations
+3. **Section 3: DML** - INSERT, UPDATE, DELETE operations  
+4. **Section 4: DQL** - SELECT queries and functions
+5. **Section 5: Intermediate DQL** - JOINs, subqueries, set operations
+6. **Section 6: Query Performance Tuning** - EXPLAIN, optimization techniques
+7. **Section 7: Advanced SQL** - Window functions, CTEs, transactions
+8. **Section 8: Semi-Structured Data** - CSV, JSON, Parquet processing
+9. **Section 9: Business Intelligence** - Data warehousing, KPIs, reporting
+10. **Section 10: Data Engineering** - ETL, data quality, monitoring
+11. **Section 11: Advanced Analytics** - Pivot operations, cohort analysis
+12. **Section 12: Industry Scenarios** - Ecommerce and financial analytics
 
 ## Quick Start Examples
 
 ```bash
 # Run a basic exercise
-poetry run python run_sql.py exercises/section-3-ddl/create.sql
+poetry run python run_sql.py exercises/section-2-ddl/create.sql
 
 # Explore TPC-H data interactively
-poetry run python sql_runner.py --db data/tpc-h.db -i
+poetry run python sql_runner.py --db data/databases/tpc-h.db -i
 
 # Run advanced exercises
-poetry run python run_sql.py exercises/section-6-dql-intermediate/join.sql
+poetry run python run_sql.py exercises/section-5-dql-intermediate/joins.sql
 ```
 
 ## Troubleshooting
@@ -183,7 +190,7 @@ echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 **Database not found:**
 ```bash
 # Ensure you're in the project root directory
-ls data/  # Should show tpc-h.db and starwars.db
+ls data/databases/  # Should show tpc-h.db, starwars.db, and Section 12 databases
 
 # Re-setup if needed
 poetry run python sql_runner.py --setup
