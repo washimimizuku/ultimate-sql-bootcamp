@@ -82,6 +82,7 @@ This repository adapts Tom Bailey's Snowflake-focused course content to work wit
 - **Transactions** - ACID properties and transaction management
 - **Collations** - Text sorting, comparison rules, and internationalization
 - **SQL Macros** - Parameterized SQL templates for reusable business logic
+- **Python UDFs** - User-defined functions using Python libraries and complex logic
 
 ### Section 8: Semi-Structured Data
 - **CSV Data** - Reading, processing, and analyzing CSV files

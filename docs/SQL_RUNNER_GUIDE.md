@@ -169,6 +169,8 @@ poetry run python sql_runner.py --query "SELECT n_name, COUNT(*) FROM customer c
 - `exercises/section-7-advanced-sql/transactions.sql` - Transaction management
 - `exercises/section-7-advanced-sql/collations.sql` - Text sorting and comparison rules
 - `exercises/section-7-advanced-sql/sql-macros.sql` - Parameterized SQL templates and reusable logic
+- `exercises/section-7-advanced-sql/python-udfs.py` - Python UDF registration and setup
+- `exercises/section-7-advanced-sql/python-udfs-demo.sql` - Python UDF demonstrations and examples
 
 ### Section 8: Semi-Structured Data
 - `exercises/section-8-semi-structured-data/csv-data.sql` - CSV file processing
